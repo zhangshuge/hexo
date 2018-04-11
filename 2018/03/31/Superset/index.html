@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="superset," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="简介superset安装使用基础组件FlaskPython 几大著名 Web 框架之一，以其轻量级, 高可扩展性而著名。  Jinja2：模板引擎 Werkzeug：WSGI 工具集  GunicornGunicorn 是一个开源的 Python WSGI HTTP 服务器，移植于 Ruby 的 Unicorn 项目的采用 pre-fork 模式的服务器 WSGI即 Python Web Serv">
+<meta name="keywords" content="superset">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Superset">
+<meta property="og:url" content="https://zhangshuge.github.io/2018/03/31/Superset/index.html">
+<meta property="og:site_name" content="卐 张墨辰 Ψ">
+<meta property="og:description" content="简介superset安装使用基础组件FlaskPython 几大著名 Web 框架之一，以其轻量级, 高可扩展性而著名。  Jinja2：模板引擎 Werkzeug：WSGI 工具集  GunicornGunicorn 是一个开源的 Python WSGI HTTP 服务器，移植于 Ruby 的 Unicorn 项目的采用 pre-fork 模式的服务器 WSGI即 Python Web Serv">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://oy48q6kwm.bkt.clouddn.com/1e24e71c7b3d2cf715982d4a0b351215.png">
+<meta property="og:updated_time" content="2018-03-31T10:48:32.473Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Superset">
+<meta name="twitter:description" content="简介superset安装使用基础组件FlaskPython 几大著名 Web 框架之一，以其轻量级, 高可扩展性而著名。  Jinja2：模板引擎 Werkzeug：WSGI 工具集  GunicornGunicorn 是一个开源的 Python WSGI HTTP 服务器，移植于 Ruby 的 Unicorn 项目的采用 pre-fork 模式的服务器 WSGI即 Python Web Serv">
+<meta name="twitter:image" content="http://oy48q6kwm.bkt.clouddn.com/1e24e71c7b3d2cf715982d4a0b351215.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zhangshuge.github.io/2018/03/31/Superset/"/>
+
+
+
+
+
+  <title>Superset | 卐 张墨辰 Ψ</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">卐 张墨辰 Ψ</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">智慧的人受到表扬时，字字反省。愚蠢的人受到批评时，句句反驳。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhangshuge.github.io/2018/03/31/Superset/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张舒歌">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://example.com/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="卐 张墨辰 Ψ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Superset</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-31T17:59:23+08:00">
+                2018-03-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/BigData/" itemprop="url" rel="index">
+                    <span itemprop="name">BigData</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="简介superset安装使用"><a href="#简介superset安装使用" class="headerlink" title="简介superset安装使用"></a>简介superset安装使用</h1><h2 id="基础组件"><a href="#基础组件" class="headerlink" title="基础组件"></a>基础组件</h2><h3 id="Flask"><a href="#Flask" class="headerlink" title="Flask"></a>Flask</h3><p>Python 几大著名 Web 框架之一，以其轻量级, 高可扩展性而著名。</p>
+<ul>
+<li>Jinja2：模板引擎</li>
+<li>Werkzeug：WSGI 工具集</li>
+</ul>
+<h3 id="Gunicorn"><a href="#Gunicorn" class="headerlink" title="Gunicorn"></a>Gunicorn</h3><p>Gunicorn 是一个开源的 Python WSGI HTTP 服务器，移植于 Ruby 的 Unicorn 项目的采用 pre-fork 模式的服务器</p>
+<h3 id="WSGI"><a href="#WSGI" class="headerlink" title="WSGI"></a>WSGI</h3><p>即 Python Web Server Gateway Interface，是 Python 专门的用于 Python 应用程序或框架与 Web 服务器之间的一种接口，没有官方的实现，因为 WSGI 更像一个协议，只要遵照这些协议，WSGI 应用都可以在 任何服务器上运行，反之亦然.</p>
+<h3 id="Pre-Fork"><a href="#Pre-Fork" class="headerlink" title="Pre-Fork"></a>Pre-Fork</h3><p>预先创建进程，pre-fork 采用的是预派生子进程方式，用子进程处理不同的请求，每个请求对应一个子进程，进程之间是彼此独立的<br><br>一定程度上加快了进程的响应速度</p>
+<h3 id="Django"><a href="#Django" class="headerlink" title="Django"></a>Django</h3><p>Django 是一个开放源代码的 Web 应用框架，由 Python 写成。采用了 MVC 的软件设计模式.使得开发复杂的、数据库驱动的网站变得简单。Django 注重组件的重用性和”可插拔性”，敏捷开发和 DRY 法则（Don’t Repeat Yourself）<br><br><em>核心组件</em></p>
+<ul>
+<li>物件导向的映射器，用作数据模型（以Python类的形式定义）和 关联性数据库间的媒介</li>
+<li>基于正则表达式的 URL 分发器</li>
+<li>视图系统，用于处理请求</li>
+<li>模板系统</li>
+</ul>
+<h3 id="PyDruid"><a href="#PyDruid" class="headerlink" title="PyDruid"></a>PyDruid</h3><p>一个Druid的Python连接器公开一个简单的API来创建，执行和分析Druid查询等操作。</p>
+<h3 id="Pandas"><a href="#Pandas" class="headerlink" title="Pandas"></a>Pandas</h3><p>Pandas是一个Python包，提供快速，灵活和富有表现力的数据结构，旨在使”关系”或”标记”数据的工作既简单又直观</p>
+<h3 id="SciPy"><a href="#SciPy" class="headerlink" title="SciPy"></a>SciPy</h3><p>SciPy 是基于 Numpy 构建的一个集成了多种数学算法和方便的函数的 Python 模块</p>
+<h3 id="Scikit-learn"><a href="#Scikit-learn" class="headerlink" title="Scikit-learn"></a>Scikit-learn</h3><p>Python中的机器学习依赖组件</p>
+<h3 id="D3-js"><a href="#D3-js" class="headerlink" title="D3.js"></a>D3.js</h3><p>D3.js 是一个操纵数据的 JavaScript 库</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="基础环境"><a href="#基础环境" class="headerlink" title="基础环境"></a>基础环境</h3><p>Linux version 3.10.0-123.el7.x86_64(builder@kbuilder.dev.centos.org)(gcc version 4.8.2 20140120 (Red Hat 4.8.2-16) (GCC) ) #1 SMP Mon Jun 30 12:09:22 UTC 2014</p>
+<h3 id="yum源安装"><a href="#yum源安装" class="headerlink" title="yum源安装"></a>yum源安装</h3><ul>
+<li><p>配置yum源</p>
+<blockquote>
+<p>cd /etc/yum.repos.d<br><br>sudo wget <a href="http://mirrors.nucc.com/repo/nucc-yum.repo" target="_blank" rel="noopener">http://mirrors.nucc.com/repo/nucc-yum.repo</a></p>
+</blockquote>
+</li>
+<li><p>安装epel源</p>
+<blockquote>
+<p>sudo wget <a href="http://mirrors.nucc.com/epel/epel-release-latest-7.noarch.rpm" target="_blank" rel="noopener">http://mirrors.nucc.com/epel/epel-release-latest-7.noarch.rpm</a><br><br>sudo rpm -ivh epel-release-latest-7.noarch.rpm</p>
+</blockquote>
+</li>
+<li><p>配置epel源</p>
+<blockquote>
+<p>sudo wget <a href="http://mirrors.nucc.com/repo/nucc-epel.repo" target="_blank" rel="noopener">http://mirrors.nucc.com/repo/nucc-epel.repo</a></p>
+</blockquote>
+</li>
+<li><p>验证配置</p>
+<blockquote>
+<p>yum repolist</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>note:</strong> <em>如果使用过程中发现不能访问域名，需要配置DNS服务器地址</em></p>
+<blockquote>
+<p>sudo vim /etc/resolv.conf<br><br>nameserver 172.16.1.4</p>
+</blockquote>
+<h3 id="pip源安装"><a href="#pip源安装" class="headerlink" title="pip源安装"></a>pip源安装</h3><ul>
+<li><p>配置</p>
+<blockquote>
+<p>mkdir ~/.python-pip<br><br>cd ~/.pip<br><br>sudo wget <a href="http://mirrors.nucc.com/repo/pip.conf" target="_blank" rel="noopener">http://mirrors.nucc.com/repo/pip.conf</a></p>
+</blockquote>
+</li>
+</ul>
+<h3 id="superset安装"><a href="#superset安装" class="headerlink" title="superset安装"></a>superset安装</h3><ul>
+<li><p>安装依赖</p>
+<blockquote>
+<p>sudo yum upgrade python-setuptools<br><br>sudo yum install gcc gcc-c++ libffi-devel python-devel python-pip python-wheel openssl-devel libsasl2-devel openldap-devel</p>
+</blockquote>
+</li>
+<li><p>安装Python虚拟环境</p>
+<blockquote>
+<p>sudo pip install -i <a href="http://pypi.nucc.com/simple" target="_blank" rel="noopener">http://pypi.nucc.com/simple</a> –trusted-host pip.nucc.com virtualenv<br><br>mkdir /tooles/superset<br><br>cd /tooles/superset<br><br>virtualenv –no-site-packages superset<br><br>source /tooles/superset/superset/bin/activate</p>
+</blockquote>
+</li>
+<li><p>安装Python包管理工具</p>
+<blockquote>
+<p>pip install –upgrade setuptools pip</p>
+</blockquote>
+</li>
+<li><p>安装Superset</p>
+<ul>
+<li><p>superset</p>
+<blockquote>
+<p>pip install -U cryptography<br><br>pip install superset</p>
+</blockquote>
+</li>
+<li><p>创建管理员用户</p>
+<blockquote>
+<p>fabmanager create-admin –app superset</p>
+</blockquote>
+<p><strong>创建用户时，需要交互填写用户姓氏、名字、邮箱、密码</strong><br><br><em>Username [admin]: admin</em><br><br><em>User first name [admin]: channel</em><br><br><em>User last name [admin]: channel</em><br><br><em>Email [admin@fab.org]: channel@nucc.com</em><br><br><em>Password: admin</em><br><br><em>Repeat for confirmation: admin</em><br></p>
+<p><em><font color="#006400">Recognized Database Authentications.</font></em></p>
+<p><br></p>
+<p><em><font color="#006400">Admin User admin Created</font></em></p>
+</li>
+<li><p>初始化数据库</p>
+<blockquote>
+<p>superset db upgrade</p>
+</blockquote>
+</li>
+<li><p>加载样例数据</p>
+<blockquote>
+<p>superset load_examples</p>
+</blockquote>
+</li>
+<li><p>创建默认角色和权限</p>
+<blockquote>
+<p>superset init</p>
+</blockquote>
+</li>
+<li><p>启动服务</p>
+<blockquote>
+<p>superset runserver</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<p>测试环境启动：</p>
+<blockquote>
+<p>source /tools/superset/superset/bin/activate<br>nohup superset runserver -p 8080 &gt; /data/appLogs/superset.log 2&gt;&amp;1 &amp;</p>
+</blockquote>
+<h2 id="安装mysql数据源"><a href="#安装mysql数据源" class="headerlink" title="安装mysql数据源"></a>安装mysql数据源</h2><ul>
+<li><p>下载mysql-community-devel-5.7.16-1.el7.x86_64.rpm,手动安装</p>
+<blockquote>
+<p>sudo rpm -ivh mysql-community-devel-5.7.16-1.el7.x86_64.rpm</p>
+</blockquote>
+</li>
+<li><p>安装驱动</p>
+<blockquote>
+<p>pip install mysqlclient</p>
+</blockquote>
+<p><em>如果出现openssl版本问题需要安装pip install pyOpenssl并导入python验证</em><br><br><em>python</em><br><br><em>&gt;&gt;&gt; import OpenSSL;</em><br><br><em>如果出现StatementError cannot import name aead导入异常需要安装pip install aead</em><br><br><em>python</em><br><br><em>&gt;&gt;&gt; import aead;</em><br><br><em>如果还出现以上异常可重新启动下superset服务</em></p>
+</li>
+</ul>
+<h2 id="Windows开发环境安装"><a href="#Windows开发环境安装" class="headerlink" title="Windows开发环境安装"></a>Windows开发环境安装</h2><p>superset在Windows环境上依赖于visual c++ build tools 2015需要安装BuildTools_Full.exe。<br>在windows上，superset/superset/static目录下的指向assets的link无效，需要先用mklink命令创建一个Link。<br>删除static/assets<br>在windows/system32目录下找到cmd命令，右键，选中以管理员权限运行<br>在cmd窗口中用cd命令change dir到superset\superset\static目录</p>
+<blockquote>
+<p>mklink assets ..\assets</p>
+</blockquote>
+<p><strong>注意：</strong>sql查询时设置的超时执行信号是signal.SIGALRM实现的，signal模块在Windows上兼容不好，在signal的文档中明确说明 On Windows, signal() can only be called with SIGABRT, SIGFPE, SIGILL, SIGINT, SIGSEGV, SIGTERM, or SIGBREAK. A ValueError will be raised in any other case. Note that not all systems define the same set of signal names; an AttributeError will be raised if a signal name is not defined as SIG* module level constant.</p>
+<p>本地开发环境可以注释掉~/superset/utils.py中的第428、429、438行代码，修改后代码如下<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__enter__</span><span class="params">(self)</span>:</span></span><br><span class="line">       <span class="keyword">try</span>:</span><br><span class="line">           <span class="comment">#signal.signal(signal.SIGALRM, self.handle_timeout)</span></span><br><span class="line">           <span class="comment">#signal.alarm(self.seconds)</span></span><br><span class="line">           <span class="keyword">pass</span></span><br><span class="line">       <span class="keyword">except</span> ValueError <span class="keyword">as</span> e:</span><br><span class="line">           logging.warning(<span class="string">"timeout can't be used in the current context"</span>)</span><br><span class="line">           logging.exception(e)</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">def</span> <span class="title">__exit__</span><span class="params">(self, type, value, traceback)</span>:</span></span><br><span class="line">       <span class="keyword">try</span>:</span><br><span class="line">           <span class="comment">#signal.alarm(0)</span></span><br><span class="line">           <span class="keyword">pass</span></span><br><span class="line">       <span class="keyword">except</span> ValueError <span class="keyword">as</span> e:</span><br><span class="line">           logging.warning(<span class="string">"timeout can't be used in the current context"</span>)</span><br><span class="line">           logging.exception(e)</span><br></pre></td></tr></table></figure></p>
+<h2 id="源码执行"><a href="#源码执行" class="headerlink" title="源码执行"></a>源码执行</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"><span class="comment"># format参数中可能用到的格式化串：</span></span><br><span class="line"><span class="comment"># %(name)s Logger的名字</span></span><br><span class="line"><span class="comment"># %(levelno)s 数字形式的日志级别</span></span><br><span class="line"><span class="comment"># %(levelname)s 文本形式的日志级别</span></span><br><span class="line"><span class="comment"># %(pathname)s 调用日志输出函数的模块的完整路径名，可能没有</span></span><br><span class="line"><span class="comment"># %(filename)s 调用日志输出函数的模块的文件名</span></span><br><span class="line"><span class="comment"># %(module)s 调用日志输出函数的模块名</span></span><br><span class="line"><span class="comment"># %(funcName)s 调用日志输出函数的函数名</span></span><br><span class="line"><span class="comment"># %(lineno)d 调用日志输出函数的语句所在的代码行</span></span><br><span class="line"><span class="comment"># %(created)f 当前时间，用UNIX标准的表示时间的浮 点数表示</span></span><br><span class="line"><span class="comment"># %(relativeCreated)d 输出日志信息时的，自Logger创建以 来的毫秒数</span></span><br><span class="line"><span class="comment"># %(asctime)s 字符串形式的当前时间。默认格式是 “2003-07-08 16:49:45,896”。逗号后面的是毫秒</span></span><br><span class="line"><span class="comment"># %(thread)d 线程ID。可能没有</span></span><br><span class="line"><span class="comment"># %(threadName)s 线程名。可能没有</span></span><br><span class="line"><span class="comment"># %(process)d 进程ID。可能没有</span></span><br><span class="line"><span class="comment"># %(message)s用户输出的消息</span></span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line">logging.basicConfig(level=logging.DEBUG,</span><br><span class="line">                    format=<span class="string">'%(asctime)s %(thread)d %(pathname)s [line:%(lineno)d] %(levelname)s %(message)s'</span>,</span><br><span class="line">                    datefmt=<span class="string">'%a, %d %b %Y %H:%M:%S'</span>,</span><br><span class="line">                    <span class="comment"># filename='D:/test.log',</span></span><br><span class="line">                    filename=<span class="string">'/data/appLogs/superset.log'</span>,</span><br><span class="line">                    filemode=<span class="string">'w'</span>)</span><br><span class="line"><span class="comment">#################################################################################################</span></span><br><span class="line"><span class="comment"># 定义一个StreamHandler，将INFO级别或更高的日志信息打印到标准错误，并将其添加到当前的日志处理对象#</span></span><br><span class="line">console = logging.StreamHandler()</span><br><span class="line">console.setLevel(logging.DEBUG)</span><br><span class="line">formatter = logging.Formatter(<span class="string">'%(asctime)s %(thread)d %(pathname)s [line:%(lineno)d] %(levelname)s %(message)s'</span>)</span><br><span class="line">console.setFormatter(formatter)</span><br><span class="line">logging.getLogger(<span class="string">''</span>).addHandler(console)</span><br><span class="line"><span class="comment">#################################################################################################</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> superset <span class="keyword">import</span> app</span><br><span class="line">app.run(debug=<span class="keyword">True</span>, host=<span class="string">'localhost'</span>, port=<span class="number">8088</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="优化配置"><a href="#优化配置" class="headerlink" title="优化配置"></a>优化配置</h2><h3 id="1、修改MySQL数据源"><a href="#1、修改MySQL数据源" class="headerlink" title="1、修改MySQL数据源"></a>1、修改MySQL数据源</h3><p>修改SQLALCHEMY_DATABASE_URI，默认使用sqlite数据库，为了搭建统一开发环境这里修改成mysql数据库。<br>eg:</p>
+<blockquote>
+<p>SQLALCHEMY_DATABASE_URI = ‘mysql://name:password@172.0.0.1:3306/mysql’</p>
+</blockquote>
+<p>这里要注意源码中提供的config.py不能直接被加载，官网也明确指出To configure your application, you need to create a file (module) superset_config.py and make sure it is in your PYTHONPATH.意思是要在python的安装路径下创建superset_config.py文件才可以。如果使用python virtualenv虚拟环境把这个文件放到venv的bin目录即可。<br>由于我的卡发环境是再Windows上而且也没有使用virtualenv，所以只在D:\softs\python3安装路径创建了superset_config.py文件，由于执行的源码程序这里还需要改下BASE_DIR = “D:/workSpace/wl/channel-superset/superset”。<br>还要注意Windows下运行源码时会提示superset不是内部命令，此时需要进入工作空间D:/workSpace/wl/channel-superset/superset/bin 目录下执行python superset xxx</p>
+<h3 id="2、修改Redis缓存"><a href="#2、修改Redis缓存" class="headerlink" title="2、修改Redis缓存"></a>2、修改Redis缓存</h3><p>Superset使用Flask-Cache进行缓存，Flask-Cache支持redis，memcached，simplecache（内存），或本地文件系统）等缓存后端，如果使用redis，需要安装 redis-py 库(Redis 的 Python 接口)。</p>
+<blockquote>
+<p>pip install redis</p>
+</blockquote>
+<p>修改superset-config.py<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CACHE_DEFAULT_TIMEOUT = <span class="number">60</span> * <span class="number">60</span> * <span class="number">24</span></span><br><span class="line">CACHE_CONFIG = &#123;<span class="string">'CACHE_TYPE'</span>: <span class="string">'redis'</span>,</span><br><span class="line">                <span class="string">'CACHE_REDIS_HOST'</span>: <span class="string">'172.16.1.43'</span>,  <span class="comment"># 配置域名</span></span><br><span class="line">                <span class="string">'CACHE_REDIS_PORT'</span>: <span class="number">7378</span>,  <span class="comment"># 配置端口号</span></span><br><span class="line">                <span class="string">'CACHE_REDIS_PASSWORD'</span> : <span class="string">'dev123'</span></span><br><span class="line">                &#125;</span><br></pre></td></tr></table></figure></p>
+<p>这里需要注意superset是通过Flask-Cache管理缓存的，默认情况下不支持redisCluster集群。<br><img src="http://oy48q6kwm.bkt.clouddn.com/1e24e71c7b3d2cf715982d4a0b351215.png" alt="20180330000"><br>不过通过修改Flask-Cache引用Flask-Cache-Redis-Cluster 0.0.5，应该是可以实现支持redisCluster的，这里没有尝试只是一个建议方法。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/superset/" rel="tag"># superset</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/31/SiddhiQL/" rel="prev" title="SiddhiQL">
+                SiddhiQL <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://example.com/avatar.png"
+                alt="张舒歌" />
+            
+              <p class="site-author-name" itemprop="name">张舒歌</p>
+              <p class="site-description motion-element" itemprop="description">天道酬勤、厚德载物</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介superset安装使用"><span class="nav-number">1.</span> <span class="nav-text">简介superset安装使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础组件"><span class="nav-number">1.1.</span> <span class="nav-text">基础组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Flask"><span class="nav-number">1.1.1.</span> <span class="nav-text">Flask</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gunicorn"><span class="nav-number">1.1.2.</span> <span class="nav-text">Gunicorn</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WSGI"><span class="nav-number">1.1.3.</span> <span class="nav-text">WSGI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pre-Fork"><span class="nav-number">1.1.4.</span> <span class="nav-text">Pre-Fork</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Django"><span class="nav-number">1.1.5.</span> <span class="nav-text">Django</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PyDruid"><span class="nav-number">1.1.6.</span> <span class="nav-text">PyDruid</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pandas"><span class="nav-number">1.1.7.</span> <span class="nav-text">Pandas</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SciPy"><span class="nav-number">1.1.8.</span> <span class="nav-text">SciPy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scikit-learn"><span class="nav-number">1.1.9.</span> <span class="nav-text">Scikit-learn</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D3-js"><span class="nav-number">1.1.10.</span> <span class="nav-text">D3.js</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.2.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础环境"><span class="nav-number">1.2.1.</span> <span class="nav-text">基础环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#yum源安装"><span class="nav-number">1.2.2.</span> <span class="nav-text">yum源安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pip源安装"><span class="nav-number">1.2.3.</span> <span class="nav-text">pip源安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#superset安装"><span class="nav-number">1.2.4.</span> <span class="nav-text">superset安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装mysql数据源"><span class="nav-number">1.3.</span> <span class="nav-text">安装mysql数据源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows开发环境安装"><span class="nav-number">1.4.</span> <span class="nav-text">Windows开发环境安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码执行"><span class="nav-number">1.5.</span> <span class="nav-text">源码执行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化配置"><span class="nav-number">1.6.</span> <span class="nav-text">优化配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、修改MySQL数据源"><span class="nav-number">1.6.1.</span> <span class="nav-text">1、修改MySQL数据源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、修改Redis缓存"><span class="nav-number">1.6.2.</span> <span class="nav-text">2、修改Redis缓存</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">张舒歌</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

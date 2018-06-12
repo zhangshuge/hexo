@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="druid," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="概述Druid是阿里巴巴开源的一个Java语言数据库连接池 GitHub地址。Druid能够提供强大的监控和扩展功能。 性能对比测试执行申请归还连接1,000,000（一百万）次总耗时性能对比。     Jdbc Connection Pool 1 thread 2 threads 5 threads 10 threads 20 threads 50 threads     Druid 898 1">
+<meta name="keywords" content="druid">
+<meta property="og:type" content="article">
+<meta property="og:title" content="druid">
+<meta property="og:url" content="https://zhangshuge.github.io/2018/06/12/druid/index.html">
+<meta property="og:site_name" content="卐 张墨辰 Ψ">
+<meta property="og:description" content="概述Druid是阿里巴巴开源的一个Java语言数据库连接池 GitHub地址。Druid能够提供强大的监控和扩展功能。 性能对比测试执行申请归还连接1,000,000（一百万）次总耗时性能对比。     Jdbc Connection Pool 1 thread 2 threads 5 threads 10 threads 20 threads 50 threads     Druid 898 1">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://oy48q6kwm.bkt.clouddn.com/ee0fa92f97c04ff42980114bb65aab0b.png">
+<meta property="og:image" content="http://oy48q6kwm.bkt.clouddn.com/360a2ad756a6f591d476666ec20af9e9.png">
+<meta property="og:image" content="http://oy48q6kwm.bkt.clouddn.com/bdbbfb9e816858468d1aca4f61c48b17.png">
+<meta property="og:image" content="http://oy48q6kwm.bkt.clouddn.com/8263f54dafb23db72466206d5b177f61.png">
+<meta property="og:image" content="http://oy48q6kwm.bkt.clouddn.com/f6e7912e173a4372da5859a59bd2dc64.png">
+<meta property="og:image" content="http://oy48q6kwm.bkt.clouddn.com/926ba822ac19161889fa093f0bad2f68.png">
+<meta property="og:updated_time" content="2018-06-12T11:28:42.405Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="druid">
+<meta name="twitter:description" content="概述Druid是阿里巴巴开源的一个Java语言数据库连接池 GitHub地址。Druid能够提供强大的监控和扩展功能。 性能对比测试执行申请归还连接1,000,000（一百万）次总耗时性能对比。     Jdbc Connection Pool 1 thread 2 threads 5 threads 10 threads 20 threads 50 threads     Druid 898 1">
+<meta name="twitter:image" content="http://oy48q6kwm.bkt.clouddn.com/ee0fa92f97c04ff42980114bb65aab0b.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zhangshuge.github.io/2018/06/12/druid/"/>
+
+
+
+
+
+  <title>druid | 卐 张墨辰 Ψ</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">卐 张墨辰 Ψ</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">智慧的人受到表扬时，字字反省。愚蠢的人受到批评时，句句反驳。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhangshuge.github.io/2018/06/12/druid/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张舒歌">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://example.com/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="卐 张墨辰 Ψ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">druid</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-12T19:17:09+08:00">
+                2018-06-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>Druid是阿里巴巴开源的一个Java语言数据库连接池 <a href="https://github.com/alibaba/druid" target="_blank" rel="noopener">GitHub地址</a>。Druid能够提供强大的监控和扩展功能。</p>
+<h1 id="性能对比"><a href="#性能对比" class="headerlink" title="性能对比"></a>性能对比</h1><p>测试执行申请归还连接1,000,000（一百万）次总耗时性能对比。 </p>
+<table>
+<thead>
+<tr>
+<th>Jdbc Connection Pool</th>
+<th>1 thread</th>
+<th>2 threads</th>
+<th>5 threads</th>
+<th>10 threads</th>
+<th>20 threads</th>
+<th>50 threads</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Druid</td>
+<td>898</td>
+<td>1,191</td>
+<td>1,324</td>
+<td>1,362</td>
+<td>1,325</td>
+<td>1,459</td>
+</tr>
+<tr>
+<td>tomcat-jdbc</td>
+<td>1,269</td>
+<td>1,378</td>
+<td>2,029</td>
+<td>2,103</td>
+<td>1,879</td>
+<td>2,025</td>
+</tr>
+<tr>
+<td>DBCP</td>
+<td>2,324</td>
+<td>5,055</td>
+<td>5,446</td>
+<td>5,471</td>
+<td>5,524</td>
+<td>5,415</td>
+</tr>
+<tr>
+<td>BoneCP</td>
+<td>3,738</td>
+<td>3,150</td>
+<td>3,194</td>
+<td>5,681</td>
+<td>11,018</td>
+<td>23,125</td>
+</tr>
+<tr>
+<td>jboss-datasource</td>
+<td>4,377</td>
+<td>2,988</td>
+<td>3,680</td>
+<td>3,980</td>
+<td>32,708</td>
+<td>37,742</td>
+</tr>
+<tr>
+<td>C3P0</td>
+<td>10,841</td>
+<td>13,637</td>
+<td>10,682</td>
+<td>11,055</td>
+<td>14,497</td>
+<td>20,351</td>
+</tr>
+<tr>
+<td>Proxool</td>
+<td>16,337</td>
+<td>16,187</td>
+<td>18,310(Exception)</td>
+<td>25,945</td>
+<td>33,706(Exception)</td>
+<td>39,501 (Exception)</td>
+</tr>
+</tbody>
+</table>
+<h1 id="监控"><a href="#监控" class="headerlink" title="监控"></a>监控</h1><p>druid号称为监控而生的数据库连接池，内置提供了一个StatViewServlet用于展示Druid的统计信息。 除了提供HTML监控页面StatViewServlet还提供了监控信息的JSON格式API。已下demo是在springboot中的配置:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">## druid 监控</span><br><span class="line">spring.datasource.druid.web-stat-filter.enabled=true</span><br><span class="line">spring.datasource.druid.web-stat-filter.url-pattern=/*</span><br><span class="line">spring.datasource.druid.web-stat-filter.exclusions=*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*</span><br><span class="line">## druid 监控页面</span><br><span class="line">spring.datasource.druid.stat-view-servlet.enabled=true</span><br><span class="line">spring.datasource.druid.stat-view-servlet.url-pattern=/druid/*</span><br><span class="line">spring.datasource.druid.stat-view-servlet.login-username=admin</span><br><span class="line">spring.datasource.druid.stat-view-servlet.login-password=admin</span><br><span class="line"># 配置监控统计拦截的filters，去掉后监控界面sql无法统计，&apos;wall&apos;用于防火墙</span><br><span class="line">spring.datasource.filters=stat,wall,log4j</span><br><span class="line"># 通过connectProperties属性来打开mergeSql功能；慢SQL记录</span><br><span class="line">spring.datasource.connectionProperties=druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000</span><br></pre></td></tr></table></figure>
+<p>这里的slowSqlMills即为慢SQL的判定时间，缺省值为3000ms。访问<a href="http://120.26.192.168/druid/index.html" target="_blank" rel="noopener">内置监控演示</a></p>
+<p><strong>登录页面</strong></p>
+<p><img src="http://oy48q6kwm.bkt.clouddn.com/ee0fa92f97c04ff42980114bb65aab0b.png" alt="1528112457080"></p>
+<p><strong>首页</strong></p>
+<p><img src="http://oy48q6kwm.bkt.clouddn.com/360a2ad756a6f591d476666ec20af9e9.png" alt="7080"></p>
+<p><strong>数据源</strong></p>
+<p><img src="http://oy48q6kwm.bkt.clouddn.com/bdbbfb9e816858468d1aca4f61c48b17.png" alt="1528112546505"></p>
+<p><strong>SQL监控</strong></p>
+<p><img src="http://oy48q6kwm.bkt.clouddn.com/8263f54dafb23db72466206d5b177f61.png" alt="1528110735860"></p>
+<p>URL监控</p>
+<p><img src="http://oy48q6kwm.bkt.clouddn.com/f6e7912e173a4372da5859a59bd2dc64.png" alt="1528116492169"></p>
+<h1 id="可扩展性Filter-Chain"><a href="#可扩展性Filter-Chain" class="headerlink" title="可扩展性Filter-Chain"></a>可扩展性Filter-Chain</h1><p>DruidDataSource支持通过Filter-Chain模式进行扩展，类似Serlvet的Filter，扩展十分方便，可以拦截任何JDBC的方法。 Filter主要重新定义了来自Connection、Statement、ResultSet等对象的接口，并且通过对应的Proxy对象来代替，每个接口中还带有一个FilterChain参数，用于支持Filter链。以下代码省略了一些方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Filter</span> <span class="keyword">extends</span> <span class="title">Wrapper</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 初始化Filter</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> dataSource</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">(DataSourceProxy dataSource)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 显示的销毁Filter</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 读取properties配置文件</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> properties</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">configFromProperties</span><span class="params">(Properties properties)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isWrapperFor</span><span class="params">(java.lang.Class&lt;?&gt; iface)</span></span>;</span><br><span class="line"></span><br><span class="line">    &lt;T&gt; <span class="function">T <span class="title">unwrap</span><span class="params">(java.lang.Class&lt;T&gt; iface)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建一个连接</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> chain 拦截器链</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> info  配置信息</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>  返回ConnectionProxy代理对象</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> SQLException</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function">ConnectionProxy <span class="title">connection_connect</span><span class="params">(FilterChain chain, Properties info)</span> <span class="keyword">throws</span> SQLException</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">StatementProxy <span class="title">connection_createStatement</span><span class="params">(FilterChain chain, ConnectionProxy connection)</span> <span class="keyword">throws</span> SQLException</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">PreparedStatementProxy <span class="title">connection_prepareStatement</span><span class="params">(FilterChain chain, ConnectionProxy connection, String sql)</span></span></span><br><span class="line"><span class="function">        </span></span><br><span class="line"><span class="function">    <span class="comment">// / statement相关方法</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">    <span class="comment">/**</span></span></span><br><span class="line"><span class="function"><span class="comment">     * 执行查询操作</span></span></span><br><span class="line"><span class="function"><span class="comment">     * @param chain</span></span></span><br><span class="line"><span class="function"><span class="comment">     * @param statement</span></span></span><br><span class="line"><span class="function"><span class="comment">     * @param sql</span></span></span><br><span class="line"><span class="function"><span class="comment">     * @return</span></span></span><br><span class="line"><span class="function"><span class="comment">     * @throws SQLException</span></span></span><br><span class="line"><span class="function"><span class="comment">     */</span></span></span><br><span class="line"><span class="function">    ResultSetProxy <span class="title">statement_executeQuery</span><span class="params">(FilterChain chain, StatementProxy statement, String sql)</span> <span class="keyword">throws</span> SQLException</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 执行更新操作</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> chain</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> statement</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> sql</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> SQLException</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">statement_executeUpdate</span><span class="params">(FilterChain chain, StatementProxy statement, String sql)</span> <span class="keyword">throws</span> SQLException</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// ResultSet 相关方法</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取下一条数据</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> chain</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> resultSet</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> SQLException</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">resultSet_next</span><span class="params">(FilterChain chain, ResultSetProxy resultSet)</span> <span class="keyword">throws</span> SQLException</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 关闭ResultSet</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> chain</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> resultSet</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> SQLException</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">resultSet_close</span><span class="params">(FilterChain chain, ResultSetProxy resultSet)</span> <span class="keyword">throws</span> SQLException</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​    同Filter类似，FilterChain也是定义了Connection，Statement，ResultSet等对象的相关接口，只是在实际调用这些对象前，会先执行一遍配置的Filter链。 Druid提供了一些可选的Filter,存放在META-INF/druid-filter.properties中 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">druid.filters.default=com.alibaba.druid.filter.stat.StatFilter</span><br><span class="line">druid.filters.stat=com.alibaba.druid.filter.stat.StatFilter</span><br><span class="line">druid.filters.mergeStat=com.alibaba.druid.filter.stat.MergeStatFilter</span><br><span class="line">druid.filters.counter=com.alibaba.druid.filter.stat.StatFilter</span><br><span class="line">druid.filters.encoding=com.alibaba.druid.filter.encoding.EncodingConvertFilter</span><br><span class="line">druid.filters.log4j=com.alibaba.druid.filter.logging.Log4jFilter</span><br><span class="line">druid.filters.log4j2=com.alibaba.druid.filter.logging.Log4j2Filter</span><br><span class="line">druid.filters.slf4j=com.alibaba.druid.filter.logging.Slf4jLogFilter</span><br><span class="line">druid.filters.commonlogging=com.alibaba.druid.filter.logging.CommonsLogFilter</span><br><span class="line">druid.filters.commonLogging=com.alibaba.druid.filter.logging.CommonsLogFilter</span><br><span class="line">druid.filters.wall=com.alibaba.druid.wall.WallFilter</span><br><span class="line">druid.filters.config=com.alibaba.druid.filter.config.ConfigFilter</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>StatFilter:    主要负责对连接池监控操作，统计监控信息参考<a href="https://github.com/alibaba/druid/wiki/%E9%85%8D%E7%BD%AE_StatFilter" target="_blank" rel="noopener">StatFilter</a>。</p>
+</li>
+<li><p>LogFilter：  内置提供了四种LogFilter（Log4jFilter、Log4j2Filter、CommonsLogFilter、Slf4jLogFilter），这样开发人员就可以自由配置需要在哪些JDBC操作上进行日志记录，比如数据源，数据库连接等， 详细配置参考<a href="https://github.com/alibaba/druid/wiki/%E9%85%8D%E7%BD%AE_LogFilter" target="_blank" rel="noopener">LogFilter</a>。</p>
+</li>
+<li><p>ConfigFilter：主要负责从配置文件中读取配置，同时也支持向远程服务发送http请求获取配置（配置文件外化时使用）。常用一个常用的功能就是对数据库密码进行加密。</p>
+</li>
+<li><p>WallFilter：防御SQL注入攻击。参考<a href="https://github.com/alibaba/druid/wiki/%E9%85%8D%E7%BD%AE-wallfilter" target="_blank" rel="noopener">wallfilter</a>。</p>
+</li>
+<li><p>EncodingConvertFilter：主要用于当客户端编码不一致时，使用较少，除非一些遗留问题(oracle－mysql)，应保证客户端与服务端使用的编码一致。 </p>
+</li>
+<li><p>MergeStatFilter：提供合并参数化SQL统计功能。</p>
+<p> SELECT * FROM t FROM id = 1; </p>
+<p> SELECT * FROM t FROM id = 2;</p>
+<p>参数化为 select * from t where id = ?然后作为一条语句来统计。  </p>
+</li>
+<li><p>WebStatFilter：用于采集web-jdbc关联监控的数据，即通过Servlet容器中的Filter来作相关的收集及监控，详细配置可 参考<a href="https://github.com/alibaba/druid/wiki/%E9%85%8D%E7%BD%AE_%E9%85%8D%E7%BD%AEWebStatFilter" target="_blank" rel="noopener">配置_配置WebStatFilter</a></p>
+</li>
+</ul>
+<p>下面我们做一个Demo实现一个自定义Filter：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyFilter</span> <span class="keyword">extends</span> <span class="title">FilterEventAdapter</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">statementExecuteAfter</span><span class="params">(StatementProxy statement, String sql, <span class="keyword">boolean</span> result)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.statementExecuteAfter(statement, sql, result);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>配置的Filter会在获取到连接后再被执行，并且Filter的执行顺序与配置的的顺序相反，即Slf4jLogFilter更先执行。 </p>
+<h1 id="分库分表"><a href="#分库分表" class="headerlink" title="分库分表"></a>分库分表</h1><p>​    Druid打算在0.2.9之后的版本开始提供分库分表的功能，由于没有项目支撑，这部分功能的成熟度不够，更多是试验性质，为其他的框架提供基础设施，不建议在生产环境直接使用。生产环境使用分库分表，建议使用淘宝的tddl或者cobar。 阿里云的drds/sharding jdbc。（村长也讲过CDS）</p>
+<h1 id="常规配置"><a href="#常规配置" class="headerlink" title="常规配置"></a>常规配置</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">## datasource 配置</span><br><span class="line">spring.datasource.type = com.alibaba.druid.pool.DruidDataSource</span><br><span class="line">spring.datasource.druid.url = jdbc:mysql://xx.xx.xx.xx:3306/zhangchi?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false</span><br><span class="line">spring.datasource.druid.username = root</span><br><span class="line">spring.datasource.druid.password = root</span><br><span class="line">spring.datasource.druid.driver-class-name = com.mysql.jdbc.Driver</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 连接池最大、最小、初始化数量</span><br><span class="line">spring.datasource.druid.initial-size = 1</span><br><span class="line">spring.datasource.druid.min-idle = 1</span><br><span class="line">spring.datasource.druid.max-active = 20</span><br><span class="line">### 获取连接时最大等待时间，单位毫秒。配置了maxWait之后，缺省启用公平锁，并发效率会有所下降，如果需要可以通过配置useUnfairLock属性为true使用非公平锁。</span><br><span class="line">spring.datasource.druid.max-wait = 6000</span><br><span class="line">### 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒Destroy线程会检测连接的间隔时间，如果连接空闲时间大于等于minEvictableIdleTimeMillis则关闭物理连接。</span><br><span class="line">spring.datasource.druid.time-between-eviction-runs-millis = 6000</span><br><span class="line">### 配置一个连接在池中最小生存的时间，单位是毫秒(5分钟)</span><br><span class="line">spring.datasource.druid.min-evictable-idle-time-millis = 300000</span><br><span class="line">### 用来检测连接是否有效的sql，要求是一个查询语句，常用select &apos;x&apos;。如果validationQuery为null，testOnBorrow、testOnReturn、testWhileIdle都不会起作用。</span><br><span class="line">spring.datasource.druid.validation-query = select &apos;x&apos;</span><br><span class="line">### 建议配置为true，不影响性能，并且保证安全性。申请连接的时候检测，如果空闲时间大于timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效。</span><br><span class="line">spring.datasource.druid.test-while-idle = true</span><br><span class="line">### 申请连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能。</span><br><span class="line">spring.datasource.druid.test-on-borrow = false</span><br><span class="line">### 归还连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能。</span><br><span class="line">spring.datasource.druid.test-on-return = false</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## druid 监控</span><br><span class="line">spring.datasource.druid.web-stat-filter.enabled=true</span><br><span class="line">spring.datasource.druid.web-stat-filter.url-pattern=/*</span><br><span class="line">spring.datasource.druid.web-stat-filter.exclusions=*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*</span><br><span class="line">## druid 监控页面</span><br><span class="line">spring.datasource.druid.stat-view-servlet.enabled=true</span><br><span class="line">spring.datasource.druid.stat-view-servlet.url-pattern=/druid/*</span><br><span class="line">spring.datasource.druid.stat-view-servlet.login-username=admin</span><br><span class="line">spring.datasource.druid.stat-view-servlet.login-password=admin</span><br><span class="line"># 配置监控统计拦截的filters，去掉后监控界面sql无法统计，&apos;wall&apos;用于防火墙</span><br><span class="line">spring.datasource.filters=stat,wall,log4j</span><br><span class="line"># 通过connectProperties属性来打开mergeSql功能；慢SQL记录</span><br><span class="line">spring.datasource.connectionProperties=druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000</span><br></pre></td></tr></table></figure>
+<h1 id="核心代码"><a href="#核心代码" class="headerlink" title="核心代码"></a>核心代码</h1><h2 id="1、创建连接"><a href="#1、创建连接" class="headerlink" title="1、创建连接"></a>1、创建连接</h2><p>通过springboot创建连接，springboot对DataSource进行了一层轻薄的封装。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>: 连接druid</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: zhangchi</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@email</span>: zhangchi@nucc.com</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@datetime</span>: 2018/5/19 14:41</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span>: 1.0.0</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DruidConnet</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Primary</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> DataSource <span class="title">dataSource</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> DruidDataSourceBuilder.create().build();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>DruidDataSourceBuilder类只是扩展了对springboot 1.X版本中的 .properties 内配置属性不能按照配置声明顺序进行绑定，进而导致配置出错而提供的方法。同时创建DruidDataSourceWrapper类，该类扩展支持spring前缀。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterPropertiesSet</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">      <span class="comment">//if not found prefix 'spring.datasource.druid' jdbc properties ,'spring.datasource' prefix jdbc properties will be used.</span></span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">super</span>.getUsername() == <span class="keyword">null</span>) &#123;</span><br><span class="line">          <span class="keyword">super</span>.setUsername(basicProperties.determineUsername());</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">super</span>.getPassword() == <span class="keyword">null</span>) &#123;</span><br><span class="line">          <span class="keyword">super</span>.setPassword(basicProperties.determinePassword());</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">super</span>.getUrl() == <span class="keyword">null</span>) &#123;</span><br><span class="line">          <span class="keyword">super</span>.setUrl(basicProperties.determineUrl());</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span>(<span class="keyword">super</span>.getDriverClassName() == <span class="keyword">null</span>)&#123;</span><br><span class="line">          <span class="keyword">super</span>.setDriverClassName(basicProperties.getDriverClassName());</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<p>DataSource接口是连接管理的父接口。DruidDataSource继承了DruidAbstractDataSource类并实现了DataSource接口。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> javax.sql;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"><span class="keyword">import</span> java.sql.Wrapper;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">DataSource</span>  <span class="keyword">extends</span> <span class="title">CommonDataSource</span>, <span class="title">Wrapper</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function">Connection <span class="title">getConnection</span><span class="params">()</span> <span class="keyword">throws</span> SQLException</span>;</span><br><span class="line"></span><br><span class="line">  <span class="function">Connection <span class="title">getConnection</span><span class="params">(String username, String password)</span></span></span><br><span class="line"><span class="function">    <span class="keyword">throws</span> SQLException</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://oy48q6kwm.bkt.clouddn.com/926ba822ac19161889fa093f0bad2f68.png" alt=""><br>以上几个类就是druid核心的连接管理类，下面看下具体的getConnection()实现。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> DruidPooledConnection <span class="title">getConnection</span><span class="params">()</span> <span class="keyword">throws</span> SQLException </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> getConnection(maxWait);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> DruidPooledConnection <span class="title">getConnection</span><span class="params">(<span class="keyword">long</span> maxWaitMillis)</span> <span class="keyword">throws</span> SQLException </span>&#123;</span><br><span class="line">    <span class="comment">//初始化数据源</span></span><br><span class="line">    init();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (filters.size() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">// 经过filter中获取连接</span></span><br><span class="line">        <span class="comment">// 这里是每次获取连接，都需要构造Filter链，即执行各Filter</span></span><br><span class="line">        FilterChainImpl filterChain = <span class="keyword">new</span> FilterChainImpl(<span class="keyword">this</span>);</span><br><span class="line">        <span class="keyword">return</span> filterChain.dataSource_connect(<span class="keyword">this</span>, maxWaitMillis);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//直接获取连接</span></span><br><span class="line">        <span class="keyword">return</span> getConnectionDirect(maxWaitMillis);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> DruidPooledConnection <span class="title">dataSource_connect</span><span class="params">(DruidDataSource dataSource, <span class="keyword">long</span> maxWaitMillis)</span> <span class="keyword">throws</span> SQLException </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.pos &lt; filterSize) &#123;</span><br><span class="line">        <span class="comment">//还有未执行的Filter，则先执行Filter.dataSource_getConnection()</span></span><br><span class="line">        DruidPooledConnection conn = nextFilter().dataSource_getConnection(<span class="keyword">this</span>, dataSource, maxWaitMillis);</span><br><span class="line">        <span class="keyword">return</span> conn;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> dataSource.getConnectionDirect(maxWaitMillis);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>maxWaitMillis最大的超时时间。先调用init()初始化</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="comment">//使用重入锁</span></span><br><span class="line">    <span class="keyword">final</span> ReentrantLock lock = <span class="keyword">this</span>.lock;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        lock.lockInterruptibly();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> SQLException(<span class="string">"interrupt"</span>, e);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        initStackTrace = Utils.toString(Thread.currentThread().getStackTrace());</span><br><span class="line">      <span class="comment">/**</span></span><br><span class="line"><span class="comment">	    * 获取数据源ID，多数据源时会大于1</span></span><br><span class="line"><span class="comment">	    */</span></span><br><span class="line">        <span class="keyword">this</span>.id = DruidDriver.createDataSourceId();</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.id &gt; <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">long</span> delta = (<span class="keyword">this</span>.id - <span class="number">1</span>) * <span class="number">100000</span>;</span><br><span class="line">            <span class="keyword">this</span>.connectionIdSeedUpdater.addAndGet(<span class="keyword">this</span>, delta);</span><br><span class="line">            <span class="keyword">this</span>.statementIdSeedUpdater.addAndGet(<span class="keyword">this</span>, delta);</span><br><span class="line">            <span class="keyword">this</span>.resultSetIdSeedUpdater.addAndGet(<span class="keyword">this</span>, delta);</span><br><span class="line">            <span class="keyword">this</span>.transactionIdSeedUpdater.addAndGet(<span class="keyword">this</span>, delta);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">       <span class="comment">/**</span></span><br><span class="line"><span class="comment">        * 执行拦截器初始化DataSourceProxy</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">        <span class="keyword">for</span> (Filter filter : filters) &#123;</span><br><span class="line">            filter.init(<span class="keyword">this</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    	<span class="comment">//创建存放连接数组</span></span><br><span class="line">        connections = <span class="keyword">new</span> DruidConnectionHolder[maxActive];</span><br><span class="line">        <span class="comment">//当maxActive被修改时，执行shrink()函数缩容时使用</span></span><br><span class="line">        evictConnections = <span class="keyword">new</span> DruidConnectionHolder[maxActive];</span><br><span class="line">        <span class="comment">//当maxActive被修改时，执行shrink()函数扩容时使用</span></span><br><span class="line">        keepAliveConnections = <span class="keyword">new</span> DruidConnectionHolder[maxActive];</span><br><span class="line"></span><br><span class="line">        SQLException connectError = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (createScheduler != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; initialSize; ++i) &#123;</span><br><span class="line">                createTaskCount++;</span><br><span class="line">                CreateConnectionTask task = <span class="keyword">new</span> CreateConnectionTask(<span class="keyword">true</span>);</span><br><span class="line">                <span class="keyword">this</span>.createSchedulerFuture = createScheduler.submit(task);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!asyncInit) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="comment">// init connections</span></span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; initialSize; ++i) &#123;</span><br><span class="line">                    <span class="comment">//创建真正的数据库连接池</span></span><br><span class="line">                    PhysicalConnectionInfo pyConnectInfo = createPhysicalConnection();</span><br><span class="line">                    DruidConnectionHolder holder = <span class="keyword">new</span> DruidConnectionHolder(<span class="keyword">this</span>, pyConnectInfo);</span><br><span class="line">                    connections[poolingCount] = holder;</span><br><span class="line">                    incrementPoolingCount();</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (poolingCount &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                    poolingPeak = poolingCount;</span><br><span class="line">                    poolingPeakTime = System.currentTimeMillis();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (SQLException ex) &#123;</span><br><span class="line">                LOG.error(<span class="string">"init datasource error, url: "</span> + <span class="keyword">this</span>.getUrl(), ex);</span><br><span class="line">                connectError = ex;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        createAndLogThread();<span class="comment">//开启创建日志跟踪的线程</span></span><br><span class="line">        createAndStartCreatorThread();<span class="comment">//开启创建数据库连接的线程</span></span><br><span class="line">        createAndStartDestroyThread();<span class="comment">//开启销毁数据库连接的线程</span></span><br><span class="line"></span><br><span class="line">        initedLatch.await();<span class="comment">//调用await()方法的线程会被挂起，它会等待直到count值为0才继续执行</span></span><br><span class="line">        init = <span class="keyword">true</span>;</span><br><span class="line"></span><br><span class="line">        initedTime = <span class="keyword">new</span> Date();</span><br><span class="line">        registerMbean();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (connectError != <span class="keyword">null</span> &amp;&amp; poolingCount == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> connectError;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (keepAlive) &#123;</span><br><span class="line">            <span class="comment">// async fill to minIdle</span></span><br><span class="line">            <span class="keyword">if</span> (createScheduler != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; minIdle; ++i) &#123;</span><br><span class="line">                    createTaskCount++;</span><br><span class="line">                    CreateConnectionTask task = <span class="keyword">new</span> CreateConnectionTask(<span class="keyword">true</span>);</span><br><span class="line">                    <span class="keyword">this</span>.createSchedulerFuture = createScheduler.submit(task);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">this</span>.emptySignal();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">        LOG.error(<span class="string">"&#123;dataSource-"</span> + <span class="keyword">this</span>.getID() + <span class="string">"&#125; init error"</span>, e);</span><br><span class="line">        <span class="keyword">throw</span> e;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> SQLException(e.getMessage(), e);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (RuntimeException e)&#123;</span><br><span class="line">        LOG.error(<span class="string">"&#123;dataSource-"</span> + <span class="keyword">this</span>.getID() + <span class="string">"&#125; init error"</span>, e);</span><br><span class="line">        <span class="keyword">throw</span> e;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Error e)&#123;</span><br><span class="line">        LOG.error(<span class="string">"&#123;dataSource-"</span> + <span class="keyword">this</span>.getID() + <span class="string">"&#125; init error"</span>, e);</span><br><span class="line">        <span class="keyword">throw</span> e;</span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        inited = <span class="keyword">true</span>;</span><br><span class="line">        lock.unlock();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (init &amp;&amp; LOG.isInfoEnabled()) &#123;</span><br><span class="line">            String msg = <span class="string">"&#123;dataSource-"</span> + <span class="keyword">this</span>.getID();</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">this</span>.name != <span class="keyword">null</span> &amp;&amp; !<span class="keyword">this</span>.name.isEmpty()) &#123;</span><br><span class="line">                msg += <span class="string">","</span>;</span><br><span class="line">                msg += <span class="keyword">this</span>.name;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            msg += <span class="string">"&#125; inited"</span>;</span><br><span class="line"></span><br><span class="line">            LOG.info(msg);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>getConnectionDirect()调用getConnectionInternal()返回DruidPooledConnection对象。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">DruidConnectionHolder <span class="title">takeLast</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException, SQLException </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">while</span> (poolingCount == <span class="number">0</span>) &#123;<span class="comment">//没有可用线程了</span></span><br><span class="line">            emptySignal(); <span class="comment">// send signal to CreateThread create connection</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (failFast &amp;&amp; failContinuous.get()) &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> DataSourceNotAvailableException(createError);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            notEmptyWaitThreadCount++;</span><br><span class="line">            <span class="keyword">if</span> (notEmptyWaitThreadCount &gt; notEmptyWaitThreadPeak) &#123;</span><br><span class="line">                notEmptyWaitThreadPeak = notEmptyWaitThreadCount;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                notEmpty.await(); <span class="comment">// signal by recycle or creator</span></span><br><span class="line">            &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">                notEmptyWaitThreadCount--;</span><br><span class="line">            &#125;</span><br><span class="line">            notEmptyWaitCount++;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (!enable) &#123;</span><br><span class="line">                connectErrorCountUpdater.incrementAndGet(<span class="keyword">this</span>);</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> DataSourceDisableException();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (InterruptedException ie) &#123;</span><br><span class="line">        notEmpty.signal(); <span class="comment">// propagate to non-interrupted thread</span></span><br><span class="line">        notEmptySignalCount++;</span><br><span class="line">        <span class="keyword">throw</span> ie;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    decrementPoolingCount();</span><br><span class="line">    DruidConnectionHolder last = connections[poolingCount];</span><br><span class="line">    connections[poolingCount] = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> last;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​    先判断池中的连接数，如果到0了，那么本线程就得被挂起，同时释放empty信号，并且等待notEmpty的信号。如果还有连接，就取出数组的最后一个，同时更改poolingCount。 当然如果当poolingCount不为0的时候，那么直接从连接数组中获取下标为poolingCount-1的连接返回就可以啦。 </p>
+<p>　    最终我们对Connection的操作都是通过DruidPooledConnection来实现，比如commit、rollback等，它们大都是通过实际的数据库连接完成工作。DruidPooledConnection.close()关闭的核心函数是recycle()。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">recycle</span><span class="params">()</span> <span class="keyword">throws</span> SQLException </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.disable) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    DruidConnectionHolder holder = <span class="keyword">this</span>.holder;</span><br><span class="line">    <span class="keyword">if</span> (holder == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (dupCloseLogEnable) &#123;</span><br><span class="line">            LOG.error(<span class="string">"dup close"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!<span class="keyword">this</span>.abandoned) &#123;</span><br><span class="line">        DruidAbstractDataSource dataSource = holder.getDataSource();</span><br><span class="line">        dataSource.recycle(<span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.holder = <span class="keyword">null</span>;</span><br><span class="line">    conn = <span class="keyword">null</span>;</span><br><span class="line">    transactionInfo = <span class="keyword">null</span>;</span><br><span class="line">    closed = <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2、-SQL解析"><a href="#2、-SQL解析" class="headerlink" title="2、 SQL解析"></a>2、 SQL解析</h2><p>​    SQL Parser是Druid的一个重要组成部分，Druid内置使用SQL Parser来实现防御SQL注入（<a href="https://github.com/alibaba/druid/wiki/%E7%AE%80%E4%BB%8B_WallFilter" target="_blank" rel="noopener">WallFilter</a>）、合并统计没有参数化的SQL(<a href="https://github.com/alibaba/druid/wiki/%E9%85%8D%E7%BD%AE_StatFilter" target="_blank" rel="noopener">StatFilter</a>的mergeSql)、<a href="https://github.com/alibaba/druid/wiki/SQL%E6%A0%BC%E5%BC%8F%E5%8C%96" target="_blank" rel="noopener">SQL格式化</a>、分库分表。 Druid SQL Parser性能非常好，可以用于生产环境直接对SQL进行分析处理。 </p>
+<p>​    Druid的sql parser是目前支持各种数据语法最完备的SQL Parser。目前对各种数据库的支持如下： </p>
+<table>
+<thead>
+<tr>
+<th>数据库</th>
+<th>DML</th>
+<th>DDL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.aliyun.com/product/odps" target="_blank" rel="noopener">odps</a></td>
+<td>完全支持</td>
+<td>完全支持</td>
+</tr>
+<tr>
+<td>mysql</td>
+<td>完全支持</td>
+<td>完全支持</td>
+</tr>
+<tr>
+<td>postgresql</td>
+<td>完全支持</td>
+<td>完全支持</td>
+</tr>
+<tr>
+<td>oracle</td>
+<td>支持大部分</td>
+<td>支持大部分</td>
+</tr>
+<tr>
+<td>sql server</td>
+<td>支持常用的</td>
+<td>支持常用的ddl</td>
+</tr>
+<tr>
+<td>db2</td>
+<td>支持常用的</td>
+<td>支持常用的ddl</td>
+</tr>
+<tr>
+<td>hive</td>
+<td>支持常用的</td>
+<td>支持常用的ddl</td>
+</tr>
+</tbody>
+</table>
+<p>druid parser处理大约是600纳秒，也就是说单线程每秒可以处理1500万次以上。在1.1.3~1.1.4版本中，SQL Parser的性能有极大提升，完全可以适用于生产环境中对SQL进行处理。 </p>
+<p><a href="https://github.com/alibaba/druid/wiki/SQL-Parser" target="_blank" rel="noopener">https://github.com/alibaba/druid/wiki/SQL-Parser</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/druid/" rel="tag"># druid</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/21/virtualenv/" rel="next" title="virtualenv">
+                <i class="fa fa-chevron-left"></i> virtualenv
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/12/storm/" rel="prev" title="storm">
+                storm <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://example.com/avatar.png"
+                alt="张舒歌" />
+            
+              <p class="site-author-name" itemprop="name">张舒歌</p>
+              <p class="site-description motion-element" itemprop="description">天道酬勤、厚德载物</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#性能对比"><span class="nav-number">2.</span> <span class="nav-text">性能对比</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#监控"><span class="nav-number">3.</span> <span class="nav-text">监控</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#可扩展性Filter-Chain"><span class="nav-number">4.</span> <span class="nav-text">可扩展性Filter-Chain</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分库分表"><span class="nav-number">5.</span> <span class="nav-text">分库分表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常规配置"><span class="nav-number">6.</span> <span class="nav-text">常规配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#核心代码"><span class="nav-number">7.</span> <span class="nav-text">核心代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、创建连接"><span class="nav-number">7.1.</span> <span class="nav-text">1、创建连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、-SQL解析"><span class="nav-number">7.2.</span> <span class="nav-text">2、 SQL解析</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">张舒歌</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

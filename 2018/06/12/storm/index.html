@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="BigData," />
+  <meta name="keywords" content="storm," />
 
 
 
@@ -79,18 +79,29 @@
 
 
 
-<meta name="description" content="天道酬勤、厚德载物">
-<meta name="keywords" content="BigData">
+<meta name="description" content="Storm基本概念在storm的集群中有两种节点：  Nimbus:主节点（Mater Node）Nimbus负责在集群中分发代码，分配工作给机器，并且监控状态。 Supervisor:工作节点(Worker Node)每个工作节点上运行一个supervisor进程，supervisor会监听nimbus分配给那台机器的工作，根据需要启动或者关闭具体的worker进程。  每个worker进程执行">
+<meta name="keywords" content="storm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="storm">
 <meta property="og:url" content="https://zhangshuge.github.io/2018/06/12/storm/index.html">
 <meta property="og:site_name" content="卐 张墨辰 Ψ">
-<meta property="og:description" content="天道酬勤、厚德载物">
+<meta property="og:description" content="Storm基本概念在storm的集群中有两种节点：  Nimbus:主节点（Mater Node）Nimbus负责在集群中分发代码，分配工作给机器，并且监控状态。 Supervisor:工作节点(Worker Node)每个工作节点上运行一个supervisor进程，supervisor会监听nimbus分配给那台机器的工作，根据需要启动或者关闭具体的worker进程。  每个worker进程执行">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-12T12:30:05.530Z">
+<meta property="og:image" content="http://oy48q6kwm.bkt.clouddn.com/455bcbd79be710f1c6d0f571dc0895c8.png">
+<meta property="og:image" content="http://oy48q6kwm.bkt.clouddn.com/f084adefc384f6d9b0941dba2f16855f.png">
+<meta property="og:image" content="http://oy48q6kwm.bkt.clouddn.com/7142214dfcdee38b524d9d87a1639f0c.png">
+<meta property="og:image" content="http://oy48q6kwm.bkt.clouddn.com/c6089a48f023c71a6133a55d9eb4f0a2.png">
+<meta property="og:image" content="http://oy48q6kwm.bkt.clouddn.com/1158d324029134c0e9cc15d3865b9e57.png">
+<meta property="og:image" content="http://oy48q6kwm.bkt.clouddn.com/afbe75105d45b4468dffa0ae8af34d5d.png">
+<meta property="og:image" content="http://oy48q6kwm.bkt.clouddn.com/e1e783cdcd9be99de0af4488d1e17878.png">
+<meta property="og:image" content="http://oy48q6kwm.bkt.clouddn.com/23cba149f511602b134dfc95fa5afac7.png">
+<meta property="og:image" content="http://oy48q6kwm.bkt.clouddn.com/23cba149f511602b134dfc95fa5afac7.png">
+<meta property="og:image" content="http://oy48q6kwm.bkt.clouddn.com/175f384b5f5abc26b816b032a715e025.png">
+<meta property="og:updated_time" content="2018-06-12T12:38:48.004Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="storm">
-<meta name="twitter:description" content="天道酬勤、厚德载物">
+<meta name="twitter:description" content="Storm基本概念在storm的集群中有两种节点：  Nimbus:主节点（Mater Node）Nimbus负责在集群中分发代码，分配工作给机器，并且监控状态。 Supervisor:工作节点(Worker Node)每个工作节点上运行一个supervisor进程，supervisor会监听nimbus分配给那台机器的工作，根据需要启动或者关闭具体的worker进程。  每个worker进程执行">
+<meta name="twitter:image" content="http://oy48q6kwm.bkt.clouddn.com/455bcbd79be710f1c6d0f571dc0895c8.png">
 
 
 
@@ -303,6 +314,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/BigData/" itemprop="url" rel="index">
+                    <span itemprop="name">BigData</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -330,7 +363,128 @@
       
 
       
-        
+        <h1 id="Storm"><a href="#Storm" class="headerlink" title="Storm"></a>Storm</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>在storm的集群中有两种节点：</p>
+<ul>
+<li>Nimbus:主节点（Mater Node）<br>Nimbus负责在集群中分发代码，分配工作给机器，并且监控状态。</li>
+<li>Supervisor:工作节点(Worker Node)<br>每个工作节点上运行一个supervisor进程，supervisor会监听nimbus分配给那台机器的工作，根据需要启动或者关闭具体的worker进程。</li>
+</ul>
+<p>每个worker进程执行一个具体的Topology，worker进程中的执行线程称为Executor,可以有一个或者多个。每个executor中又包含一个或者多个Task。Task是storm中最小的处理单元。</p>
+<table>
+<thead>
+<tr>
+<th>组件</th>
+<th>概念</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nimbus</td>
+<td>负责资源分配和任务调度</td>
+<td></td>
+</tr>
+<tr>
+<td>Supervisor</td>
+<td>负责接收Nimbus分配的任务，启动和停止属于自己管理的Worker进程</td>
+<td></td>
+</tr>
+<tr>
+<td>Worker</td>
+<td>执行具体处理组件逻辑的进程,即执行Topology</td>
+<td></td>
+</tr>
+<tr>
+<td>Topology</td>
+<td>一个实时计算应用程序逻辑被封装到Topology对象中，Topology拓扑会一直运行知道显示地杀死它</td>
+<td></td>
+</tr>
+<tr>
+<td>Executor</td>
+<td>Storm0.8版本以后，Executor为Worker进程中的具体的物理线程，同一个Spout/Bolt的Task可能会共享一个物理线程，一个Executor中只能运行隶属于同一个Spout/Bolt的Task</td>
+<td></td>
+</tr>
+<tr>
+<td>Spout</td>
+<td>在Topology中产生源数据流的组件。通常Spout获取数据源的数据（如Kafka、MQ等读取数据），然后调用nextTuple()函数，发射数据供Bolt消费。</td>
+<td></td>
+</tr>
+<tr>
+<td>Bolt</td>
+<td>在Topology中接收spout发射的数据后执行处理的组件。Bolt可以执行过滤、函数操作、合并、写数据库等任何操作。Bolt在接收到消息后会调用execute()函数，用户可以在其中执行自己想要的操作</td>
+<td></td>
+</tr>
+<tr>
+<td>Tuple</td>
+<td>消息传递的基本单元，即元组。</td>
+<td></td>
+</tr>
+<tr>
+<td>Task</td>
+<td>每一个Spout/Bolt具体要做的工作，也是各个节点之间进行分组的单位</td>
+<td></td>
+</tr>
+<tr>
+<td>Stream</td>
+<td>源源不断传递的Tuple组成的Stream</td>
+<td></td>
+</tr>
+<tr>
+<td>Stream分组</td>
+<td>即消息的分区(partition)方法。storm提供若干种实用的分组方式，包括Shuffle、Fields、All、Global、None、Direct和Local or Shuffle等</td>
+</tr>
+</tbody>
+</table>
+<p>假设我们现在有一个Storm集群，一台nimbus和4台supervisor，默认情况下，一个supervisor可以启动4个worker。假设客户端提交了一个Topology需要4个worker来执行，<br><img src="http://oy48q6kwm.bkt.clouddn.com/455bcbd79be710f1c6d0f571dc0895c8.png" alt="storm1"><br>从上图可以看出并不是一个supervisor分配一个worker.这是因为nimbus是针对topology的任务分配，是针对worker来的。我们指定了topology需要4个woreker，nimbus会从已有的16个worker中选择四个worker，并不会平均分配。<strong><font color="#FF8247">这里需要注意的是一个worker同时只能运行一个topology</font></strong>。如果此时再有另外一个topology提交，不管指定使用几个worker来执行，都会从剩下的12个worker中选择。</p>
+<p>Nimbus和Supervisor之间的通信是依赖zookeeper完成的，并且nimbus和supervisor都是快速失败(fail-fast)和无状态的，所有的状态要么在zookeeper里面，要么在本地磁盘上。这也就意味着我们可以使用kill -9来杀死numbus和supervisor进程，然后再重启继续工作。<br><img src="http://oy48q6kwm.bkt.clouddn.com/f084adefc384f6d9b0941dba2f16855f.png" alt="storm2"></p>
+<blockquote>
+<p>小贴士：Storm中有一些术语(不是全部)，是按照气象术语来命名的。例如Storm是暴风雨，spout是龙卷风的意思，bolt是雷电的意思，nimbus是雨云的意思。</p>
+</blockquote>
+<h2 id="Storm组件"><a href="#Storm组件" class="headerlink" title="Storm组件"></a>Storm组件</h2><h3 id="Topology（拓扑）"><a href="#Topology（拓扑）" class="headerlink" title="Topology（拓扑）"></a>Topology（拓扑）</h3><p>一个topology中必须同时存在spout和bolt，而spout和bolt的数量可以是任意个。<font color="#FF8247">要提醒的是：Topology的组件目前只有Spout和Bolt，没有其他组件。所以以后提到一个Topology的组件的时候，其实也就是指的是Spout或者Bolt。</font></p>
+<h3 id="Stream（流）"><a href="#Stream（流）" class="headerlink" title="Stream（流）"></a>Stream（流）</h3><p>我们已经知道Spout是从外部数据源中获取数据，以一定的格式将数据传递给Bolt处理。从Spout中源源不断的给Bolt传递数据，形成的这个数据通道我们称之为Stream。</p>
+<h3 id="Tuple"><a href="#Tuple" class="headerlink" title="Tuple"></a>Tuple</h3><p>tuple是stream中的最小组成单元，也叫元组。</p>
+<p>最简单的一个topology模型。图中虚线的每一个小节点”-“就可以看作是一个tuple。<br><img src="http://oy48q6kwm.bkt.clouddn.com/7142214dfcdee38b524d9d87a1639f0c.png" alt="storm3"><br>spout可以将数据传递给多个bolt，bolt还能将数据传递给下一级bolt。这样的原因是，有的时候，我们对于数据的分析必须是一步一步的，后一步的分析必须建立在之前分析的基础上。<br><img src="http://oy48q6kwm.bkt.clouddn.com/c6089a48f023c71a6133a55d9eb4f0a2.png" alt="storm5"><br>Stream都是由Tuple组成的，而Tuple是有数据格式的，<strong><font color="#FF8247">在同一个流中,Tuple的数据格式应该都是一样的；不同流中的数据格式可能相同，也可能不同.</font></strong></p>
+<p>一个spout可以发射给多个bolt数据，同样一个bolt也可以接收多个spout发射的数据。<br><img src="http://oy48q6kwm.bkt.clouddn.com/1158d324029134c0e9cc15d3865b9e57.png" alt="复杂的topology"><br>在storm中，spout和bolt、bolt与bolt之间的数据流向，将整合topology串起来了行程了一个DAG(有向无环图)。**<font color="#FF8247">DAG的意思就是数据流是有方向的，但不能形成一个环状</font>。如果形成了一个环状，那么意味着Bolt中的数据还可能传给Spout，spout又要传递给Bolt。这就形成了一个死循环，Stream中的一个数据(Tuple)永远也没办法处理完。下图中的两条红线都是不允许的。<br><img src="http://oy48q6kwm.bkt.clouddn.com/afbe75105d45b4468dffa0ae8af34d5d.png" alt="storm有向无环图"></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="下载安装包上传至服务器http-storm-apache-org-downloads-html"><a href="#下载安装包上传至服务器http-storm-apache-org-downloads-html" class="headerlink" title="下载安装包上传至服务器http://storm.apache.org/downloads.html"></a>下载安装包上传至服务器<a href="http://storm.apache.org/downloads.html" target="_blank" rel="noopener">http://storm.apache.org/downloads.html</a></h3><h3 id="分配好资源"><a href="#分配好资源" class="headerlink" title="分配好资源"></a>分配好资源</h3><p>ui:172.16.10.22<br>nimbus:172.16.10.22<br>supervisor1:172.16.10.23<br>supervisor2:172.16.10.24<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /tools</span><br><span class="line">tar -xzvf apache-storm-1.1.0.tar.gz</span><br><span class="line">cd /tools/apache-storm-1.1.0/conf</span><br><span class="line">vim storm.yml</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p># Licensed to the Apache Software Foundation (ASF) under one<br># or more contributor license agreements.  See the NOTICE file<br># distributed with this work for additional information<br># regarding copyright ownership.  The ASF licenses this file<br># to you under the Apache License, Version 2.0 (the<br># “License”); you may not use this file except in compliance<br># with the License.  You may obtain a copy of the License at<br>#<br># <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener">http://www.apache.org/licenses/LICENSE-2.0</a><br>#<br># Unless required by applicable law or agreed to in writing, software<br># distributed under the License is distributed on an “AS IS” BASIS,<br># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.<br># See the License for the specific language governing permissions and<br># limitations under the License.</p>
+<p>########### These MUST be filled in for a storm configuration<br>storm.zookeeper.servers:<br>&nbsp;&nbsp;&nbsp;&nbsp;- “172.16.1.43”<br>&nbsp;&nbsp;&nbsp;&nbsp;- “172.16.1.62”<br>&nbsp;&nbsp;&nbsp;&nbsp;- “172.16.1.64”</p>
+<p>#     - “server2”<br>#<br>nimbus.seeds: [“172.16.10.22”]<br>supervisor.slots.ports:<br>&nbsp;&nbsp;&nbsp;&nbsp;- 6700<br>&nbsp;&nbsp;&nbsp;&nbsp;- 6701<br>&nbsp;&nbsp;&nbsp;&nbsp;- 6702<br>&nbsp;&nbsp;&nbsp;&nbsp;- 6703<br>#<br>#<br># ##### These may optionally be filled in:<br>#<br>## List of custom serializations<br># topology.kryo.register:<br>#     - org.mycompany.MyType<br>#     - org.mycompany.MyType2: org.mycompany.MyType2Serializer<br>#<br>## List of custom kryo decorators<br># topology.kryo.decorators:<br>#     - org.mycompany.MyDecorator<br>#<br>## Locations of the drpc servers<br># drpc.servers:<br>#     - “server1”<br>#     - “server2”</p>
+<p>## Metrics Consumers<br>## max.retain.metric.tuples<br>## - task queue will be unbounded when max.retain.metric.tuples is equal or less than 0.<br>## whitelist / blacklist<br>## - when none of configuration for metric filter are specified, it’ll be treated as ‘pass all’.<br>## - you need to specify either whitelist or blacklist, or none of them. You can’t specify both of them.<br>## - you can specify multiple whitelist / blacklist with regular expression<br>## expandMapType: expand metric with map type as value to multiple metrics<br>## - set to true when you would like to apply filter to expanded metrics<br>## - default value is false which is backward compatible value<br>## metricNameSeparator: separator between origin metric name and key of entry from map<br>## - only effective when expandMapType is set to true<br># topology.metrics.consumer.register:<br>#   - class: “org.apache.storm.metric.LoggingMetricsConsumer”<br>#     max.retain.metric.tuples: 100<br>#     parallelism.hint: 1<br>#   - class: “org.mycompany.MyMetricsConsumer”<br>#     max.retain.metric.tuples: 100<br>#     whitelist:<br>#       - “execute.*”<br>#       - “^__complete-latency$”<br>#     parallelism.hint: 1<br>#     argument:<br>#       - endpoint: “metrics-collector.mycompany.org”<br>#     expandMapType: true<br>#     metricNameSeparator: “.”</p>
+<p>## Cluster Metrics Consumers<br># storm.cluster.metrics.consumer.register:<br>#   - class: “org.apache.storm.metric.LoggingClusterMetricsConsumer”<br>#   - class: “org.mycompany.MyMetricsConsumer”<br>#     argument:<br>#       - endpoint: “metrics-collector.mycompany.org”<br>#<br># storm.cluster.metrics.consumer.publish.interval.secs: 60</p>
+<p>storm.local.dir: “/data/storm/data”<br>ui.port: 9001</p>
+</blockquote>
+<p>172.16.10.22、172.16.10.23、172.16.10.24每个节点的配置保持一直，另外需在给两个supervisor节点加上JMX监控。需要在storm.yaml文件中加入</p>
+<blockquote>
+<p>supervisor.childopts: -verbose:gc -XX:+PrintGCTimeStamps -XX:+PrintGCDetails -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.port=9998</p>
+</blockquote>
+<h3 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h3><p>172.16.10.22</p>
+<ul>
+<li>nohup /tools/apache-storm-1.1.0/bin/storm ui &gt;/dev/null 2&gt;&amp;1 &amp;</li>
+<li>nohup /tools/apache-storm-1.1.0/bin/storm nimbus &gt;/dev/null 2&gt;&amp;1 &amp;</li>
+<li>nohup /tools/apache-storm-1.1.0/bin/storm logviewer &gt;/dev/null 2&gt;&amp;1 &amp;</li>
+</ul>
+<p><img src="http://oy48q6kwm.bkt.clouddn.com/e1e783cdcd9be99de0af4488d1e17878.png" alt="nimbus"></p>
+<p>core是UI进程、nimbus、logviewer进程已经都起来了。</p>
+<p>172.16.10.23</p>
+<ul>
+<li>nohup /tools/apache-storm-1.1.0/bin/storm supervisor &gt;/dev/null 2&gt;&amp;1 &amp;</li>
+<li>nohup /tools/apache-storm-1.1.0/bin/storm logviewer &gt;/dev/null 2&gt;&amp;1 &amp;</li>
+</ul>
+<p><img src="http://oy48q6kwm.bkt.clouddn.com/23cba149f511602b134dfc95fa5afac7.png" alt="supervisor"><br>supervisor进程已经启动。</p>
+<p>172.16.10.24</p>
+<ul>
+<li>nohup /tools/apache-storm-1.1.0/bin/storm supervisor &gt;/dev/null 2&gt;&amp;1 &amp;</li>
+<li>nohup /tools/apache-storm-1.1.0/bin/storm logviewer &gt;/dev/null 2&gt;&amp;1 &amp;</li>
+</ul>
+<p><img src="http://oy48q6kwm.bkt.clouddn.com/23cba149f511602b134dfc95fa5afac7.png" alt="supervisor2"><br>supervisor进程已经启动。</p>
+<h2 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h2><h3 id="本地模式"><a href="#本地模式" class="headerlink" title="本地模式"></a>本地模式</h3><p>在maven工程的pom.xml中引入storm依赖包。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- https://mvnrepository.com/artifact/org.apache.storm/storm-core --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.storm<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>storm-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>创建topology<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.nucc.channel.govern.demo.storm.topology;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.storm.spout.SpoutOutputCollector;</span><br><span class="line"><span class="keyword">import</span> org.apache.storm.task.OutputCollector;</span><br><span class="line"><span class="keyword">import</span> org.apache.storm.task.TopologyContext;</span><br><span class="line"><span class="keyword">import</span> org.apache.storm.topology.OutputFieldsDeclarer;</span><br><span class="line"><span class="keyword">import</span> org.apache.storm.topology.base.BaseRichBolt;</span><br><span class="line"><span class="keyword">import</span> org.apache.storm.topology.base.BaseRichSpout;</span><br><span class="line"><span class="keyword">import</span> org.apache.storm.tuple.Fields;</span><br><span class="line"><span class="keyword">import</span> org.apache.storm.tuple.Tuple;</span><br><span class="line"><span class="keyword">import</span> org.apache.storm.tuple.Values;</span><br><span class="line"><span class="keyword">import</span> org.apache.storm.utils.Utils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>: 拓扑</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: zhangchi</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@email</span>: zhangchi@nucc.com</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@datetime</span>: 2018/5/5 22:48</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span>: 1.0.0</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StormTopology</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取数据源</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Spout</span> <span class="keyword">extends</span> <span class="title">BaseRichSpout</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> Map conf;</span><br><span class="line">        <span class="keyword">private</span> TopologyContext topologyContext;</span><br><span class="line">        <span class="keyword">private</span> SpoutOutputCollector spoutOutputCollector;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 初始化方法，用于创建数据源。</span></span><br><span class="line"><span class="comment">         *</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> map                  配置属性</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> topologyContext      拓扑上下文</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> spoutOutputCollector 发射器</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">open</span><span class="params">(Map map, TopologyContext topologyContext, SpoutOutputCollector spoutOutputCollector)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.conf = map;</span><br><span class="line">            <span class="keyword">this</span>.spoutOutputCollector = spoutOutputCollector;</span><br><span class="line">            <span class="keyword">this</span>.topologyContext = topologyContext;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 死循环方法，不断被调用处理元组。</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">nextTuple</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.spoutOutputCollector.emit(<span class="keyword">new</span> Values(num++));</span><br><span class="line">            <span class="comment">//每隔一秒睡眠一次方便控制台观察输出</span></span><br><span class="line">            Utils.sleep(<span class="number">1000</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 声明发射字段</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> outputFieldsDeclarer</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">declareOutputFields</span><span class="params">(OutputFieldsDeclarer outputFieldsDeclarer)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//fields中的参数与emit()中的Values()一一对应</span></span><br><span class="line">            outputFieldsDeclarer.declare(<span class="keyword">new</span> Fields(<span class="string">"num"</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Bolt</span> <span class="keyword">extends</span> <span class="title">BaseRichBolt</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> Map config;</span><br><span class="line">        <span class="keyword">private</span> TopologyContext topologyContext;</span><br><span class="line">        <span class="keyword">private</span> OutputCollector outputCollector;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">prepare</span><span class="params">(Map map, TopologyContext topologyContext, OutputCollector outputCollector)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.config = map;</span><br><span class="line">            <span class="keyword">this</span>.outputCollector = outputCollector;</span><br><span class="line">            <span class="keyword">this</span>.topologyContext = topologyContext;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 只要spout中有数据产生，execute就会被不断调用。</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> tuple</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">(Tuple tuple)</span> </span>&#123;</span><br><span class="line">            Integer num = tuple.getIntegerByField(<span class="string">"num"</span>);</span><br><span class="line">            sum += num;</span><br><span class="line">            System.out.println(sum);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 如果不需要向外发射tuple，该方法就不需要实现。</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> outputFieldsDeclarer</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">declareOutputFields</span><span class="params">(OutputFieldsDeclarer outputFieldsDeclarer)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>创建执行方法<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.nucc.channel.govern.demo.storm.topology;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.storm.Config;</span><br><span class="line"><span class="keyword">import</span> org.apache.storm.LocalCluster;</span><br><span class="line"><span class="keyword">import</span> org.apache.storm.topology.TopologyBuilder;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>: 执行storm</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: zhangchi</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@email</span>: zhangchi@nucc.com</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@datetime</span>: 2018/5/5 23:18</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span>: 1.0.0</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Run</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//创建一个topology</span></span><br><span class="line">        TopologyBuilder topologyBuilder = <span class="keyword">new</span> TopologyBuilder();</span><br><span class="line">        topologyBuilder.setSpout(<span class="string">"spoutName"</span>, <span class="keyword">new</span> StormTopology.Spout());</span><br><span class="line">        topologyBuilder.setBolt(<span class="string">"boltName"</span>, <span class="keyword">new</span> StormTopology.Bolt()).shuffleGrouping(<span class="string">"spoutName"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//创建一个本地集群</span></span><br><span class="line">        LocalCluster localCluster = <span class="keyword">new</span> LocalCluster();</span><br><span class="line">        String topologyName = <span class="keyword">new</span> StormTopology().getClass().getSimpleName();</span><br><span class="line">        Config config = <span class="keyword">new</span> Config();</span><br><span class="line">        localCluster.submitTopology(topologyName, config, topologyBuilder.createTopology());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>直接运行回报IRichSpout类找不到异常。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">java.lang.NoClassDefFoundError: org/apache/storm/topology/IRichSpout</span><br><span class="line">	at java.lang.Class.getDeclaredMethods0(Native Method)</span><br><span class="line">	at java.lang.Class.privateGetDeclaredMethods(Class.java:<span class="number">2701</span>)</span><br><span class="line">	at java.lang.Class.privateGetMethodRecursive(Class.java:<span class="number">3048</span>)</span><br><span class="line">	at java.lang.Class.getMethod0(Class.java:<span class="number">3018</span>)</span><br><span class="line">	at java.lang.Class.getMethod(Class.java:<span class="number">1784</span>)</span><br><span class="line">	at sun.launcher.LauncherHelper.validateMainClass(LauncherHelper.java:<span class="number">544</span>)</span><br><span class="line">	at sun.launcher.LauncherHelper.checkAndLoadMain(LauncherHelper.java:<span class="number">526</span>)</span><br><span class="line">Caused by: java.lang.ClassNotFoundException: org.apache.storm.topology.IRichSpout</span><br><span class="line">	at java.net.URLClassLoader.findClass(URLClassLoader.java:<span class="number">381</span>)</span><br><span class="line">	at java.lang.ClassLoader.loadClass(ClassLoader.java:<span class="number">424</span>)</span><br><span class="line">	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:<span class="number">335</span>)</span><br><span class="line">	at java.lang.ClassLoader.loadClass(ClassLoader.java:<span class="number">357</span>)</span><br><span class="line">	... <span class="number">7</span> more</span><br><span class="line">Error: A JNI error has occurred, please check your installation and <span class="keyword">try</span> again</span><br><span class="line">Exception in thread <span class="string">"main"</span></span><br></pre></td></tr></table></figure></p>
+<p>需要把pom.xml中的scope注释掉</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--&lt;scope&gt;provided&lt;/scope&gt;--&gt;</span></span><br></pre></td></tr></table></figure>
+<p>运行结果为:<br><img src="http://oy48q6kwm.bkt.clouddn.com/175f384b5f5abc26b816b032a715e025.png" alt="storm输出结果"></p>
+<h2 id="集群模式运行"><a href="#集群模式运行" class="headerlink" title="集群模式运行"></a>集群模式运行</h2>
       
     </div>
     
@@ -347,7 +501,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/BigData/" rel="tag"># BigData</a>
+            <a href="/tags/storm/" rel="tag"># storm</a>
           
         </div>
       
@@ -424,8 +578,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -455,7 +618,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 
               </div>
@@ -466,7 +629,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
@@ -489,6 +652,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Storm"><span class="nav-number">1.</span> <span class="nav-text">Storm</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">1.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Storm组件"><span class="nav-number">1.2.</span> <span class="nav-text">Storm组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Topology（拓扑）"><span class="nav-number">1.2.1.</span> <span class="nav-text">Topology（拓扑）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stream（流）"><span class="nav-number">1.2.2.</span> <span class="nav-text">Stream（流）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tuple"><span class="nav-number">1.2.3.</span> <span class="nav-text">Tuple</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.3.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载安装包上传至服务器http-storm-apache-org-downloads-html"><span class="nav-number">1.3.1.</span> <span class="nav-text">下载安装包上传至服务器http://storm.apache.org/downloads.html</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分配好资源"><span class="nav-number">1.3.2.</span> <span class="nav-text">分配好资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动服务"><span class="nav-number">1.3.3.</span> <span class="nav-text">启动服务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开发"><span class="nav-number">1.4.</span> <span class="nav-text">开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#本地模式"><span class="nav-number">1.4.1.</span> <span class="nav-text">本地模式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集群模式运行"><span class="nav-number">1.5.</span> <span class="nav-text">集群模式运行</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

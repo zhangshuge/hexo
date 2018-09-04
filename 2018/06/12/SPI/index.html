@@ -91,7 +91,7 @@
 <meta property="og:image" content="http://oy48q6kwm.bkt.clouddn.com/844260e730402156de6fc27fdaab4225.png">
 <meta property="og:image" content="http://oy48q6kwm.bkt.clouddn.com/99cc45ae7656f070832417cd2a8937e2.png">
 <meta property="og:image" content="http://oy48q6kwm.bkt.clouddn.com/5d10eb2954d50d994b881d8b9de2aac0.png">
-<meta property="og:updated_time" content="2018-06-12T12:29:54.220Z">
+<meta property="og:updated_time" content="2018-07-09T12:16:23.206Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SPI">
 <meta name="twitter:description" content="SPISPI 全称为 (Service Provider Interface) ,是JDK内置的一种服务提供发现机制。面向的对象的设计里，我们一般推荐模块之间基于接口编程，模块之间不对实现类进行硬编码。一旦代码里涉及具体的实现类，就违反了可拔插的原则，如果需要替换一种实现，就需要修改代码。为了实现在模块装配的时候能不在程序里动态指明，这就需要一种服务发现机制。java spi就是提供这样的一个机制">
@@ -383,7 +383,7 @@
 </tr>
 </tbody>
 </table>
-<p>简单理解API更注重于服务端的实现，SPI更关注与调用方的扩展性。想修改一个实现时不需要对它进行硬编码了。</p>
+<p>简单理解API更注重于服务端的实现，SPI更关注与调用方的扩展性。想修改一个实现时不需要对它进行硬编码了。api<code>是给使用者使用的,</code>spi`是给拓展者使用的.一个好的开源框架,必须要留一些拓展点.让参与者尽量黑盒拓展,而不是白盒修改代码,否则分支,质量,合并,冲突都会很难管理.并且框架作者能做到的功能,拓展者也一定能做到. </p>
 <h2 id="SPI规范"><a href="#SPI规范" class="headerlink" title="SPI规范"></a>SPI规范</h2><p>要实现一个SPI应该具备哪些规范呢<br><img src="http://oy48q6kwm.bkt.clouddn.com/89f1b570bd2bc6f736864b6dcd223da8.png" alt="spi规范"></p>
 <h2 id="SPI实例"><a href="#SPI实例" class="headerlink" title="SPI实例"></a>SPI实例</h2><p>项目结构：<br><img src="http://oy48q6kwm.bkt.clouddn.com/844260e730402156de6fc27fdaab4225.png" alt="spi"></p>
 <p>HelloSpi接口：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.nucc.channel.govern.demo.spi;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>: SPI接口</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: zhangchi</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@email</span>: zhangchi@nucc.com</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@datetime</span>: 2018/5/6 18:24</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span>: 1.0.0</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">HelloSpi</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * hello,SPI</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">sayHello</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -431,8 +431,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/12/jdk8新特性/" rel="next" title="jdk8新特性">
-                <i class="fa fa-chevron-left"></i> jdk8新特性
+              <a href="/2018/06/12/java/" rel="next" title="java">
+                <i class="fa fa-chevron-left"></i> java
               </a>
             
           </div>
@@ -440,6 +440,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/06/kafka/" rel="prev" title="kafka">
+                kafka <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -520,7 +524,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -531,7 +535,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 
               </div>

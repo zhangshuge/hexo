@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="java," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="Stream流123456List&amp;lt;String&amp;gt; threeHighCaloricDishNames =                menu.stream()                    .filter(d -&amp;gt; d.getCalories() &amp;gt; 300)                    .map(Dish::getName)">
-<meta name="keywords" content="java">
+<meta name="description" content="kafka专业术语 Producer：负责发布消息到Kafka broker  Consumer：消费消息。每个consumer属于一个特定的consumer group（可为每个consumer指定group name，若不指定group name则属于默认的group）。使用consumer high level API时，同一topic的一条消息只能被同一个consumer group内的一">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jdk8新特性">
-<meta property="og:url" content="https://zhangshuge.github.io/2018/06/12/jdk8新特性/index.html">
+<meta property="og:title" content="kafka">
+<meta property="og:url" content="https://zhangshuge.github.io/2018/07/06/kafka/index.html">
 <meta property="og:site_name" content="卐 张墨辰 Ψ">
-<meta property="og:description" content="Stream流123456List&amp;lt;String&amp;gt; threeHighCaloricDishNames =                menu.stream()                    .filter(d -&amp;gt; d.getCalories() &amp;gt; 300)                    .map(Dish::getName)">
+<meta property="og:description" content="kafka专业术语 Producer：负责发布消息到Kafka broker  Consumer：消费消息。每个consumer属于一个特定的consumer group（可为每个consumer指定group name，若不指定group name则属于默认的group）。使用consumer high level API时，同一topic的一条消息只能被同一个consumer group内的一">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://github.com/zhangshuge/learn/blob/master/imgs/1508374379.jpg?raw=true">
-<meta property="og:updated_time" content="2018-06-12T12:37:07.954Z">
+<meta property="og:image" content="c:/Users/zhangchi/Pictures/Saved%20Pictures/1534415966036.png">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/1122015/201705/1122015-20170524175935107-335784290.png">
+<meta property="og:updated_time" content="2018-08-16T12:21:13.834Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jdk8新特性">
-<meta name="twitter:description" content="Stream流123456List&amp;lt;String&amp;gt; threeHighCaloricDishNames =                menu.stream()                    .filter(d -&amp;gt; d.getCalories() &amp;gt; 300)                    .map(Dish::getName)">
-<meta name="twitter:image" content="https://github.com/zhangshuge/learn/blob/master/imgs/1508374379.jpg?raw=true">
+<meta name="twitter:title" content="kafka">
+<meta name="twitter:description" content="kafka专业术语 Producer：负责发布消息到Kafka broker  Consumer：消费消息。每个consumer属于一个特定的consumer group（可为每个consumer指定group name，若不指定group name则属于默认的group）。使用consumer high level API时，同一topic的一条消息只能被同一个consumer group内的一">
+<meta name="twitter:image" content="c:/Users/zhangchi/Pictures/Saved%20Pictures/1534415966036.png">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://zhangshuge.github.io/2018/06/12/jdk8新特性/"/>
+  <link rel="canonical" href="https://zhangshuge.github.io/2018/07/06/kafka/"/>
 
 
 
 
 
-  <title>jdk8新特性 | 卐 张墨辰 Ψ</title>
+  <title>kafka | 卐 张墨辰 Ψ</title>
   
 
 
@@ -265,7 +265,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhangshuge.github.io/2018/06/12/jdk8新特性/">
+    <link itemprop="mainEntityOfPage" href="https://zhangshuge.github.io/2018/07/06/kafka/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="张舒歌">
@@ -282,7 +282,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">jdk8新特性</h1>
+          <h1 class="post-title" itemprop="name headline">kafka</h1>
         
 
         <div class="post-meta">
@@ -294,8 +294,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-12T20:21:07+08:00">
-                2018-06-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-06T11:40:08+08:00">
+                2018-07-06
               </time>
             
 
@@ -304,28 +304,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -354,8 +332,21 @@
       
 
       
-        <h2 id="Stream流"><a href="#Stream流" class="headerlink" title="Stream流"></a>Stream流</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; threeHighCaloricDishNames =</span><br><span class="line">                menu.stream()</span><br><span class="line">                    .filter(d -&gt; d.getCalories() &gt; <span class="number">300</span>)</span><br><span class="line">                    .map(Dish::getName)</span><br><span class="line">                    .limit(<span class="number">3</span>)</span><br><span class="line">                    .collect(Collectors.toList());</span><br></pre></td></tr></table></figure>
-<p><img src="https://github.com/zhangshuge/learn/blob/master/imgs/1508374379.jpg?raw=true" alt="1508374379"><br><em><font color="coral">集合注重的是数据，而流注重的是计算。和迭代器类似流也只能遍历一次，遍历完之后我们可以将这个流视为已被消费掉了</font></em></p>
+        <h2 id="kafka专业术语"><a href="#kafka专业术语" class="headerlink" title="kafka专业术语"></a>kafka专业术语</h2><ul>
+<li>Producer：负责发布消息到Kafka broker </li>
+<li>Consumer：消费消息。每个consumer属于一个特定的consumer group（可为每个consumer指定group name，若不指定group name则属于默认的group）。使用consumer high level API时，同一topic的一条消息只能被同一个consumer group内的一个consumer消费，但多个consumer group可同时消费这一消息。 </li>
+<li>Broker：消息中间件处理结点，一个Kafka节点就是一个broker，多个broker可以组成一个Kafka集群。 </li>
+<li>Topic：一类消息主题，Kafka集群能够同时负责多个topic的分发。 </li>
+<li>Partition：topic物理上的分组，一个topic可以分为多个partition，每个partition是一个有序的队列。 </li>
+<li>Segment：partition物理上由多个segment组成。 </li>
+<li>offset：每个partition都由一系列有序的、不可变的消息组成，这些消息被连续的追加到partition中。partition中的每个消息都有一个连续的序列号叫做offset，用于partition唯一标识一条消息 。</li>
+</ul>
+<p>在Kafka文件存储中，同一个topic下有多个不同partition，每个partition为一个目录，partiton命名规则为topic名称+有序序号，第一个partiton序号从0开始，序号最大值为partitions数量减1。 </p>
+<p><img src="C:\Users\zhangchi\Pictures\Saved Pictures\1534415966036.png" alt="1534415966036"></p>
+<p>一个topic 可以配置多个partition，Producer发送消息到broker时，会根据Paritition机制选择将其存储到哪一个Partition。如果Partition机制设置合理，所有消息可以均匀分布到不同的Partition里，这样就实现了负载均衡。如果一个Topic对应一个文件，那这个文件所在的机器I/O将会成为这个Topic的性能瓶颈，而有了Partition后，不同的消息可以并行写入不同broker的不同Partition里，极大的提高了吞吐率。</p>
+<p>consumer接受数据的时候是按照group来接受，<code>kafka确保每个partition只能同一个group中的同一个consumer消费，如果想要重复消费，那么需要其他的组来消费。</code>Zookeerper中保存这每个topic下的每个partition在每个group中消费的offset  新版kafka把这个offsert保存到了一个consumer_offsert的topic下这个consumer_offsert 有50个分区，通过将group的id哈希值%50的值来确定要保存到那一个分区.  这样也是为了考虑到zookeeper不擅长大量读写的原因。 </p>
+<p>所以，如果要一个group用几个consumer来同时读取的话，需要多线程来读取，一个线程相当于一个consumer实例。当consumer的数量大于分区的数量的时候，有的consumer线程会读取不到数据。  假设一个topic test 被groupA消费了，现在启动另外一个新的groupB来消费test，默认test-groupB的offset不是0，而是没有新建立，除非当test有数据的时候，groupB会收到该数据，该条数据也是第一条数据，groupB的offset也是刚初始化的ofsert, 除非用显式的用–from-beginnging 来获取从0开始数据 。</p>
+<p><img src="https://images2015.cnblogs.com/blog/1122015/201705/1122015-20170524175935107-335784290.png" alt="img"> </p>
 
       
     </div>
@@ -371,12 +362,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/java/" rel="tag"># java</a>
-          
-        </div>
-      
 
       
       
@@ -386,8 +371,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/12/java/" rel="next" title="java">
-                <i class="fa fa-chevron-left"></i> java
+              <a href="/2018/06/12/SPI/" rel="next" title="SPI">
+                <i class="fa fa-chevron-left"></i> SPI
               </a>
             
           </div>
@@ -396,8 +381,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/06/12/SPI/" rel="prev" title="SPI">
-                SPI <i class="fa fa-chevron-right"></i>
+              <a href="/2018/07/06/常用工具/" rel="prev" title="常用工具">
+                常用工具 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -479,7 +464,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -490,7 +475,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 
               </div>
@@ -534,7 +519,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Stream流"><span class="nav-number">1.</span> <span class="nav-text">Stream流</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#kafka专业术语"><span class="nav-number">1.</span> <span class="nav-text">kafka专业术语</span></a></li></ol></div>
             
 
           </div>

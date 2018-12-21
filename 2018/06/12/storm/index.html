@@ -101,7 +101,7 @@
 <meta property="og:image" content="c:/Users/zhangchi/AppData/Local/Temp/1534486378370.png">
 <meta property="og:image" content="c:/Users/zhangchi/Pictures/Saved%20Pictures/1534486615053.png">
 <meta property="og:image" content="c:/Users/zhangchi/AppData/Local/Temp/1534486864083.png">
-<meta property="og:updated_time" content="2018-08-17T06:29:15.458Z">
+<meta property="og:updated_time" content="2018-11-27T08:26:49.495Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="storm">
 <meta name="twitter:description" content="Storm1、基本概念在storm的集群中有两种节点：  Nimbus:主节点（Mater Node）Nimbus负责在集群中分发代码，分配工作给机器，并且监控状态。 Supervisor:工作节点(Worker Node)每个工作节点上运行一个supervisor进程，supervisor会监听nimbus分配给那台机器的工作，根据需要启动或者关闭具体的worker进程。  每个worker进程">
@@ -452,7 +452,8 @@
 <blockquote>
 <p># Licensed to the Apache Software Foundation (ASF) under one<br># or more contributor license agreements.  See the NOTICE file<br># distributed with this work for additional information<br># regarding copyright ownership.  The ASF licenses this file<br># to you under the Apache License, Version 2.0 (the<br># “License”); you may not use this file except in compliance<br># with the License.  You may obtain a copy of the License at<br>#<br># <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener">http://www.apache.org/licenses/LICENSE-2.0</a><br>#<br># Unless required by applicable law or agreed to in writing, software<br># distributed under the License is distributed on an “AS IS” BASIS,<br># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.<br># See the License for the specific language governing permissions and<br># limitations under the License.</p>
 <p>########### These MUST be filled in for a storm configuration<br>storm.zookeeper.servers:<br>&nbsp;&nbsp;&nbsp;&nbsp;- “172.16.1.43”<br>&nbsp;&nbsp;&nbsp;&nbsp;- “172.16.1.62”<br>&nbsp;&nbsp;&nbsp;&nbsp;- “172.16.1.64”</p>
-<p>#     - “server2”<br>#<br>nimbus.seeds: [“172.16.10.22”]<br>supervisor.slots.ports:<br>&nbsp;&nbsp;&nbsp;&nbsp;- 6700<br>&nbsp;&nbsp;&nbsp;&nbsp;- 6701<br>&nbsp;&nbsp;&nbsp;&nbsp;- 6702<br>&nbsp;&nbsp;&nbsp;&nbsp;- 6703<br>#<br>#<br># ##### These may optionally be filled in:<br>#<br>## List of custom serializations<br># topology.kryo.register:<br>#     - org.mycompany.MyType<br>#     - org.mycompany.MyType2: org.mycompany.MyType2Serializer<br>#<br>## List of custom kryo decorators<br># topology.kryo.decorators:<br>#     - org.mycompany.MyDecorator<br>#<br>## Locations of the drpc servers<br># drpc.servers:<br>#     - “server1”<br>#     - “server2”</p>
+<p>#     - “server2”<br>#<br>nimbus.seeds: [“172.16.10.22”]<br>supervisor.slots.ports:<br>&nbsp;&nbsp;&nbsp;&nbsp;- 6700<br>&nbsp;&nbsp;&nbsp;&nbsp;- 6701<br>&nbsp;&nbsp;&nbsp;&nbsp;- 6702<br>&nbsp;&nbsp;&nbsp;&nbsp;- 6703</p>
+<p>#<br># ##### These may optionally be filled in:<br>#<br>## List of custom serializations<br># topology.kryo.register:<br>#     - org.mycompany.MyType<br>#     - org.mycompany.MyType2: org.mycompany.MyType2Serializer<br>#<br>## List of custom kryo decorators<br># topology.kryo.decorators:<br>#     - org.mycompany.MyDecorator<br>#<br>## Locations of the drpc servers<br># drpc.servers:<br>#     - “server1”<br>#     - “server2”</p>
 <p>## Metrics Consumers<br>## max.retain.metric.tuples<br>## - task queue will be unbounded when max.retain.metric.tuples is equal or less than 0.<br>## whitelist / blacklist<br>## - when none of configuration for metric filter are specified, it’ll be treated as ‘pass all’.<br>## - you need to specify either whitelist or blacklist, or none of them. You can’t specify both of them.<br>## - you can specify multiple whitelist / blacklist with regular expression<br>## expandMapType: expand metric with map type as value to multiple metrics<br>## - set to true when you would like to apply filter to expanded metrics<br>## - default value is false which is backward compatible value<br>## metricNameSeparator: separator between origin metric name and key of entry from map<br>## - only effective when expandMapType is set to true<br># topology.metrics.consumer.register:<br>#   - class: “org.apache.storm.metric.LoggingMetricsConsumer”<br>#     max.retain.metric.tuples: 100<br>#     parallelism.hint: 1<br>#   - class: “org.mycompany.MyMetricsConsumer”<br>#     max.retain.metric.tuples: 100<br>#     whitelist:<br>#       - “execute.*”<br>#       - “^__complete-latency$”<br>#     parallelism.hint: 1<br>#     argument:<br>#       - endpoint: “metrics-collector.mycompany.org”<br>#     expandMapType: true<br>#     metricNameSeparator: “.”</p>
 <p>## Cluster Metrics Consumers<br># storm.cluster.metrics.consumer.register:<br>#   - class: “org.apache.storm.metric.LoggingClusterMetricsConsumer”<br>#   - class: “org.mycompany.MyMetricsConsumer”<br>#     argument:<br>#       - endpoint: “metrics-collector.mycompany.org”<br>#<br># storm.cluster.metrics.consumer.publish.interval.secs: 60</p>
 <p>storm.local.dir: “/data/storm/data”<br>ui.port: 9001</p>
@@ -467,7 +468,7 @@
 <li>nohup /tools/apache-storm-1.1.0/bin/storm nimbus &gt;/dev/null 2&gt;&amp;1 &amp;</li>
 <li>nohup /tools/apache-storm-1.1.0/bin/storm logviewer &gt;/dev/null 2&gt;&amp;1 &amp;</li>
 </ul>
-<p><img src="http://oy48q6kwm.bkt.clouddn.com/e1e783cdcd9be99de0af4488d1e17878.png" alt="nimbus"></p>
+<p><img src="http://oy48q6kwm.bkt.clouddn.com/e1e783cdcd9be99de0af4488d1e17878.png" alt="nimbus"> </p>
 <p>core是UI进程、nimbus、logviewer进程已经都起来了。</p>
 <p>172.16.10.23</p>
 <ul>
@@ -517,13 +518,14 @@
 <h4 id="Version-incompatibility在1-0之前的Storm版本中，MultiScheme方法接受一个-byte-而不是-ByteBuffer。-MultScheme和相关的方案apis在版本1-0中被更改为接受ByteBuffer而不是byte-。这意味着，在1-0版及更高版本之前，1-0版的kafka-spouts将无法使用。在Storm-1-0及更高版本中运行拓扑时，必须确保storm-kafka版本至少为1-0。1-0之前的-topology-jar-必须重新和storm-kafka-1-0版本构建，以便在Storm-1-0及更高版本的群集中运行。"><a href="#Version-incompatibility在1-0之前的Storm版本中，MultiScheme方法接受一个-byte-而不是-ByteBuffer。-MultScheme和相关的方案apis在版本1-0中被更改为接受ByteBuffer而不是byte-。这意味着，在1-0版及更高版本之前，1-0版的kafka-spouts将无法使用。在Storm-1-0及更高版本中运行拓扑时，必须确保storm-kafka版本至少为1-0。1-0之前的-topology-jar-必须重新和storm-kafka-1-0版本构建，以便在Storm-1-0及更高版本的群集中运行。" class="headerlink" title="Version incompatibility在1.0之前的Storm版本中，MultiScheme方法接受一个 byte [] 而不是 ByteBuffer。 MultScheme和相关的方案apis在版本1.0中被更改为接受ByteBuffer而不是byte []。这意味着，在1.0版及更高版本之前，1.0版的kafka spouts将无法使用。在Storm 1.0及更高版本中运行拓扑时，必须确保storm-kafka版本至少为1.0。1.0之前的 topology jar 必须重新和storm-kafka 1.0版本构建，以便在Storm 1.0及更高版本的群集中运行。"></a>Version incompatibility在1.0之前的Storm版本中，MultiScheme方法接受一个 <code>byte []</code> 而不是 <code>ByteBuffer</code>。 MultScheme和相关的方案apis在版本1.0中被更改为接受ByteBuffer而不是byte []。这意味着，在1.0版及更高版本之前，1.0版的kafka spouts将无法使用。在Storm 1.0及更高版本中运行拓扑时，必须确保storm-kafka版本至少为1.0。1.0之前的 topology jar 必须重新和storm-kafka 1.0版本构建，以便在Storm 1.0及更高版本的群集中运行。</h4></blockquote>
   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">javaBrokerHosts hosts = <span class="keyword">new</span> ZkHosts(zkConnString);</span><br><span class="line">SpoutConfig spoutConfig = <span class="keyword">new</span> SpoutConfig(hosts, topicName, <span class="string">"/"</span> + topicName, UUID.randomUUID().toString());</span><br><span class="line">spoutConfig.scheme = <span class="keyword">new</span> SchemeAsMultiScheme(<span class="keyword">new</span> StringScheme());</span><br><span class="line">KafkaSpout kafkaSpout = <span class="keyword">new</span> KafkaSpout(spoutConfig);</span><br></pre></td></tr></table></figure>
 <h4 id="Trident-Spout"><a href="#Trident-Spout" class="headerlink" title="Trident Spout"></a>Trident Spout</h4>  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">TridentTopology topology = <span class="keyword">new</span> TridentTopology();</span><br><span class="line">BrokerHosts zk = <span class="keyword">new</span> ZkHosts(<span class="string">"localhost"</span>);</span><br><span class="line">TridentKafkaConfig spoutConf = <span class="keyword">new</span> TridentKafkaConfig(zk, <span class="string">"test-topic"</span>);</span><br><span class="line">spoutConf.scheme = <span class="keyword">new</span> SchemeAsMultiScheme(<span class="keyword">new</span> StringScheme());</span><br><span class="line">OpaqueTridentKafkaSpout spout = <span class="keyword">new</span> OpaqueTridentKafkaSpout(spoutConf);</span><br></pre></td></tr></table></figure>
-<h3 id="6-5、偏移量处理"><a href="#6-5、偏移量处理" class="headerlink" title="6.5、偏移量处理"></a>6.5、偏移量处理</h3><p>​    KafkaSpout如何存储Kafka主题的偏移量并在发生故障时恢复，如上面的KafkaConfig属性所示，您可以通过设置 <code>KafkaConfig.startOffsetTime</code> 来控制从Kafka topic 的哪个端口开始读取，如下所示： </p>
-<ul>
+<h3 id="6-5、偏移量处理"><a href="#6-5、偏移量处理" class="headerlink" title="6.5、偏移量处理"></a>6.5、偏移量处理</h3><pre><code>KafkaSpout如何存储Kafka主题的偏移量并在发生故障时恢复，如上面的KafkaConfig属性所示，您可以通过设置 `KafkaConfig.startOffsetTime` 来控制从Kafka topic 的哪个端口开始读取，如下所示： 
+</code></pre><ul>
 <li>kafka.api.OffsetRequest.EarliestTime()：从topic 初始位置读取消息 (例如，从最老的那个消息开始) </li>
 <li>kafka.api.OffsetRequest.LatestTime()：从topic尾部开始读取消息 (例如，新写入topic的信息) </li>
-<li>一个Unix时间戳，从当前 epoch 开始.（例如，可以通过System.currentTimeMillis(）），具体的可以查看Kafka FAQ中的 <a href="https://cwiki.apache.org/confluence/display/KAFKA/FAQ#FAQ-HowdoIaccuratelygetoffsetsofmessagesforacertaintimestampusingOffsetRequest?" target="_blank" rel="noopener">How do I accurately get offsets of messages for a certain timestamp using OffsetRequest?</a> .</li>
+<li><p>一个Unix时间戳，从当前 epoch 开始.（例如，可以通过System.currentTimeMillis(）），具体的可以查看Kafka FAQ中的 <a href="https://cwiki.apache.org/confluence/display/KAFKA/FAQ#FAQ-HowdoIaccuratelygetoffsetsofmessagesforacertaintimestampusingOffsetRequest?" target="_blank" rel="noopener">How do I accurately get offsets of messages for a certain timestamp using OffsetRequest?</a> .</p>
+<p>   当topology（拓扑）运行Kafka Spout ，并跟踪读取和发送的offset，并将状态信息存储到zk path <code>SpoutConfig.zkRoot+ &quot;/&quot; + SpoutConfig.id</code>.在故障的情况下，它会从ZooKeeper的最后一次写入偏移中恢复。 </p>
+</li>
 </ul>
-<p>​     当topology（拓扑）运行Kafka Spout ，并跟踪读取和发送的offset，并将状态信息存储到zk path <code>SpoutConfig.zkRoot+ &quot;/&quot; + SpoutConfig.id</code>.在故障的情况下，它会从ZooKeeper的最后一次写入偏移中恢复。 </p>
 <blockquote>
 <p><strong>Important:</strong> 新部署topology（拓扑）时，请确保<code>SpoutConfig.zkRoot</code>和<code>SpoutConfig.id</code>的设置未被修改， 否则spout将无法从ZooKeeper中读取以前的消费者状态信息（即偏移量）导致意外的行为和/或数据丢失，具体取决于您的用例。 </p>
 </blockquote>
@@ -686,7 +688,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

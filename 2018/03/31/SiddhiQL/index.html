@@ -79,18 +79,34 @@
 
 
 
-<meta name="description" content="&amp;ensp;&amp;ensp;Siddhi是一个轻量级的，简单的开源的复杂事件流程引擎。它使用类SQL的语言描述事件流任务，可以很好的支撑开发一个可扩展的，可配置的流式任务执行引擎。https://docs.wso2.com/display/CEP410/Inbuilt+Functions#InbuiltFunctions-ifThenElseifThenElse&amp;ensp;&amp;ensp;Siddhi支持">
+<meta name="description" content="&amp;ensp;&amp;ensp; Siddhi是一个java库，它从数据流中侦听事件，检测通过Streaming SQL语言描述的复杂条件，并触发操作。它执行流处理和复杂事件处理。 ##Overview  ###Siddhi 支持以下内容  数据预处理 根据阈值生成警报 在短窗口或长时间段内聚合计算 支持多数据流操作 在发现缺失和错误事件时关联数据,触发相关动作 与数据库交互数据流 检测时间事件模式 跟踪">
 <meta name="keywords" content="SiddhiQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SiddhiQL">
 <meta property="og:url" content="https://zhangshuge.github.io/2018/03/31/SiddhiQL/index.html">
 <meta property="og:site_name" content="卐 张墨辰 Ψ">
-<meta property="og:description" content="&amp;ensp;&amp;ensp;Siddhi是一个轻量级的，简单的开源的复杂事件流程引擎。它使用类SQL的语言描述事件流任务，可以很好的支撑开发一个可扩展的，可配置的流式任务执行引擎。https://docs.wso2.com/display/CEP410/Inbuilt+Functions#InbuiltFunctions-ifThenElseifThenElse&amp;ensp;&amp;ensp;Siddhi支持">
+<meta property="og:description" content="&amp;ensp;&amp;ensp; Siddhi是一个java库，它从数据流中侦听事件，检测通过Streaming SQL语言描述的复杂条件，并触发操作。它执行流处理和复杂事件处理。 ##Overview  ###Siddhi 支持以下内容  数据预处理 根据阈值生成警报 在短窗口或长时间段内聚合计算 支持多数据流操作 在发现缺失和错误事件时关联数据,触发相关动作 与数据库交互数据流 检测时间事件模式 跟踪">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-31T10:09:52.777Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/wso2/siddhi/master/docs/images/siddhi-overview.png?raw=true">
+<meta property="og:image" content="https://wso2.org/jenkins/view/wso2-dependencies/job/siddhi/job/siddhi/badge/icon">
+<meta property="og:image" content="https://wso2.github.io/siddhi/images/quickstart/event-stream.png?raw=true">
+<meta property="og:image" content="https://wso2.github.io/siddhi/images/quickstart/siddhi-basic.png?raw=true">
+<meta property="og:image" content="https://wso2.github.io/siddhi/images/siddhi-overview.png?raw=true">
+<meta property="og:image" content="https://wso2.github.io/siddhi/images/quickstart/after-starting-sp.png?raw=true">
+<meta property="og:image" content="https://wso2.github.io/siddhi/images/quickstart/sp-studio.png?raw=true">
+<meta property="og:image" content="https://wso2.github.io/siddhi/images/quickstart/loading-ship.jpeg?raw=true">
+<meta property="og:image" content="https://wso2.github.io/siddhi/images/quickstart/hello-query.png?raw=true">
+<meta property="og:image" content="https://wso2.github.io/siddhi/images/quickstart/event-simulation.png?raw=true">
+<meta property="og:image" content="https://wso2.github.io/siddhi/images/quickstart/log.png?raw=true">
+<meta property="og:image" content="https://wso2.github.io/siddhi/images/quickstart/siddhi-windows.png?raw=true">
+<meta property="og:image" content="https://wso2.github.io/siddhi/images/quickstart/window-processing-app.png?raw=true">
+<meta property="og:image" content="http://www.zhangchi.ink:8080/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181103110651.png">
+<meta property="og:image" content="https://wso2.github.io/siddhi/images/event-flow.png?raw=true">
+<meta property="og:updated_time" content="2018-12-21T14:40:32.370Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SiddhiQL">
-<meta name="twitter:description" content="&amp;ensp;&amp;ensp;Siddhi是一个轻量级的，简单的开源的复杂事件流程引擎。它使用类SQL的语言描述事件流任务，可以很好的支撑开发一个可扩展的，可配置的流式任务执行引擎。https://docs.wso2.com/display/CEP410/Inbuilt+Functions#InbuiltFunctions-ifThenElseifThenElse&amp;ensp;&amp;ensp;Siddhi支持">
+<meta name="twitter:description" content="&amp;ensp;&amp;ensp; Siddhi是一个java库，它从数据流中侦听事件，检测通过Streaming SQL语言描述的复杂条件，并触发操作。它执行流处理和复杂事件处理。 ##Overview  ###Siddhi 支持以下内容  数据预处理 根据阈值生成警报 在短窗口或长时间段内聚合计算 支持多数据流操作 在发现缺失和错误事件时关联数据,触发相关动作 与数据库交互数据流 检测时间事件模式 跟踪">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/wso2/siddhi/master/docs/images/siddhi-overview.png?raw=true">
 
 
 
@@ -352,7 +368,1600 @@
       
 
       
-        <p>&ensp;&ensp;Siddhi是一个轻量级的，简单的开源的复杂事件流程引擎。它使用类SQL的语言描述事件流任务，可以很好的支撑开发一个可扩展的，可配置的流式任务执行引擎。<a href="https://docs.wso2.com/display/CEP410/Inbuilt+Functions#InbuiltFunctions-ifThenElseifThenElse" target="_blank" rel="noopener">https://docs.wso2.com/display/CEP410/Inbuilt+Functions#InbuiltFunctions-ifThenElseifThenElse</a><br>&ensp;&ensp;Siddhi支持对于流式数据的类 SQL 的查询，SQL 式的 query 通过 complier 翻译成 Java 代码。 当一条数据流或多条数据流流入时，Siddhi Core 会实时的 check 当前数据流是否满足定义的 query，如果满足则触发 Callback 执行相应的逻辑。</p>
+        <p>&ensp;&ensp;</p>
+<p>Siddhi是一个java库，它从数据流中侦听事件，检测通过Streaming SQL语言描述的复杂条件，并触发操作。它执行流处理和复杂事件处理。</p>
+<p>##Overview</p>
+<p><img src="https://raw.githubusercontent.com/wso2/siddhi/master/docs/images/siddhi-overview.png?raw=true" alt=""></p>
+<p>###Siddhi 支持以下内容</p>
+<ul>
+<li>数据预处理</li>
+<li>根据阈值生成警报</li>
+<li>在短窗口或长时间段内聚合计算</li>
+<li>支持多数据流操作</li>
+<li>在发现缺失和错误事件时关联数据,触发相关动作</li>
+<li>与数据库交互数据流</li>
+<li>检测时间事件模式</li>
+<li>跟踪（某些空间或时间）</li>
+<li>分析趋势（上升，下降，转弯，底部）</li>
+<li>使用现有和在线机器学习模型进行实时预测</li>
+<li>还有更多…有关更多信息，请参阅<a href="https://www.kdnuggets.com/2015/08/patterns-streaming-realtime-analytics.html" target="_blank" rel="noopener">Patterns of Streaming Realtime Analytics</a></li>
+</ul>
+<h3 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h3><p>按照入门指南 <a href="https://wso2.github.io/siddhi/documentation/siddhi-quckstart-4.0/" target="_blank" rel="noopener">Siddhi Quick Start Guide</a>几分钟之内即可使用siddhi</p>
+<h3 id="为什么要用Siddhi"><a href="#为什么要用Siddhi" class="headerlink" title="为什么要用Siddhi"></a>为什么要用Siddhi</h3><ul>
+<li>它很快。<a href="http://wso2.com/library/conference/2017/2/wso2con-usa-2017-scalable-real-time-complex-event-processing-at-uber?utm_source=gitanalytics&amp;utm_campaign=gitanalytics_Jul17" target="_blank" rel="noopener">UBER</a>每天使用它来处理200亿个事件（每秒300,000个事件）</li>
+<li>它很小（&lt;2MB），轻量级可嵌入Android和RaspberryPi。</li>
+<li>它有超过40个<a href="https://wso2.github.io/siddhi/extensions/" target="_blank" rel="noopener">Siddhi扩展</a></li>
+<li>它被60多家公司使用，其中包括许多财富500强企业的生产环境。以下是一些例子：<ul>
+<li>WSO2使用Siddhi用于以下目的：<ul>
+<li>To provide stream processing capabilities in their products such as <a href="http://wso2.com/analytics?utm_source=gitanalytics&amp;utm_campaign=gitanalytics_Jul17" target="_blank" rel="noopener">WSO2 Stream Processor</a>.</li>
+<li>As the <strong>edge analytics</strong> library of <a href="http://wso2.com/iot?utm_source=gitanalytics&amp;utm_campaign=gitanalytics_Jul17" target="_blank" rel="noopener">WSO2 IoT Server</a>.</li>
+<li>As the core of <a href="http://wso2.com/api-management?utm_source=gitanalytics&amp;utm_campaign=gitanalytics_Jul17" target="_blank" rel="noopener">WSO2 API Manager</a>‘s throttling.</li>
+<li>As the core of <a href="http://wso2.com/platform?utm_source=gitanalytics&amp;utm_campaign=gitanalytics_Jul17" target="_blank" rel="noopener">WSO2 products’</a> analytics.</li>
+</ul>
+</li>
+<li>UBER使用Siddhi进行欺诈分析。</li>
+<li><a href="http://eagle.apache.org/docs/index.html" target="_blank" rel="noopener">Apache Eagle</a>使用Siddhi作为策略引擎。</li>
+</ul>
+</li>
+<li>基于Siddhi的解决方案已于2014年，2015年，2016年，2017年在<a href="https://dl.acm.org/results.cfm?query=(%252Bgrand%20%252Bchallenge%20%252Bwso2" target="_blank" rel="noopener">ACM DEBS Grand Challenge Stream Processing</a>&amp;within=owners.owner=HOSTED&amp;filtered=&amp;dte=&amp;bfr=)竞赛中入围决赛。</li>
+<li>Siddhi一直是许多学术研究项目的基础，有超过<a href="https://scholar.google.com/scholar?cites=5113376427716987836&amp;as_sdt=2005&amp;sciodt=0,5&amp;hl=en" target="_blank" rel="noopener">60个引用</a>。</li>
+</ul>
+<h3 id="使用IntelliJ-IDEA开发Siddhi"><a href="#使用IntelliJ-IDEA开发Siddhi" class="headerlink" title="使用IntelliJ IDEA开发Siddhi"></a>使用IntelliJ IDEA开发Siddhi</h3><p>安装<a href="https://wso2.github.io/siddhi-plugin-idea/" target="_blank" rel="noopener">IDEA插件</a>以获得以下功能：</p>
+<ul>
+<li>Siddhi查询编辑器，语法高亮，基本自动完成</li>
+<li>Siddhi Runner和Debugger支持测试Siddhi应用程序</li>
+</ul>
+<h3 id="尝试使用siddhi流处理器"><a href="#尝试使用siddhi流处理器" class="headerlink" title="尝试使用siddhi流处理器"></a>尝试使用siddhi流处理器</h3><p><a href="https://wso2.com/analytics-and-stream-processing/?utm_source=gitanalytics&amp;utm_campaign=gitanalytics_Jul17" target="_blank" rel="noopener">WSO2 Stream Processor</a>是Siddhi的服务器版本，也是在Apache Software License v2.0下发布的。在 <a href="https://go.forrester.com/blogs/16-04-16-15_true_streaming_analytics_platforms_for_real_time_everything/" target="_blank" rel="noopener">The Forrester Wave: Big Data Streaming Analytics, Q1 2016</a>(<a href="https://www.forrester.com/report/The+Forrester+Wave+Big+Data+Streaming+Analytics+Q1+2016/-/E-RES129023" target="_blank" rel="noopener">Report</a>) 和 <a href="https://www.gartner.com/doc/3314217/cool-vendors-internet-things-analytics" target="_blank" rel="noopener">Cool Vendors in Internet of Things Analytics, 2016</a>中它都是一个强有力的表现者。</p>
+<p>如果您使用WSO2流处理器，则可以使用Siddhi功能以及以下附加功能：</p>
+<ul>
+<li>Siddhi查询编辑器工具，具有语法突出显示和高级自动完成支持。</li>
+<li>Siddhi Runner和Debugger工具</li>
+<li>事件模拟器工具</li>
+<li>运行Siddhi作为具有高可用性和可伸缩性的服务器。</li>
+<li>监控对Siddhi的支持</li>
+<li>实时仪表板</li>
+<li>业务用户友好的查询生成和部署</li>
+</ul>
+<p>使用Siddhi构建了特定于域的解决方案，包括欺诈检测，股票市场监控，位置分析，邻近营销，上下文推荐，广告优化，运营分析和检测图表模式。有关更多信息，请通过<a href="http://wso2.com/support/与我们联系。" target="_blank" rel="noopener">http://wso2.com/support/与我们联系。</a></p>
+<h3 id="Siddhi-Versions"><a href="#Siddhi-Versions" class="headerlink" title="Siddhi Versions"></a>Siddhi Versions</h3><p>Find the released Siddhi libraries <a href="http://maven.wso2.org/nexus/content/groups/wso2-public/org/wso2/siddhi/" target="_blank" rel="noopener">here</a>.</p>
+<ul>
+<li><p><strong>Active development version of Siddhi</strong> : <strong>v4.0.0</strong> <em>built on Java 8.</em></p>
+<p><a href="https://wso2.github.io/siddhi/documentation/siddhi-4.0/" target="_blank" rel="noopener">Siddhi Query Guide</a> for Siddhi v4.x.x</p>
+<p><a href="https://wso2.github.io/siddhi/documentation/siddhi-architecture/" target="_blank" rel="noopener">Architecture</a> of Siddhi v4.x.x</p>
+</li>
+<li><p><strong>Latest Stable Release of Siddhi</strong> : <strong>v3.0.5</strong> <em>built on Java 7.</em></p>
+<p><a href="https://docs.wso2.com/display/DAS310/Siddhi+Query+Language" target="_blank" rel="noopener">Siddhi Query Guide</a> for Siddhi v3.x.x</p>
+</li>
+</ul>
+<h3 id="最新的API文档"><a href="#最新的API文档" class="headerlink" title="最新的API文档"></a>最新的API文档</h3><p>Latest API Docs is <a href="https://wso2.github.io/siddhi/api/4.2.26" target="_blank" rel="noopener">4.2.26</a>.</p>
+<h3 id="Jenkins构建状态"><a href="#Jenkins构建状态" class="headerlink" title="Jenkins构建状态"></a>Jenkins构建状态</h3><table>
+<thead>
+<tr>
+<th>Siddhi Branch</th>
+<th>Jenkins Build Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>master</td>
+<td><a href="https://wso2.org/jenkins/view/wso2-dependencies/job/siddhi/job/siddhi" target="_blank" rel="noopener"><img src="https://wso2.org/jenkins/view/wso2-dependencies/job/siddhi/job/siddhi/badge/icon" alt="Build Status"></a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="How-to-Contribute"><a href="#How-to-Contribute" class="headerlink" title="How to Contribute"></a>How to Contribute</h3><ul>
+<li>Report issues at <a href="https://github.com/wso2/siddhi/issues" target="_blank" rel="noopener">GitHub Issue Tracker</a>.</li>
+<li>Feel free to try out the <a href="https://github.com/wso2/siddhi" target="_blank" rel="noopener">Siddhi source code</a> and send your contributions as pull requests to the <a href="https://github.com/wso2/siddhi/tree/master" target="_blank" rel="noopener">master branch</a>.</li>
+</ul>
+<h3 id="Contact-us"><a href="#Contact-us" class="headerlink" title="Contact us"></a>Contact us</h3><ul>
+<li>Post your questions with the <a href="http://stackoverflow.com/search?q=siddhi" target="_blank" rel="noopener">“Siddhi”</a> tag in <a href="http://stackoverflow.com/search?q=siddhi" target="_blank" rel="noopener">Stackoverflow</a>.</li>
+<li>For more details and support contact us via <a href="http://wso2.com/support?utm_source=gitanalytics&amp;utm_campaign=gitanalytics_Jul17" target="_blank" rel="noopener">http://wso2.com/support/</a></li>
+</ul>
+<h3 id="Support"><a href="#Support" class="headerlink" title="Support"></a>Support</h3><ul>
+<li>We are committed to ensuring support for Siddhi (with its <a href="https://wso2.github.io/siddhi/extensions/" target="_blank" rel="noopener">extensions</a>) and <a href="http://wso2.com/analytics?utm_source=gitanalytics&amp;utm_campaign=gitanalytics_Jul17" target="_blank" rel="noopener">WSO2 Stream Processor</a>from development to production.</li>
+<li>Our unique approach ensures that all support leverages our open development methodology and is provided by the very same engineers who build the technology.</li>
+<li>For more details and to take advantage of this unique opportunity, contact us via <a href="http://wso2.com/support?utm_source=gitanalytics&amp;utm_campaign=gitanalytics_Jul17" target="_blank" rel="noopener">http://wso2.com/support/</a>.</li>
+</ul>
+<p>Siddhi was joint research project initiated by <a href="http://wso2.com/" target="_blank" rel="noopener">WSO2</a> and <a href="http://www.mrt.ac.lk/web/" target="_blank" rel="noopener">University of Moratuwa</a>, Sri Lanka.</p>
+<h2 id="Siddhi特性"><a href="#Siddhi特性" class="headerlink" title="Siddhi特性"></a>Siddhi特性</h2><ul>
+<li>事件检索<ul>
+<li>从不同的数据源支持各种消息格式</li>
+</ul>
+</li>
+<li>映射事件<ul>
+<li>处理各种数据格式映射事件流</li>
+<li>映射到多个数据流格式出版</li>
+</ul>
+</li>
+<li>流处理<ul>
+<li>filter<ul>
+<li>基于条件过滤流</li>
+</ul>
+</li>
+<li>window<ul>
+<li>支持滑动和批处理(暴跌)和许多其他类型的窗口</li>
+</ul>
+</li>
+<li>Aggregation(聚合)<ul>
+<li>支持长时间数据流聚合和规定窗口聚合</li>
+<li>支持Avg、Sum、Min、Max等函数</li>
+<li>支持<code>Group by</code> 分组和<code>having</code> 条件删选</li>
+</ul>
+</li>
+<li>增量摘要<ul>
+<li>支持处理和检索长时间运行的摘要</li>
+</ul>
+</li>
+<li>Table(表)<ul>
+<li>用于存储事件以供将来处理并按需检索它们</li>
+<li>支持内存，RDBM，Solr，mongoDb等存储</li>
+</ul>
+</li>
+<li>Join(关联)<ul>
+<li>根据条件加入两个流</li>
+<li>根据条件将流与表或增量摘要联系起来</li>
+<li>支持左联、右联、外联、内联</li>
+</ul>
+</li>
+<li>Pattern<ul>
+<li>标识流之间的事件发生模式</li>
+<li>识别不发生的事件</li>
+<li>支持事件模式发生与逻辑条件和时间限制的重复匹配</li>
+</ul>
+</li>
+<li>Sequence(序列处理)<ul>
+<li>从流中标识连续的事件序列</li>
+<li>支持零到多，一对多和零到一个条件</li>
+</ul>
+</li>
+<li>Parttions(分区)<ul>
+<li>对查询进行分组，并基于关键字和值范围进行隔离并行处理</li>
+</ul>
+</li>
+<li>Scripting<ul>
+<li>支持在Siddhi查询中编写JavaScript，Scala和R等脚本</li>
+</ul>
+</li>
+<li>处理基于事件时间<ul>
+<li>整个执行由事件时间驱动</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Publishing Events(事件发布)<ul>
+<li>使用各种消息格式的各种数据源</li>
+<li>支持负载平衡和故障转移数据发布</li>
+</ul>
+</li>
+<li>Snapshot and restore(快照和还原)<ul>
+<li>支持长期执行的定期状态持久性和恢复功能</li>
+</ul>
+</li>
+</ul>
+<h2 id="入门指南"><a href="#入门指南" class="headerlink" title="入门指南"></a>入门指南</h2><p>Siddhi是一个100％开源的Java库，针对高性能进行了彻底优化.它对实时数据流执行流处理和复杂事件处理。Siddhi被许多公司使用，包括Uber和eBay（通过Apache Eagle）。优步每天使用Siddhi处理超过200亿个事件进行欺诈分析，而Siddhi则在Apache Eagle中用作策略执行引擎。</p>
+<p>本快速入门指南包含以下六个部分：</p>
+<ol>
+<li>流处理和复杂事件处理概述 - 关于Siddhi的域名</li>
+<li>Siddhi概述 - 解释基本架构</li>
+<li>首次使用Siddhi  - 如何设置软件</li>
+<li>Siddhi’Hello World！’ - 您的第一个Siddhi应用程序</li>
+<li>模拟事件 - 使用模拟事件测试查询</li>
+<li>流处理—时间事件处理</li>
+</ol>
+<h3 id="1、流处理和复杂事件处理-CEP-概述"><a href="#1、流处理和复杂事件处理-CEP-概述" class="headerlink" title="1、流处理和复杂事件处理(CEP)概述"></a>1、流处理和复杂事件处理(CEP)概述</h3><p>在开始使用Siddhi之前，让我们首先简要地讨论流处理和复杂事件处理，以便我们能够识别可以使用Siddhi的用例。首先让我们通过一个例子来理解一个事件是什么。如果我们将通过ATM执行的事务视为数据流，则从ATM进行的一次取款可以视为事件。这个事件包含的数据量、时间、帐号等许多此类交易形式流。</p>
+<p><img src="https://wso2.github.io/siddhi/images/quickstart/event-stream.png?raw=true" alt=""></p>
+<p><strong><em>Forrester</em></strong> 定义了流媒体分析: 流的定义</p>
+<blockquote>
+<p>提供分析操作符来编排数据流、计算分析和检测来自多个不同实时数据源的事件数据模式的软件，允许开发人员构建实时感知、思考和行动的应用程序。</p>
+</blockquote>
+<p><strong><em>Gartner’s IT Glossary</em></strong> 定义了CEP的概念</p>
+<blockquote>
+<p>CEP是一种计算，在这种计算中，有关事件的传入数据被提炼成更有用、更高级的“复杂”事件数据，从而能够洞察发生了什么。</p>
+<p>CEP是事件驱动的，因为计算是由事件数据的接收触发的。CEP可用于要求高、持续智能的应用程序，以增强态势感知和支持实时决策。</p>
+</blockquote>
+<p><img src="https://wso2.github.io/siddhi/images/quickstart/siddhi-basic.png?raw=true" alt=""></p>
+<p>基本上,Siddhi实时接收数据event-by-event和处理他们产生有意义的信息。</p>
+<p>Siddhi可以用在以下场景</p>
+<ul>
+<li>欺诈行为分析</li>
+<li>监控</li>
+<li>异常捕获</li>
+<li>情绪(观点)分析</li>
+<li>处理客户的行为</li>
+<li>…等等</li>
+</ul>
+<h3 id="2、Siddhi概要"><a href="#2、Siddhi概要" class="headerlink" title="2、Siddhi概要"></a>2、Siddhi概要</h3><p><img src="https://wso2.github.io/siddhi/images/siddhi-overview.png?raw=true" alt=""></p>
+<p>如上所示,Siddhi可以概括为:</p>
+<ul>
+<li>接受来自许多不同类型的事件输入来源</li>
+<li>处理它们产生的洞察数据(条件匹配到的数据)</li>
+<li>将它们发布到许多类型的接收器中。</li>
+</ul>
+<p>要使用Siddhi，您需要将处理逻辑编写为Siddhi流SQL语言中的Siddhi应用程序。在编写和启动Siddhi应用程序之后，</p>
+<ol>
+<li>将数据逐个作为事件</li>
+<li>处理每个事件数据</li>
+<li>根据目前完成的处理生成新的高级事件</li>
+<li>发送新生成的事件作为输出流。</li>
+</ol>
+<h3 id="3、第一次使用Siddhi"><a href="#3、第一次使用Siddhi" class="headerlink" title="3、第一次使用Siddhi"></a>3、第一次使用Siddhi</h3><p>在本节中,我们将使用WSO2流处理器(称为SP在本指南)一个服务器版本的Siddhi,一个复杂的编辑器和一个GUI(称为“流处理器工作室”),您可以编写您的查询和模拟事件数据流。</p>
+<p><strong>Step 1</strong> — Install <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="noopener">Oracle Java SE Development Kit (JDK)</a> version 1.8.<br><strong>Step 2</strong> — <a href="https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/" target="_blank" rel="noopener">Set the JAVA_HOME</a> environment variable.<br><strong>Step 3</strong> — Download the latest <a href="http://wso2.com/analytics?utm_source=gitanalytics&amp;utm_campaign=gitanalytics_Jul17" target="_blank" rel="noopener">WSO2 Stream Processor</a>.<br><strong>Step 4</strong> — Extract the downloaded zip and navigate to <code>&lt;SP_HOME&gt;/bin</code>. (<code>SP_HOME</code> refers to the extracted folder) </p>
+<p><strong>Step 5</strong> — Issue the following command in the command prompt (Windows) / terminal (Linux)</p>
+<blockquote>
+<p>For Windows: editor.bat</p>
+<p>For Linux: ./editor.sh</p>
+</blockquote>
+<p>关于WSO2流处理器的更多细节,请参阅<a href="https://docs.wso2.com/display/SP400/Quick+Start+Guide" target="_blank" rel="noopener">Quick Start Guide</a>.成功启动流处理器Studio后，Linux中的终端如下图所示:</p>
+<p><img src="https://wso2.github.io/siddhi/images/quickstart/after-starting-sp.png?raw=true" alt=""></p>
+<p>启动WSO2流处理器后，通过访问浏览器中的以下链接访问流处理器Studio。</p>
+<blockquote>
+<p><a href="http://localhost:9390/editor" target="_blank" rel="noopener">http://localhost:9390/editor</a></p>
+</blockquote>
+<p><img src="https://wso2.github.io/siddhi/images/quickstart/sp-studio.png?raw=true" alt=""></p>
+<h3 id="4、第一个siddhi程序‘Hello-World-’"><a href="#4、第一个siddhi程序‘Hello-World-’" class="headerlink" title="4、第一个siddhi程序‘Hello World!’"></a>4、第一个siddhi程序‘Hello World!’</h3><p>Siddhi流SQL是一种丰富、简洁、易于学习的SQL语言。让我们首先了解如何查找进入数据流的值的总数，并在每个事件中输出当前正在运行的总价值。Siddhi有许多内建的功能和扩展，可用于复杂分析，但首先让我们使用一个简单的功能。您可以在<a href="https://wso2.github.io/siddhi/documentation/siddhi-4.0/" target="_blank" rel="noopener">Siddhi查询指南</a>中找到关于Siddhi语法及其功能的更多信息。</p>
+<p>让我们考虑这样一个场景，我们将货物箱装载到船上。我们需要跟踪增加的货物的总重量。在装货时测量货物箱的重量被认为是一个事件。</p>
+<p><img src="https://wso2.github.io/siddhi/images/quickstart/loading-ship.jpeg?raw=true" alt=""></p>
+<p>我们可以写一个Siddhi程序对应上述场景4个部分。</p>
+<p><strong>Part 1 —</strong> 给我们的Siddhi应用一个合适的名字。这是Siddhi的例行程序。在本例中，我们将应用程序命名为HelloWorldApp</p>
+<blockquote>
+<p>@App:name(“HelloWorldApp”)</p>
+</blockquote>
+<p><strong>Part 2 —</strong>定义输入流。流需要有一个定义每个传入事件应该包含的数据的名称和模式。事件数据属性表示为名称和类型对。在这个例子中:</p>
+<ul>
+<li>输入流的名称——“CargoStream”（这只包含一个数据属性）</li>
+<li>数据在每一个事件的名称——“weight”</li>
+<li>“weight”为int类型数据</li>
+</ul>
+<blockquote>
+<p>define stream CargoStream (weight int);</p>
+</blockquote>
+<p><strong>Part 3 —</strong> 定义输出流。它的信息与前面的定义相同，还有一个额外的totalWeight属性，其中包含到目前为止计算的总权重。在这里,我们需要添加一个“sink”日志OutputStream这样我们可以观察到输出值。 (Sink是Siddhi将流发布到外部系统的方式。这个特定的日志类型sink只记录流事件。要了解更多关于sink的信息，请参阅<a href="https://wso2.github.io/siddhi/documentation/siddhi-4.0/#sink" target="_blank" rel="noopener">sink</a>)</p>
+<blockquote>
+<p>@sink(type=’log’,prefix=’LOGGER’)<br>define stream OutputStream(weight int,totalWeight long);</p>
+</blockquote>
+<p><strong>Part 4 —</strong> Siddhi查询脚本，需要定义一下几个要素：</p>
+<ol>
+<li>定义查询名称 — <em>“HelloWorldQuery”</em></li>
+<li>决定处理哪一个数据流— <em>“CargoStream”</em></li>
+<li>我们在输出流中需要哪些数据— <em>“weight”</em>, <em>“totalWeight”</em></li>
+<li>如何计算输出 - 通过计算权重之和</li>
+<li>应该使用输出填充哪个流— <em>“OutputStream”</em></li>
+</ol>
+<blockquote>
+<p>@info(name=’HelloWorldQuery’)<br>from CargoStream<br>select weight,sum(weight) as totalWeight<br>insert into OutputStream;</p>
+</blockquote>
+<p><img src="https://wso2.github.io/siddhi/images/quickstart/hello-query.png?raw=true" alt=""></p>
+<h3 id="5、事件模拟"><a href="#5、事件模拟" class="headerlink" title="5、事件模拟"></a>5、事件模拟</h3><p>Stream Processor Studio具有内置支持来模拟事件。您可以通过Stream Processor Studio左侧的“Event Simulator”面板进行操作。您应该在运行事件模拟之前通过浏览到文件 - &gt;保存来保存HelloWorldApp。然后单击“事件模拟器”并按如下所示进行配置。</p>
+<p><img src="https://wso2.github.io/siddhi/images/quickstart/event-simulation.png?raw=true" alt=""></p>
+<p><strong>Step 1 —Configurations:</strong></p>
+<ul>
+<li>Siddhi App Name — <em>“HelloWorldApp”</em></li>
+<li>Stream Name — <em>“CargoStream”</em></li>
+<li>Timestamp — (Leave it blank)</li>
+<li>weight — 2 (or some integer)</li>
+</ul>
+<p><strong>Step 2 — Click “Run” mode and then click “Start”</strong></p>
+<p>这启动了Siddhi应用程序。如果Siddhi应用程序成功启动，则会在Stream Processor Studio控制台中打印以下消息：<em>“HelloWorldApp.siddhi Started Successfully!”</em></p>
+<p><strong>Step 3 — Click “Send” and observe the terminal</strong> </p>
+<p>你在哪里开始WSO2 Stream Processor Studio。您可以看到包含“outputData = [2,2]”的日志。再次单击“发送”并观察“outputData = [2,4]”的日志。您可以更改重量的值并将其发送以查看权重总和的更新方式。</p>
+<p><img src="https://wso2.github.io/siddhi/images/quickstart/log.png?raw=true" alt=""> </p>
+<p>好样的！您已成功完成Siddhi Hello World的创建！</p>
+<h3 id="6、流处理—时间事件处理"><a href="#6、流处理—时间事件处理" class="headerlink" title="6、流处理—时间事件处理"></a>6、流处理—时间事件处理</h3><p>本节演示如何使用Siddhi执行时间窗口处理。到目前为止，我们一直在执行处理，只在内存中运行总和值。在此过程中没有存储任何事件。<a href="https://wso2.github.io/siddhi/documentation/siddhi-4.0/#window" target="_blank" rel="noopener">窗口处理</a>是一种允许我们在给定时间段内将一些事件存储在内存中的方法，以便我们可以执行诸如计算其中的平均值，最大值等操作。</p>
+<p>让我们想象一下，当我们将货箱装入船上时，我们需要跟踪最近装载的箱子的平均重量，以便我们可以平衡船上的重量。为此，我们试着找出每个事件最后三个方框的平均权重。</p>
+<p><img src="https://wso2.github.io/siddhi/images/quickstart/siddhi-windows.png?raw=true" alt=""></p>
+<p>对于窗口处理，我们需要修改我们的查询，如下所示：</p>
+<blockquote>
+<p>@App:name(“HelloWOrldApp”)<br>@App:description(“Description of the plan”)</p>
+<p>– Please refer to <a href="https://docs.wso2.com/display/SP400/Quick+Start+Guide" target="_blank" rel="noopener">https://docs.wso2.com/display/SP400/Quick+Start+Guide</a> on getting started with SP editor. </p>
+<p>define stream CargoStream (weight int);</p>
+<p>@sink(type=’log’,prefix=’LOGGER’)<br>define stream OutputStream(weight int,totalWeight long,averageWeight double);</p>
+<p>@info(name=’HelloWorldQuery’)<br>from CargoStream#window.length(3)<br>select weight,sum(weight) as totalWeight,avg(weight) as averageWeight<br>insert into OutputStream;</p>
+</blockquote>
+<ul>
+<li><code>avg(weight) as averageWeight</code> -这里，我们指定最后3个事件应该保存在内存中进行处理。</li>
+<li><code>avg(weight) as averageWeight</code> - 这里，我们计算窗口中存储的事件的平均值，并将平均值产生为“averageWeight”（注意：现在总和也根据最后三个事件计算totalWeight）。</li>
+</ul>
+<p>我们还需要修改“OutputStream”定义以适应新的“averageWeight”。</p>
+<blockquote>
+<p>define stream OutputStream(weight int,totalWeight long,averageWeight double);</p>
+</blockquote>
+<p>更新的Siddhi应用程序应如下所示：</p>
+<p><img src="https://wso2.github.io/siddhi/images/quickstart/window-processing-app.png?raw=true" alt=""> </p>
+<p>现在，您可以使用事件模拟器发送事件并观察日志以查看最近三次货物事件的权重总和和平均值。值得注意的是，定义的长度窗口仅在内存中保留3个事件。当第4个事件到达时，窗口中的第一个事件将从内存中删除。这可确保内存使用量不会超出特定限制。在Siddhi还有其他实现来减少内存消耗有关更多信息，请参阅<a href="https://wso2.github.io/siddhi/documentation/siddhi-architecture/" target="_blank" rel="noopener">Siddhi Architecture</a>.</p>
+<p>要了解有关Siddhi功能的更多信息，请参阅 <a href="https://wso2.github.io/siddhi/documentation/siddhi-4.0/" target="_blank" rel="noopener">Siddhi Query Guide</a>.请随意尝试Siddhi和事件模拟，以更好地理解Siddhi。如果您有任何疑问，请使用“<a href="http://stackoverflow.com/search?q=siddhi" target="_blank" rel="noopener">Siddhi</a>”标签将它们发布到Stackoverflow。</p>
+<h2 id="Documentation"><a href="#Documentation" class="headerlink" title="Documentation"></a>Documentation</h2><h3 id="用户指南"><a href="#用户指南" class="headerlink" title="用户指南"></a>用户指南</h3><h4 id="在WSO2流处理器中使用Siddhi"><a href="#在WSO2流处理器中使用Siddhi" class="headerlink" title="在WSO2流处理器中使用Siddhi"></a>在<a href="https://github.com/wso2/product-sp" target="_blank" rel="noopener">WSO2流处理器</a>中使用Siddhi</h4><ul>
+<li>您可以在最新的WSO2流处理器中使用Siddhi，它是WSO2 Analytics产品的一部分，具有编辑器，调试器和仿真支持。</li>
+<li>默认情况下，所有Siddhi扩展都随WSO2流处理器一起提供。</li>
+<li>有关更多信息，请参阅“<a href="https://docs.wso2.com/display/SP400/Quick+Start+Guide" target="_blank" rel="noopener">WSO2 SP快速入门指南</a>”。</li>
+</ul>
+<h4 id="使用Siddhi作为Java库"><a href="#使用Siddhi作为Java库" class="headerlink" title="使用Siddhi作为Java库"></a>使用Siddhi作为Java库</h4><ul>
+<li><p>要将Siddhi作为java库嵌入到您的项目中并获得一个工作示例，请遵循以下步骤：</p>
+<pre><code>**Step 1:** 创建Java项目
+</code></pre></li>
+</ul>
+<p>使用Maven创建Java项目，并在其pom.xml文件中包含以下依赖项</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.wso2.siddhi<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>siddhi-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.x.x<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.wso2.siddhi<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>siddhi-query-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.x.x<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.wso2.siddhi<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>siddhi-query-compiler<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.x.x<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.wso2.siddhi<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>siddhi-annotations<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.x.x<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>注意：</strong>您可以使用您喜欢的任何方法创建Java项目。可以从<a href="http://maven.wso2.org/nexus/content/groups/wso2-public/org/wso2/siddhi/" target="_blank" rel="noopener">此处下载</a>所需的依赖项。*在Maven项目中创建一个新的Java类。</p>
+<pre><code>**Step 2:** 创建Siddhi应用
+</code></pre><p>Siddhi应用程序是一个自包含的执行实体，用于定义如何捕获，处理和发送数据。</p>
+<ul>
+<li>通过定义流定义来创建一个Siddhi应用程序，例如定义传入事件的格式的stockeventstream，以及如下定义Siddhi查询。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">String siddhiApp = <span class="string">"define stream StockEventStream (symbol string, price float, volume long); "</span> +</span><br><span class="line">        <span class="string">" "</span> +</span><br><span class="line">        <span class="string">"@info(name = 'query1') "</span> +</span><br><span class="line">        <span class="string">"from StockEventStream#window.time(5 sec)  "</span> +</span><br><span class="line">        <span class="string">"select symbol, sum(price) as price, sum(volume) as volume "</span> +</span><br><span class="line">        <span class="string">"group by symbol "</span> +</span><br><span class="line">        <span class="string">"insert into AggregateStockStream ;"</span>;</span><br></pre></td></tr></table></figure>
+<p>此Siddhi查询按符号对事件进行分组，并计算聚合，例如最后5秒时间窗口的价格总和和总和。然后，它将结果插入名为AggregateStockStream的流中。</p>
+<pre><code>**Step 3:** 创建Siddhi 运行程序
+</code></pre><p>这一步涉及到创建一个Siddhi应用程序的运行器。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SiddhiManager siddhiManager = <span class="keyword">new</span> SiddhiManager();</span><br><span class="line">SiddhiAppRuntime siddhiAppRuntime = siddhiManager.createSiddhiAppRuntime(siddhiApp);</span><br></pre></td></tr></table></figure>
+<p>Siddhi Manager解析Siddhi应用程序并为您提供Siddhi应用程序运行时。此Siddhi应用程序运行时可用于添加回调和输入处理程序，以便您可以以编程方式调用Siddhi应用程序。</p>
+<pre><code>**Seep4:** 注册回调函数
+</code></pre><p>您可以将回调函数注册到Siddhi应用程序运行时，以便在处理事件后接收结果。有两种类型的回调：</p>
+<ul>
+<li>查询回调：这订阅了一个查询。</li>
+<li>流回调：这订阅了一个事件流。在此示例中，Stream回调被添加到AggregateStockStream以捕获已处理的事件。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">siddhiAppRuntime.addCallback(<span class="string">"AggregateStockStream"</span>, <span class="keyword">new</span> StreamCallback() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">receive</span><span class="params">(Event[] events)</span> </span>&#123;</span><br><span class="line">                EventPrinter.print(events);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
+<p>这里，一旦生成结果，它们就会被发送到此回调的receive方法。在此回调中添加了一个事件打印机，用于打印传入事件以进行演示。</p>
+<pre><code>**Seep5:** 发送事件
+</code></pre><p>为了以编程方式从流中发送事件，您需要获取它的输入处理程序，如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">InputHandler inputHandler = siddhiAppRuntime.getInputHandler(<span class="string">"AggregateStockStream"</span>);</span><br></pre></td></tr></table></figure>
+<p>使用以下代码启动Siddhi应用程序运行时，发送事件并关闭Siddhi：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">siddhiAppRuntime.start();</span><br><span class="line">inputHandler.send(<span class="keyword">new</span> Object[]&#123;<span class="string">"IBM"</span>, <span class="number">100f</span>, <span class="number">100L</span>&#125;);</span><br><span class="line">Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">inputHandler.send(<span class="keyword">new</span> Object[]&#123;<span class="string">"IBM"</span>, <span class="number">200f</span>, <span class="number">300L</span>&#125;);</span><br><span class="line">inputHandler.send(<span class="keyword">new</span> Object[]&#123;<span class="string">"WSO2"</span>, <span class="number">60f</span>, <span class="number">200L</span>&#125;);</span><br><span class="line">Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">inputHandler.send(<span class="keyword">new</span> Object[]&#123;<span class="string">"WSO2"</span>, <span class="number">70f</span>, <span class="number">400L</span>&#125;);</span><br><span class="line">inputHandler.send(<span class="keyword">new</span> Object[]&#123;<span class="string">"GOOG"</span>, <span class="number">50f</span>, <span class="number">30L</span>&#125;);</span><br><span class="line">Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">inputHandler.send(<span class="keyword">new</span> Object[]&#123;<span class="string">"IBM"</span>, <span class="number">200f</span>, <span class="number">400L</span>&#125;);</span><br><span class="line">Thread.sleep(<span class="number">2000</span>);</span><br><span class="line">inputHandler.send(<span class="keyword">new</span> Object[]&#123;<span class="string">"WSO2"</span>, <span class="number">70f</span>, <span class="number">50L</span>&#125;);</span><br><span class="line">Thread.sleep(<span class="number">2000</span>);</span><br><span class="line">inputHandler.send(<span class="keyword">new</span> Object[]&#123;<span class="string">"WSO2"</span>, <span class="number">80f</span>, <span class="number">400L</span>&#125;);</span><br><span class="line">inputHandler.send(<span class="keyword">new</span> Object[]&#123;<span class="string">"GOOG"</span>, <span class="number">60f</span>, <span class="number">30L</span>&#125;);</span><br><span class="line">Thread.sleep(<span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line">siddhiAppRuntime.shutdown();</span><br><span class="line">siddhiManager.shutdown();</span><br></pre></td></tr></table></figure>
+<p><img src="http://www.zhangchi.ink:8080/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181103110651.png" alt=""> </p>
+<p>发送事件后，您可以看到事件打印机记录的输出。在此处查找此示例的可执行<a href="https://github.com/wso2/siddhi/blob/master/modules/siddhi-samples/quick-start-samples/src/main/java/org/wso2/siddhi/sample/TimeWindowSample.java" target="_blank" rel="noopener">Java代码</a>，有关更多代码示例，请参阅Siddhi的<a href="https://github.com/wso2/siddhi/tree/master/modules/siddhi-samples/quick-start-samples" target="_blank" rel="noopener">快速入门</a>示例。</p>
+<h4 id="系统配置要求"><a href="#系统配置要求" class="headerlink" title="系统配置要求"></a>系统配置要求</h4><ol>
+<li>最小内存 -  500 MB（基于存储的内存数据进行处理）</li>
+<li>处理器 -  Pentium 800MHz或至少等效</li>
+<li>Java SE Development Kit 1.8（1.7版本为3.x版）</li>
+<li>要从Source发行版构建Siddhi，您必须拥有JDK 1.8版本（1.7版本为3.x版本）或更高版本以及Maven 3.0.4或更高版本</li>
+</ol>
+<h3 id="Siddhi-Streaming-SQL-Guide-4-0"><a href="#Siddhi-Streaming-SQL-Guide-4-0" class="headerlink" title="Siddhi Streaming SQL Guide 4.0"></a>Siddhi Streaming SQL Guide 4.0</h3><p>####介绍</p>
+<p>Siddhi Streaming SQL设计用于以流方式处理事件流，检测复杂事件发生，并实时通知事件发生。</p>
+<h4 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h4><p>可以使用Siddhi Streaming SQL编写流处理和复杂事件处理规则，它们可以作为<code>SiddhiApp</code>放在一个文件中。</p>
+<p><strong>目的</strong></p>
+<p>每个Siddhi应用程序都是一个独立的处理单元，允许您独立于系统中的其他Siddhi应用程序部署和执行查询。下图描述了事件流如何与Siddhi应用程序的一些关键Siddhi Streaming SQL元素一起使用。</p>
+<p><img src="https://wso2.github.io/siddhi/images/event-flow.png?raw=true" alt=""> </p>
+<p>下表提供了Siddhi Streaming SQL语言中几个关键元素的简要说明。</p>
+<table>
+<thead>
+<tr>
+<th>关键元素</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stream</td>
+<td>一组按时间顺序排列的事件，具有惟一可识别的名称，以及一组具有定义其模式的特定数据类型的已定义属性。</td>
+</tr>
+<tr>
+<td>Event</td>
+<td>事件仅与一个流相关联，并且该流的所有事件都具有一组相同的属性，这些属性被分配了特定类型（或相同的模式）。事件包含根据模式的时间戳和一组属性值。</td>
+</tr>
+<tr>
+<td>Table</td>
+<td>使用定义的模式存储的数据的结构化表示。存储的数据可由<code>In-Memory</code>，<code>RDBM</code>，<code>MongoDB</code>等支持，以便在运行时访问和操作。</td>
+</tr>
+<tr>
+<td>Query</td>
+<td>通过组合现有流和/或表以流方式处理事件并将事件生成到输出流或表的逻辑构造。查询使用一个或多个输入流，以及零个或一个表。然后，它以流方式处理这些事件，并将输出事件发布到流或表以供进一步处理或生成通知。</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>以事件形式从外部源（例如TCP，Kafka，HTTP等）使用数据的合同，然后将每个事件（可以是XML，JSON，二进制等格式）转换为Siddhi事件，以及将其传递给Stream进行处理。</td>
+</tr>
+<tr>
+<td>Sink</td>
+<td>接收到达流的事件，将它们映射到预定义的数据格式(如XML、JSON、二进制等)，并将它们发布到外部端点(如电子邮件、TCP、Kafka、HTTP等)的契约。</td>
+</tr>
+<tr>
+<td>Input Handler</td>
+<td>一种以编程方式将事件注入流的机制。</td>
+</tr>
+<tr>
+<td>Stream/Query Callback</td>
+<td>一种以编程方式使用流和查询中的输出事件的机制</td>
+</tr>
+<tr>
+<td>Partition</td>
+<td>一个逻辑容器，用于隔离基于分区键的查询处理。这里，为每个分区键生成一个单独的查询实例以实现隔离。</td>
+</tr>
+<tr>
+<td>Inner Stream</td>
+<td>一个可定位的流，在分区内连接已分配的查询，保持隔离。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>语法</strong></p>
+<p>Siddhi SQL的一个元素可以作为Siddhi应用程序中的脚本组合在一起。这里每个构造必须用分号（;）分隔，如下面的语法所示。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;siddhi app&gt;  : </span><br><span class="line">        &lt;app annotation&gt; * </span><br><span class="line">        ( &lt;stream definition&gt; | &lt;table definition&gt; | ... ) + </span><br><span class="line">        ( &lt;query&gt; | &lt;partition&gt; ) +</span><br><span class="line">        ;</span><br></pre></td></tr></table></figure>
+<p>示例Siddhi名为Temperature-Analytics的应用程序使用名为TempStream的流和名为5minAvgQuery的查询进行定义以进行处理。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@app:name(&apos;Temperature-Analytics&apos;)</span><br><span class="line"></span><br><span class="line">define stream TempStream (deviceID long, roomNo int, temp double);</span><br><span class="line"></span><br><span class="line">@name(&apos;5minAvgQuery&apos;)</span><br><span class="line">from TempStream#window.time(5 min)</span><br><span class="line">select roomNo, avg(temp) as avgTemp</span><br><span class="line">  group by roomNo</span><br><span class="line">insert into OutputStream;</span><br></pre></td></tr></table></figure>
+<h4 id="Stream"><a href="#Stream" class="headerlink" title="Stream"></a>Stream</h4><p>流是按时间排序的逻辑系列事件。它的模式是通过流定义定义的。流定义包含唯一名称和一组属性，这些属性在流中具有特定类型和唯一可识别名称。选择接收到特定流中的所有事件具有相同的模式（即，以相同的顺序具有相同的属性）。</p>
+<p><strong>目的</strong></p>
+<p>通过定义模式，它将公共事件类型统一在一起。这使它们能够通过查询以流的方式使用其定义的属性进行处理，并允许接收和源将事件映射到/从各种数据格式。</p>
+<p><strong>语法</strong></p>
+<p>定义新流的语法如下所示。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">define stream &lt;stream name&gt; (&lt;attribute name&gt; &lt;attribute type&gt;, &lt;attribute name&gt; &lt;attribute type&gt;, ... );</span><br></pre></td></tr></table></figure>
+<p>在流定义中配置以下参数。</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>stream name</code></td>
+<td>创建的流的名称。（建议在<code>PascalCase</code>中定义流名称。）</td>
+</tr>
+<tr>
+<td><code>attribute name</code></td>
+<td>流的模式由其具有惟一可识别属性名的属性定义。 (It is recommended to define attribute names in <code>camelCase</code>.)</td>
+</tr>
+<tr>
+<td><code>attribute type</code></td>
+<td>模式中定义的每个属性的类型。  This can be <code>STRING</code>, <code>INT</code>, <code>LONG</code>, <code>DOUBLE</code>, <code>FLOAT</code>, <code>BOOL</code> or <code>OBJECT</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>要以异步和多线程方式创建流处理事件，请使用@Async注释，如<a href="https://wso2.github.io/siddhi/documentation/siddhi-4.0/#threading-and-asynchronous" target="_blank" rel="noopener">线程和异步配置</a>部分所示。</p>
+<p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">define stream TempStream (deviceID long, roomNo int, temp double);</span><br></pre></td></tr></table></figure>
+<p>以上创建了一个名为<code>TempStream</code>的流，其中包含以下属性。</p>
+<ul>
+<li><code>deviceID</code> of type <code>long</code></li>
+<li><code>roomNo</code> of type <code>int</code></li>
+<li><code>temp</code> of type <code>double</code></li>
+</ul>
+<p>#####Source 数据源</p>
+<p>源通过多种传输和各种数据格式接收事件，并将它们引导到流中进行处理。源配置允许您定义映射，以便将每个传入事件从其本机数据格式转换为Siddhi事件。当未提供对此类映射的自定义时，Siddhi假定到达事件基于流定义和所选消息格式遵循预定义格式。</p>
+<p><strong>目的</strong></p>
+<p>Source允许Siddhi使用来自外部系统的事件，并映射事件以遵守相关的流。</p>
+<p><strong>语法</strong></p>
+<p>要配置通过源使用事件的流，请通过添加带有所需参数值的<code>@source</code>注释将源配置添加到流定义。源语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@source(type=&apos;source_type&apos;, static.option.key1=&apos;static_option_value1&apos;, static.option.keyN=&apos;static_option_valueN&apos;,</span><br><span class="line">    @map(type=&apos;map_type&apos;, static.option_key1=&apos;static_option_value1&apos;, static.option.keyN=&apos;static_option_valueN&apos;,</span><br><span class="line">        @attributes( attributeN=&apos;attribute_mapping_N&apos;, attribute1=&apos;attribute_mapping_1&apos;)</span><br><span class="line">    )</span><br><span class="line">)</span><br><span class="line">define stream StreamName (attribute1 Type1, attributeN TypeN);</span><br></pre></td></tr></table></figure>
+<p>此语法包括以下注释。@source的type参数定义接收事件的源类型。要配置的其他参数取决于所选的源类型，某些参数是可选的。有关参数的详细信息，请参阅相关源的文档。以下是当前支持的源类型列表：</p>
+<ul>
+<li><a href="https://wso2-extensions.github.io/siddhi-io-http/" target="_blank" rel="noopener">HTTP</a></li>
+<li><a href="https://wso2-extensions.github.io/siddhi-io-kafka/" target="_blank" rel="noopener">kafka</a></li>
+</ul>
+<ul>
+<li><a href="https://wso2-extensions.github.io/siddhi-io-tcp/" target="_blank" rel="noopener">TCP</a></li>
+<li><a href="https://wso2.github.io/siddhi/api/latest/#inmemory-source" target="_blank" rel="noopener">In-memory</a></li>
+<li><a href="https://wso2-extensions.github.io/siddhi-io-wso2event/" target="_blank" rel="noopener">WSO2Event</a></li>
+<li><a href="https://wso2-extensions.github.io/siddhi-io-email/" target="_blank" rel="noopener">Email</a></li>
+<li><a href="https://wso2-extensions.github.io/siddhi-io-jms/" target="_blank" rel="noopener">JMS</a></li>
+<li><a href="https://wso2-extensions.github.io/siddhi-io-file/" target="_blank" rel="noopener">File</a></li>
+<li><a href="https://wso2-extensions.github.io/siddhi-io-rabbitmq/" target="_blank" rel="noopener">RabbitMQ</a></li>
+<li><a href="https://wso2-extensions.github.io/siddhi-io-mqtt/" target="_blank" rel="noopener">MQTT</a></li>
+<li><a href="https://wso2-extensions.github.io/siddhi-io-websocket/" target="_blank" rel="noopener">WebSocket</a></li>
+<li><a href="https://wso2-extensions.github.io/siddhi-io-twitter/" target="_blank" rel="noopener">Twitter</a></li>
+<li><a href="https://wso2-extensions.github.io/siddhi-io-sqs/" target="_blank" rel="noopener">Amazon SQS</a></li>
+</ul>
+<h5 id="Source-映射"><a href="#Source-映射" class="headerlink" title="Source 映射"></a>Source 映射</h5><p>每个<code>@source</code>配置都有一个由<code>@map</code>注释表示的映射，它将传入的消息格式转换为Siddhi事件。<code>@map</code>的type参数定义了用于映射数据的映射类型。要配置的其他参数取决于所选的映射器。其中一些参数是可选的。有关参数的详细信息，请参阅相关映射器的文档。</p>
+<blockquote>
+<p>如果未提供<code>@map</code>注释，则使用<code>@map（type =&#39;passThrough&#39;）</code>作为默认值。当源使用Siddhi事件时以及不需要任何映射时，可以使用此默认映射器类型。</p>
+</blockquote>
+<p><strong>Map Attributes</strong></p>
+<p><code>@attributes</code>是一个可选的注释，与<code>@map</code>一起用于定义自定义映射。如果未提供<code>@attributes</code>，则每个映射器都假定传入事件遵循其自己的默认数据格式。通过添加<code>@attributes</code>注释，您可以配置映射器以选择性地从传入消息中提取数据，并将它们分配给属性。您可以通过两种方式配置map attributes。</p>
+<ol>
+<li>将属性定义为键并将内容映射为以下格式的值: <code>@attributes( attributeN=&#39;mapping_N&#39;, attribute1=&#39;mapping_1&#39;)</code></li>
+<li>按照与流定义中定义属性的顺序相同的顺序定义所有属性的映射内容:<code>@attributes( &#39;mapping_1&#39;, &#39;mapping_N&#39;)</code></li>
+</ol>
+<p><strong>支持的映射类型</strong></p>
+<p>以下是当前支持的源映射类型的列表：</p>
+<ul>
+<li><a href="https://wso2-extensions.github.io/siddhi-map-wso2event/" target="_blank" rel="noopener">WSO2Event</a></li>
+<li><a href="https://wso2-extensions.github.io/siddhi-map-xml/" target="_blank" rel="noopener">XML</a></li>
+<li><a href="https://wso2-extensions.github.io/siddhi-map-text/" target="_blank" rel="noopener">TEXT</a></li>
+<li><a href="https://wso2-extensions.github.io/siddhi-map-json/" target="_blank" rel="noopener">JSON</a></li>
+<li><a href="https://wso2-extensions.github.io/siddhi-map-binary/" target="_blank" rel="noopener">Binary</a></li>
+<li><a href="https://wso2-extensions.github.io/siddhi-map-keyvalue/" target="_blank" rel="noopener">Key Value</a></li>
+<li><a href="https://wso2-extensions.github.io/siddhi-map-csv/" target="_blank" rel="noopener">CSV</a></li>
+</ul>
+<p>例子：此查询通过HTTP源以JSON数据格式接收事件，并将它们定向到InputStream流进行处理。这里，HTTP源配置为在foo上下文上接收8080port上所有网络接口上的事件，并通过基本身份验证进行保护。</p>
+<blockquote>
+<p>@source(type=’http’, receiver.url=’<a href="http://0.0.0.0:8080/foo" target="_blank" rel="noopener">http://0.0.0.0:8080/foo</a>‘, basic.auth.enabled=’true’, @map(type=’json’))<br>define stream InputStream (name string, age int, country string);</p>
+</blockquote>
+<h4 id="接收器-Sink"><a href="#接收器-Sink" class="headerlink" title="接收器 Sink"></a>接收器 Sink</h4><p>接收器通过多种传输将来自流的事件以各种数据格式发布到外部端点。接收器配置允许您定义映射以将Siddhi事件转换为所需的输出数据格式（例如JSON，TEXT，XML等）。当未提供对此类映射的自定义时，Siddhi会根据流定义和所选数据格式将事件转换为其默认格式以发布事件。</p>
+<p><strong>目的</strong></p>
+<p>Sinks提供了一种以首选数据格式将Siddhi事件发布到外部系统的方法。</p>
+<p><strong>语法</strong></p>
+<p>要配置流以通过接收器发布事件，请通过添加带有所需参数值的<code>@sink</code>注释将接收器配置添加到流定义。接收器语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@sink(type=&apos;sink_type&apos;, static_option_key1=&apos;static_option_value1&apos;, dynamic_option_key1=&apos;&#123;&#123;dynamic_option_value1&#125;&#125;&apos;,</span><br><span class="line">    @map(type=&apos;map_type&apos;, static_option_key1=&apos;static_option_value1&apos;, dynamic_option_key1=&apos;&#123;&#123;dynamic_option_value1&#125;&#125;&apos;,</span><br><span class="line">        @payload(&apos;payload_mapping&apos;)</span><br><span class="line">    )</span><br><span class="line">)</span><br><span class="line">define stream StreamName (attribute1 Type1, attributeN TypeN);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>分类为动态的接收器和接收器映射器属性具有从其关联流中吸收属性值的能力。在配置属性值时，可以使用双花括号中的属性名称来完成此操作。</p>
+<p>一些有效的动态属性值是:</p>
+<ul>
+<li>attribute1</li>
+<li>This is attribute1</li>
+<li>attribute1 &gt; attributeN</li>
+</ul>
+<p>这里双花括号中的属性名称将在执行期间被事件值替换。</p>
+</blockquote>
+<p>此语法包括以下注释。@sink注释的type参数定义发布事件的接收器类型。要配置的其他参数取决于所选的接收器类型。其中一些参数是可选的，一些参数可以具有动态值。有关参数的详细信息，请参阅相关接收器的文档。有关参数的详细信息，请参阅相关接收器的文档。</p>
+<ul>
+<li><a href="https://wso2-extensions.github.io/siddhi-io-http/" target="_blank" rel="noopener">HTTP</a></li>
+<li><a href="https://wso2-extensions.github.io/siddhi-io-kafka/" target="_blank" rel="noopener">Kafka</a></li>
+<li><a href="https://wso2-extensions.github.io/siddhi-io-tcp/" target="_blank" rel="noopener">TCP</a></li>
+<li><a href="https://wso2.github.io/siddhi/api/latest/#inmemory-sink" target="_blank" rel="noopener">In-memory</a></li>
+<li><a href="https://wso2-extensions.github.io/siddhi-io-wso2event/" target="_blank" rel="noopener">WSO2Event</a></li>
+<li><a href="https://wso2-extensions.github.io/siddhi-io-email/" target="_blank" rel="noopener">Email</a></li>
+<li><a href="https://wso2-extensions.github.io/siddhi-io-jms/" target="_blank" rel="noopener">JMS</a></li>
+<li><a href="https://wso2-extensions.github.io/siddhi-io-file/" target="_blank" rel="noopener">File</a></li>
+<li><a href="https://wso2-extensions.github.io/siddhi-io-rabbitmq/" target="_blank" rel="noopener">RabbitMQ</a></li>
+<li><a href="https://wso2-extensions.github.io/siddhi-io-mqtt/" target="_blank" rel="noopener">MQTT</a></li>
+<li><a href="https://wso2-extensions.github.io/siddhi-io-websocket/" target="_blank" rel="noopener">WebSocket</a></li>
+<li><a href="https://wso2-extensions.github.io/siddhi-io-sqs/" target="_blank" rel="noopener">Amazon SQS</a></li>
+</ul>
+<p>#####分布式接收器 Distributed Sink</p>
+<p>分布式接收器使用负载平衡和分区策略将事件从定义的流发布到多个目标端点。任何普通的接收器都可以用作分布式接收器。分布式接收器配置允许您定义公共映射以转换其所有目标端点的Siddhi事件，允许您定义分发策略（例如，<code>roundRobin</code>，<code>partitioned</code>）以及每个特定端点目标的配置。</p>
+<p><strong>目的</strong></p>
+<p>分布式接收器提供了一种以首选数据格式将Siddhi事件发布到多个目标端点的方法。</p>
+<p><strong>语法</strong></p>
+<p>要配置流以通过分布式接收器发布事件，请通过添加<code>@sink</code>注释将接收器配置添加到流定义，并添加<code>@sink</code>注释内所有目标端点的公共配置参数以及<code>@distribution</code>和<code>@destination</code>注释提供分发策略和端点特定配置。分布式接收器语法如下：</p>
+<ol>
+<li><p>RoundRobin分布式接收器：以循环方式将事件发布到定义的目标。</p>
+<blockquote>
+<p>@sink(type=’sink_type’, common_option_key1=’common_option_value1’, common_option_key2=’‘,<br>​    @map(type=’map_type’, option_key1=’option_value1’, option_key2=’‘,<br>​        @payload(‘payload_mapping’)<br>​    )<br>​    @distribution(strategy=’roundRobin’,<br>​        @destination(specific_option_key1=’specific_option_value1’),<br>​        @destination(specific_option_key1=’specific_option_value2’)))<br>)<br>define stream StreamName (attribute1 Type1, attributeN TypeN);</p>
+</blockquote>
+</li>
+<li><p>分区分布式接收器：通过基于事件分区键的哈希码进行分区，将事件发布到定义的目标。</p>
+<blockquote>
+<p>@sink(type=’sink_type’, common_option_key1=’common_option_value1’, common_option_key2=’‘,<br>​    @map(type=’map_type’, option_key1=’option_value1’, option_key2=’‘,<br>​        @payload(‘payload_mapping’)<br>​    )<br>​    @distribution(strategy=’partitioned’, partitionKey=’partition_key’,<br>​        @destination(specific_option_key1=’specific_option_value1’),<br>​        @destination(specific_option_key1=’specific_option_value2’)))<br>)<br>define stream StreamName (attribute1 Type1, attributeN TypeN);</p>
+</blockquote>
+</li>
+</ol>
+<p>#####Sink Mapper</p>
+<p>每个<code>@sink</code>注释都有一个由<code>@map</code>注释表示的映射，该映射将Siddhi事件转换为传出消息格式。<code>@map</code>注释的<code>type</code>参数定义事件映射的映射类型。要配置的其他参数取决于所选的映射器。其中一些参数是可选的，一些参数具有动态值。有关参数的详细信息，请参阅相关映射类型的文档。</p>
+<blockquote>
+<p>如果未提供<code>@map</code>注释，则默认使用<code>@map（type =&#39;passThrough&#39;）</code>。当接收器以Siddhi事件格式发布时，或者当它不需要任何映射时，可以使用此方法。</p>
+</blockquote>
+<p><strong>有效的负载映射 Map Payload</strong></p>
+<p><code>@payload</code>是一个可选的注释，与<code>@map</code>注释一起用于定义自定义映射。如果未提供<code>@payload</code>批注，则每个映射器将传出事件映射到其自己的默认数据格式。通过定义<code>@payload</code>注释，您可以配置映射器以使用您选择的属性名称生成输出有效负载，使用动态属性，通过有选择地分配首选格式的属性。有两种方法可以配置<code>@payload</code>注释。</p>
+<ol>
+<li>某些映射器（如XML，JSON和Test）仅使用以下格式接受一个输出有效内容：<code>@payload( &#39;This is a test message from .&#39; )</code></li>
+<li>一些映射器这样的键值接受一系列映射值定义如下：<code>@payload( key1=&#39;mapping_1&#39;, key2=&#39;user : &#39;)</code></li>
+</ol>
+<p><strong>支持的映射类型</strong></p>
+<p>以下是当前支持的接收器映射类型的列表：</p>
+<ul>
+<li><a href="https://wso2-extensions.github.io/siddhi-map-wso2event/" target="_blank" rel="noopener">WSO2Event</a></li>
+<li><a href="https://wso2-extensions.github.io/siddhi-map-xml/" target="_blank" rel="noopener">XML</a></li>
+<li><a href="https://wso2-extensions.github.io/siddhi-map-text/" target="_blank" rel="noopener">TEXT</a></li>
+<li><a href="https://wso2-extensions.github.io/siddhi-map-json/" target="_blank" rel="noopener">JSON</a></li>
+<li><a href="https://wso2-extensions.github.io/siddhi-map-binary/" target="_blank" rel="noopener">Binary</a></li>
+<li><a href="https://wso2-extensions.github.io/siddhi-map-keyvalue/" target="_blank" rel="noopener">Key Value</a></li>
+<li><a href="https://wso2-extensions.github.io/siddhi-map-csv/" target="_blank" rel="noopener">CSV</a></li>
+</ul>
+<p>例如：以下查询将OutputStream流中的事件发布到HTTP端点。这里，事件被映射到默认的JSON有效负载，并使用POST方法和Accept标头发送到http：// localhost：8005 / endpoint，并通过基本身份验证进行保护，其中admin是用户名和密码。</p>
+<blockquote>
+<p>@sink(type=’http’, publisher.url=’<a href="http://localhost:8005/endpoint" target="_blank" rel="noopener">http://localhost:8005/endpoint</a>‘, method=’POST’, headers=’Accept-Date:20/02/2017’,<br>  basic.auth.username=’admin’, basic.auth.password=’admin’, basic.auth.enabled=’true’,<br>  @map(type=’json’))<br>define stream OutputStream (name string, ang int, country string);</p>
+</blockquote>
+<p>以下查询使用分区策略将OutputStream流中的事件发布到多个HTTP端点。这里事件基于分区键国家发送到http：// localhost：8005 / endpoint1或http：// localhost：8006 / endpoint2。它使用默认的JSON映射，POST方法，并在发布到两个端点时使用admin作为用户名和密码。</p>
+<blockquote>
+<p>@sink(type=’http’, method=’POST’, basic.auth.username=’admin’, basic.auth.password=’admin’,<br>  basic.auth.enabled=’true’, @map(type=’json’),<br>  @distribution(strategy=’partitioned’, partitionKey=’country’,<br>​     @destination(publisher.url=’<a href="http://localhost:8005/endpoint1" target="_blank" rel="noopener">http://localhost:8005/endpoint1</a>‘),<br>​     @destination(publisher.url=’<a href="http://localhost:8006/endpoint2" target="_blank" rel="noopener">http://localhost:8006/endpoint2</a>‘)))<br>define stream OutputStream (name string, ang int, country string);</p>
+</blockquote>
+<p>####Query</p>
+<p>每个Siddhi查询可以使用一个或多个流，0-1表，以流方式处理事件，然后生成输出事件到流或对表执行CRUD操作。</p>
+<p><strong>目的</strong></p>
+<p>通过查询，您可以按照到达的顺序逐个处理传入事件，从而执行复杂的事件处理和流处理操作。</p>
+<p><strong>语法</strong></p>
+<p>所有查询都包含输入和输出部分。有些还包含投影部分。所有三个部分的简单查询如下。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from &lt;input stream&gt; </span><br><span class="line">select &lt;attribute name&gt;, &lt;attribute name&gt;, ...</span><br><span class="line">insert into &lt;output stream/table&gt;</span><br></pre></td></tr></table></figure>
+<p>例如Siddhi应用程序中包含的此查询使用来自<code>TempStream</code>流（已定义）的事件，并将房间温度和房间号输出到<code>RoomTempStream</code>流。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">define stream TempStream (deviceID long, roomNo int, temp double);</span><br><span class="line"></span><br><span class="line">from TempStream </span><br><span class="line">select roomNo, temp</span><br><span class="line">insert into RoomTempStream;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>推断流：</p>
+<p>这里，RoomTempStream是一个推断的Stream，这意味着它可以用作任何其他定义的流，而无需显式定义其流定义。RoomTempStream的定义是从生成流的第一个查询推断出来的。</p>
+</blockquote>
+<p>#####Query Projection</p>
+<p>siddhiql支持以下查询投影。</p>
+<p><table style="width:100%"><br>    <tr><br>        <th>Action</th><br>        <th>Description</th><br>    </tr><br>    <tr><br>        <td>选择投影所需要的对象</td><br>        <td>这涉及仅从输入流中选择一些属性以插入到输出流中.<br>            <br><br><br>            E.g., 以下查询仅从<code>TempStream</code>流中选择<code>roomNo</code>和<code>temp</code>属性。.<br>            <pre style="align:left">from TempStream<br>select roomNo, temp<br>insert into RoomTempStream;</pre><br>        </td><br>    </tr><br>    <tr><br>        <td>选择投影的所有属性</td><br>        <td>选择要插入到输出流中的输入流中的所有属性。这可以通过使用星号（<em>）或省略<code>select</code>语句来完成。.<br>            <br><br><br>            E.g., 以下两个查询都选择了<code>NewTempStream</code>流中的所有属性。.<br>            <pre>from TempStream<br>select </pre></em><br>insert into NewTempStream;<br>            or<br>            <pre>from TempStream<br>insert into NewTempStream;</pre><br>        </td><br>    </tr><br>    <tr><br>        <td>重命名属性</td><br>        <td>这将从输入流中选择属性，并将它们插入到具有不同名称的输出流中.<br>            <br><br><br>            E.g.,此查询将<code>roomNo</code>重命名为<code>roomNumber</code>，将<code>temp</code>重命名为<code>temperature</code>.<br>            <pre>from TempStream <br>select roomNo as roomNumber, temp as temperature<br>insert into RoomTempStream;</pre><br>        </td><br>    </tr><br>    <tr><br>        <td>引入恒定值</td><br>        <td>这通过使用<code>as</code>将其赋值给属性来添加常量值.<br>            <br><br><br>            E.g., 此查询指定’C’用作<code>scale</code>属性的常量值.<br>            <pre>from TempStream<br>select roomNo, temp, ‘C’ as scale<br>insert into RoomTempStream;</pre><br>        </td><br>    </tr><br>    <tr><br>        <td>使用数学和逻辑表达式</td><br>        <td>这将使用下面给出的优先顺序中的数学和逻辑表达式的属性，并使用<code>as</code>将它们分配给输出属性。<br>            <br><br><br>            <b>Operator precedence</b><br><br>            <table style="width:100%"><br>                <tr><br>                    <th>Operator</th><br>                    <th>Distribution</th><br>                    <th>Example</th><br>                </tr><br>                <tr><br>                    <td><br>                        ()<br>                    </td><br>                    <td><br>                        范围<br>                    </td><br>                    <td><br>                        <pre>(cost + tax) * 0.05</pre><br>                    </td><br>                </tr><br>                <tr><br>                    <td><br>                         IS NULL<br>                    </td><br>                    <td><br>                        Null check<br>                    </td><br>                    <td><br>                        <pre>deviceID is null</pre><br>                    </td><br>                </tr><br>                <tr><br>                    <td><br>                        NOT<br>                    </td><br>                    <td><br>                        逻辑否<br>                    </td><br>                    <td><br>                        <pre>not (price &gt; 10)</pre><br>                    </td><br>                </tr><br>                <tr><br>                    <td></td></tr></table></td></tr></table></p>
+<pre><code>                     *   /   %  
+                &lt;/td&gt;
+                &lt;td&gt;
+                    乘法, 除法, 取模
+                &lt;/td&gt;
+                &lt;td&gt;
+                    &lt;pre&gt;temp * 9/5 + 32&lt;/pre&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;
+                    +   -  
+                &lt;/td&gt;
+                &lt;td&gt;
+                    加法, 减法
+                &lt;/td&gt;
+                &lt;td&gt;
+                    &lt;pre&gt;temp * 9/5 - 32&lt;/pre&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;
+                    &lt;   &lt;=   &gt;   &gt;=
+                &lt;/td&gt;
+                &lt;td&gt;
+                    Comparators: less-than, greater-than-equal, greater-than, less-than-equal
+                &lt;/td&gt;
+                &lt;td&gt;
+                    &lt;pre&gt;totalCost &gt;= price * quantity&lt;/pre&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;
+                    ==   !=  
+                &lt;/td&gt;
+                &lt;td&gt;
+                    Comparisons: equal, not equal
+                &lt;/td&gt;
+                &lt;td&gt;
+                    &lt;pre&gt;totalCost !=  price * quantity&lt;/pre&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;
+                    IN
+                &lt;/td&gt;
+                &lt;td&gt;
+                    Contains in table
+                &lt;/td&gt;
+                &lt;td&gt;
+                    &lt;pre&gt;roomNo in ServerRoomsTable&lt;/pre&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;
+                    AND
+                &lt;/td&gt;
+                &lt;td&gt;
+                    Logical AND
+                &lt;/td&gt;
+                &lt;td&gt;
+                    &lt;pre&gt;temp &lt; 40 and (humidity &lt; 40 or humidity &gt;= 60)&lt;/pre&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;
+                    OR
+                &lt;/td&gt;
+                &lt;td&gt;
+                    Logical OR
+                &lt;/td&gt;
+                &lt;td&gt;
+                    &lt;pre&gt;temp &lt; 40 or (humidity &lt; 40 and humidity &gt;= 60)&lt;/pre&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+        E.g., 将摄氏温度转换为华氏温度，并将房间号在10到15之间的房间识别为服务器房间.
+        &lt;pre&gt;from TempStream&lt;br&gt;select roomNo, temp * 9/5 + 32 as temp, &apos;F&apos; as scale, roomNo &gt; 10 and roomNo &lt; 15 as isServerRoom&lt;br&gt;insert into RoomTempStream;&lt;/pre&gt;       
+&lt;/tr&gt;
+</code></pre><h5 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h5><p>函数消耗零个，一个或多个参数，并始终生成结果值。它可以在任何可以使用属性的位置使用。</p>
+<p><strong>目的</strong></p>
+<p>函数封装了复杂的执行逻辑，使Siddhi应用程序简单易懂。</p>
+<p><strong>函数参数</strong></p>
+<p>函数参数可以是属性，常量值，其他函数的结果，数学或逻辑表达式的结果或时间参数。函数参数取决于被调用的函数。</p>
+<p>Time是一个特殊参数，可以使用整数时间值，后跟单位为<code>&lt;int&gt;</code> <code>&lt;unit&gt;</code>来定义。以下是支持的单位类型。执行时，<code>time</code>将以毫秒为单位的值返回为<code>long</code>值。</p>
+<table>
+<thead>
+<tr>
+<th>Unit</th>
+<th>Syntax</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Year</td>
+<td>year \</td>
+<td>years</td>
+</tr>
+<tr>
+<td>Month</td>
+<td>month \</td>
+<td>months</td>
+</tr>
+<tr>
+<td>Week</td>
+<td>week \</td>
+<td>weeks</td>
+</tr>
+<tr>
+<td>Day</td>
+<td>day \</td>
+<td>days</td>
+</tr>
+<tr>
+<td>Hour</td>
+<td>hour \</td>
+<td>hours</td>
+</tr>
+<tr>
+<td>Minutes</td>
+<td>minute \</td>
+<td>minutes \</td>
+<td>min</td>
+</tr>
+<tr>
+<td>Seconds</td>
+<td>second \</td>
+<td>seconds \</td>
+<td>sec</td>
+</tr>
+<tr>
+<td>Milliseconds</td>
+<td>millisecond \</td>
+<td>milliseconds</td>
+</tr>
+</tbody>
+</table>
+<p>E.g.通过1小时25分钟到test（）函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">test(1 hour 25 min)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>函数，数学表达式和逻辑表达式可以以嵌套方式使用。</p>
+</blockquote>
+<p>以下是Siddhi附带的一些内置函数，更多函数引用执行<a href="https://wso2.github.io/siddhi/extensions/" target="_blank" rel="noopener">扩展</a>。</p>
+<ul>
+<li><a href="https://wso2.github.io/siddhi/api/latest/#eventtimestamp-function" target="_blank" rel="noopener">eventTimestamp</a></li>
+<li><a href="https://wso2.github.io/siddhi/api/latest/#log-stream-processor" target="_blank" rel="noopener">log</a></li>
+<li><a href="https://wso2.github.io/siddhi/api/latest/#uuid-function" target="_blank" rel="noopener">UUID</a></li>
+<li><a href="https://wso2.github.io/siddhi/api/latest/#default-function" target="_blank" rel="noopener">default</a></li>
+<li><a href="https://wso2.github.io/siddhi/api/latest/#cast-function" target="_blank" rel="noopener">cast</a></li>
+<li><a href="https://wso2.github.io/siddhi/api/latest/#convert-function" target="_blank" rel="noopener">convert</a></li>
+<li><a href="https://wso2.github.io/siddhi/api/latest/#ifthenelse-function" target="_blank" rel="noopener">ifThenElse</a></li>
+<li><a href="https://wso2.github.io/siddhi/api/latest/#minimum-function" target="_blank" rel="noopener">minimum</a></li>
+<li><a href="https://wso2.github.io/siddhi/api/latest/#maximum-function" target="_blank" rel="noopener">maximum</a></li>
+<li><a href="https://wso2.github.io/siddhi/api/latest/#coalesce-function" target="_blank" rel="noopener">coalesce</a></li>
+<li><a href="https://wso2.github.io/siddhi/api/latest/#instanceofboolean-function" target="_blank" rel="noopener">instanceOfBoolean</a></li>
+<li><a href="https://wso2.github.io/siddhi/api/latest/#instanceofdouble-function" target="_blank" rel="noopener">instanceOfDouble</a></li>
+<li><a href="https://wso2.github.io/siddhi/api/latest/#instanceoffloat-function" target="_blank" rel="noopener">instanceOfFloat</a></li>
+<li><a href="https://wso2.github.io/siddhi/api/latest/#instanceofinteger-function" target="_blank" rel="noopener">instanceOfInteger</a></li>
+<li><a href="https://wso2.github.io/siddhi/api/latest/#instanceoflong-function" target="_blank" rel="noopener">instanceOfLong</a></li>
+<li><a href="https://wso2.github.io/siddhi/api/latest/#instanceofstring-function" target="_blank" rel="noopener">instanceOfString</a></li>
+</ul>
+<p>E.g.以下配置将<code>roomNo</code>转换为<code>string</code>，并使用<code>convert</code>和<code>UUID</code>函数为每个事件添加<code>messageID</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from TempStream</span><br><span class="line">select convert(roomNo, &apos;string&apos;) as roomNo, temp, UUID() as messageID</span><br><span class="line">insert into RoomTempStream;</span><br></pre></td></tr></table></figure>
+<h5 id="Filter"><a href="#Filter" class="headerlink" title="Filter"></a>Filter</h5><p>过滤器包含在查询中，以根据指定条件过滤来自输入流的信息。</p>
+<p><strong>目的</strong></p>
+<p>过滤器允许您将与特定条件匹配的事件分离为输出，或进行进一步处理。</p>
+<p><strong>语法</strong></p>
+<p>过滤条件应在输入流名称旁边的方括号中定义，如下所示。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from &lt;input stream&gt;[&lt;filter condition&gt;]</span><br><span class="line">select &lt;attribute name&gt;, &lt;attribute name&gt;, ...</span><br><span class="line">insert into &lt;output stream&gt;</span><br></pre></td></tr></table></figure>
+<p>E.g 此查询过滤房间号在100-210范围内并且<code>TempStream</code>流的温度大于40度，并将结果插入到<code>HighTempStream</code>流中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from TempStream[(roomNo &gt;= 100 and roomNo &lt; 210) and temp &gt; 40]</span><br><span class="line">select roomNo, temp</span><br><span class="line">insert into HighTempStream;</span><br></pre></td></tr></table></figure>
+<h5 id="Window"><a href="#Window" class="headerlink" title="Window"></a>Window</h5><p>Windows允许您根据输入流中的特定条件捕获事件子集以进行计算。每个输入流最多只能有一个窗口。</p>
+<p><strong>目的</strong></p>
+<p>基于持续时间，事件数量等来处理流中的事件子集。窗口可以以滑动或翻滚（批量）方式操作。</p>
+<p><strong>语法</strong></p>
+<p>应该在相关流旁边插入<code>#window</code>前缀以使用窗口。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from &lt;input stream&gt;#window.&lt;window name&gt;(&lt;parameter&gt;, &lt;parameter&gt;, ... )</span><br><span class="line">select &lt;attribute name&gt;, &lt;attribute name&gt;, ...</span><br><span class="line">insert &lt;event type&gt; into &lt;output stream&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>可以在窗口之前和/或之后应用过滤条件</p>
+</blockquote>
+<p>E.g 如果要识别最近10个事件中的最高温度，则需要定义10个事件的长度窗口。该窗口以滑动模式操作，其中当按顺序接收12个事件的列表时，计算以下3个子集。</p>
+<table>
+<thead>
+<tr>
+<th>Subset</th>
+<th>Event Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1-10</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2-11</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3-12</td>
+</tr>
+</tbody>
+</table>
+<p>以下查询从<code>TempStream</code>流中查找最近10个事件的最高温度，并将结果插入<code>MaxTempStream</code>流。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from TempStream#window.length(10)</span><br><span class="line">select max(temp) as maxTemp</span><br><span class="line">insert into MaxTempStream;</span><br></pre></td></tr></table></figure>
+<p>如果定义每10个事件中的最高温度读数，则需要定义10个事件的<code>lengthBatch</code>窗口。该窗口作为批/翻滚模式运行，其中当按顺序接收30个事件的列表时，计算以下3个子集。</p>
+<table>
+<thead>
+<tr>
+<th>Subset</th>
+<th>Event Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1-10</td>
+</tr>
+<tr>
+<td>2</td>
+<td>11-20</td>
+</tr>
+<tr>
+<td>3</td>
+<td>21-30</td>
+</tr>
+</tbody>
+</table>
+<p>以下查询从<code>TempStream</code>流中查找每10个事件中的最高温度，并将结果插入<code>MaxTempStream</code>流。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from TempStream#window.lengthBatch(10)</span><br><span class="line">select max(temp) as maxTemp</span><br><span class="line">insert into MaxTempStream;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>可以通过<code>time</code>窗口和timeBatch窗口以及其他时间基于时间来完成类似的操作。诸如<code>＃window.time</code>（10分钟）之类的代码段考虑以最后10分钟以滑动方式到达的事件，<code>＃window.timeBatch</code>（2分钟）考虑以翻滚方式每2分钟到达的事件。</p>
+</blockquote>
+<p>以下是Siddhi附带的一些内置窗口。有关更多窗口类型，请参阅执行<a href="https://wso2.github.io/siddhi/extensions/" target="_blank" rel="noopener">extensions</a>。</p>
+<ul>
+<li><a href="https://wso2.github.io/siddhi/api/latest/#time-window" target="_blank" rel="noopener">time</a></li>
+<li><a href="https://wso2.github.io/siddhi/api/latest/#timebatch-window" target="_blank" rel="noopener">timeBatch</a></li>
+<li><a href="https://wso2.github.io/siddhi/api/latest/#timelength-window" target="_blank" rel="noopener">timeLength</a></li>
+<li><a href="https://wso2.github.io/siddhi/api/latest/#length-window" target="_blank" rel="noopener">length</a></li>
+<li><a href="https://wso2.github.io/siddhi/api/latest/#lengthbatch-window" target="_blank" rel="noopener">lengthBatch</a></li>
+<li><a href="https://wso2.github.io/siddhi/api/latest/#sort-window" target="_blank" rel="noopener">sort</a></li>
+<li><a href="https://wso2.github.io/siddhi/api/latest/#frequent-window" target="_blank" rel="noopener">frequent</a></li>
+<li><a href="https://wso2.github.io/siddhi/api/latest/#lossyfrequent-window" target="_blank" rel="noopener">lossyFrequent</a></li>
+<li><a href="https://wso2.github.io/siddhi/api/latest/#cron-window" target="_blank" rel="noopener">cron</a></li>
+<li><a href="https://wso2.github.io/siddhi/api/latest/#externaltime-window" target="_blank" rel="noopener">externalTime</a></li>
+<li><a href="https://wso2.github.io/siddhi/api/latest/#externaltimebatch-window" target="_blank" rel="noopener">externalTimeBatch</a></li>
+<li><a href="https://wso2.github.io/siddhi/api/latest/#delay-window" target="_blank" rel="noopener">delay</a></li>
+</ul>
+<p><strong>输出事件类型</strong></p>
+<p>查询的投影取决于输出事件类型，比如当前事件类型和过期事件类型。默认情况下，所有查询都生成当前事件，只有使用windows的查询在事件从窗口过期时才生成过期事件。您可以指定查询的输出是仅为当前事件、仅为过期事件还是同时为当前事件和过期事件。</p>
+<p>==注意！==控制输出事件类型不会改变查询中的执行，也不会影响查询执行的准确性。以下关键字可与输出流一起使用以操作输出。</p>
+<table>
+<thead>
+<tr>
+<th>Output event types</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>当前事件</td>
+<td>当传入事件到达以由查询处理时输出事件。当没有指定特定的输出事件类型时，这是默认值。</td>
+</tr>
+<tr>
+<td>过期事件</td>
+<td>当事件从窗口到期时输出事件。</td>
+</tr>
+<tr>
+<td><code>all events</code></td>
+<td>当传入事件到达以由查询处理时输出事件当事件从窗口到期时。</td>
+</tr>
+</tbody>
+</table>
+<p>可以在<code>insert</code>和<code>into</code>之间使用<code>output</code>事件类型关键字，如以下示例所示。</p>
+<p>E.g 此查询将流中的所有事件延迟1分钟。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from TempStream#window.time(1 min)</span><br><span class="line">select *</span><br><span class="line">insert expired events into DelayedTempStream</span><br></pre></td></tr></table></figure>
+<h5 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h5><p>聚合函数在查询中执行聚合计算。当一个窗口被定义时，聚合被限制在该窗口中。如果没有提供窗口，则从Siddhi应用程序开始执行聚合。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from &lt;input stream&gt;#window.&lt;window name&gt;(&lt;parameter&gt;, &lt;parameter&gt;, ... )</span><br><span class="line">select &lt;aggregate function&gt;(&lt;parameter&gt;, &lt;parameter&gt;, ... ) as &lt;attribute name&gt;, &lt;attribute2 name&gt;, ...</span><br><span class="line">insert into &lt;output stream&gt;;</span><br></pre></td></tr></table></figure>
+<p><strong>聚合参数</strong></p>
+<p>聚合参数可以是属性，常量值，其他函数或聚合的结果，数学或逻辑表达式的结果或时间参数。查询中配置的聚合参数取决于被调用的聚合函数。</p>
+<p>E.g 以下查询计算<code>TempStream</code>流的<code>temp</code>属性的平均值。此计算以滑动方式在最后10分钟完成，结果作为<code>avgTemp</code>输出到<code>AvgTempStream</code>输出流。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from TempStream#window.time(10 min)</span><br><span class="line">select avg(temp) as avgTemp, roomNo, deviceID</span><br><span class="line">insert into AvgTempStream;</span><br></pre></td></tr></table></figure>
+<p>以下是Siddhi附带的一些内置聚合函数，有关更多聚合函数，请参阅<a href="https://wso2.github.io/siddhi/extensions/" target="_blank" rel="noopener">执行扩展</a>。</p>
+<ul>
+<li><a href="http://wso2.github.io/siddhi/api/latest/#avg-aggregate-function" target="_blank" rel="noopener">avg</a></li>
+<li><a href="http://wso2.github.io/siddhi/api/latest/#sum-aggregate-function" target="_blank" rel="noopener">sum</a></li>
+<li><a href="http://wso2.github.io/siddhi/api/latest/#max-aggregate-function" target="_blank" rel="noopener">max</a></li>
+<li><a href="http://wso2.github.io/siddhi/api/latest/#min-aggregate-function" target="_blank" rel="noopener">min</a></li>
+<li><a href="http://wso2.github.io/siddhi/api/latest/#count-aggregate-function" target="_blank" rel="noopener">count</a></li>
+<li><a href="http://wso2.github.io/siddhi/api/latest/#distinctcount-aggregate-function" target="_blank" rel="noopener">distinctCount</a></li>
+<li><a href="http://wso2.github.io/siddhi/api/latest/#maxforever-aggregate-function" target="_blank" rel="noopener">maxForever</a></li>
+<li><a href="http://wso2.github.io/siddhi/api/latest/#minforever-aggregate-function" target="_blank" rel="noopener">minForever</a></li>
+<li><a href="http://wso2.github.io/siddhi/api/latest/#stddev-aggregate-function" target="_blank" rel="noopener">stdDev</a></li>
+</ul>
+<h5 id="Group-By-分组"><a href="#Group-By-分组" class="headerlink" title="Group By 分组"></a>Group By 分组</h5><p>Group By允许您根据指定的属性对聚合进行分组。</p>
+<p><strong>语法</strong></p>
+<p>Group By聚合函数的语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from &lt;input stream&gt;#window.&lt;window name&gt;(...)</span><br><span class="line">select &lt;aggregate function&gt;( &lt;parameter&gt;, &lt;parameter&gt;, ...) as &lt;attribute1 name&gt;, &lt;attribute2 name&gt;, ...</span><br><span class="line">group by &lt;attribute1 name&gt;, &lt;attribute2 name&gt; ...</span><br><span class="line">insert into &lt;output stream&gt;;</span><br></pre></td></tr></table></figure>
+<p>E.g 以下查询计算每个<code>roomNo</code>和<code>deviceID</code>组合的平均温度，用于在10分钟的滑动时间窗口到达<code>TempStream</code>流的事件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from TempStream#window.time(10 min)</span><br><span class="line">select avg(temp) as avgTemp, roomNo, deviceID</span><br><span class="line">group by roomNo, deviceID</span><br><span class="line">insert into AvgTempStream;</span><br></pre></td></tr></table></figure>
+<h5 id="Having"><a href="#Having" class="headerlink" title="Having"></a>Having</h5><p>允许您在处理select语句后使用<code>having</code>过滤事件。</p>
+<p><strong>目的</strong></p>
+<p>这允许您过滤聚合输出。</p>
+<p><strong>语法</strong></p>
+<p>Having子句的语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">from &lt;input stream&gt;#window.&lt;window name&gt;( ... )</span><br><span class="line">select &lt;aggregate function&gt;( &lt;parameter&gt;, &lt;parameter&gt;, ...) as &lt;attribute1 name&gt;, &lt;attribute2 name&gt;, ...</span><br><span class="line">group by &lt;attribute1 name&gt;, &lt;attribute2 name&gt; ...</span><br><span class="line">having &lt;condition&gt;</span><br><span class="line">insert into &lt;output stream&gt;;</span><br></pre></td></tr></table></figure>
+<p>E.g 以下查询计算过去10分钟内每个房间的平均温度，并在超过30度时发出警报。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">from TempStream#window.time(10 min)</span><br><span class="line">select avg(temp) as avgTemp, roomNo</span><br><span class="line">group by roomNo</span><br><span class="line">having avgTemp &gt; 30</span><br><span class="line">insert into AlertStream;</span><br></pre></td></tr></table></figure>
+<h5 id="Order-By"><a href="#Order-By" class="headerlink" title="Order By"></a>Order By</h5><p>Order By允许您根据指定的属性对聚合结果进行升序和/或降序排序。默认情况下，排序将按升序进行。用户可以使用<code>desc</code>关键字按降序排列。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">from &lt;input stream&gt;#window.&lt;window name&gt;( ... )</span><br><span class="line">select &lt;aggregate function&gt;( &lt;parameter&gt;, &lt;parameter&gt;, ...) as &lt;attribute1 name&gt;, &lt;attribute2 name&gt;, ...</span><br><span class="line">group by &lt;attribute1 name&gt;, &lt;attribute2 name&gt; ...</span><br><span class="line">having &lt;condition&gt;</span><br><span class="line">order by &lt;attribute1 name&gt; (asc | desc)?, &lt;attribute2 name&gt; (&lt;ascend/descend&gt;)?, ...</span><br><span class="line">insert into &lt;output stream&gt;;</span><br></pre></td></tr></table></figure>
+<p>E.g 以下查询每10分钟计算每个<code>roomNo</code>和<code>deviceID</code>组合的平均温度，并通过按房间的<code>avgTemp</code>的升序排序它们，然后按<code>roomNo</code>的降序排序。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">from TempStream#window.timeBatch(10 min)</span><br><span class="line">select avg(temp) as avgTemp, roomNo, deviceID</span><br><span class="line">group by roomNo, deviceID</span><br><span class="line">order by avgTemp, roomNo desc</span><br><span class="line">insert into AvgTempStream;</span><br></pre></td></tr></table></figure>
+<h5 id="Limit-amp-Offset"><a href="#Limit-amp-Offset" class="headerlink" title="Limit &amp; Offset"></a>Limit &amp; Offset</h5><p>当事件作为批处理发出时，offset允许您偏移输出事件批处理的起始位置，而limit允许您从定义的偏移量限制批处理中的事件数量。有了这个，用户可以指定需要发出哪组事件。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">from &lt;input stream&gt;#window.&lt;window name&gt;( ... )</span><br><span class="line">select &lt;aggregate function&gt;( &lt;parameter&gt;, &lt;parameter&gt;, ...) as &lt;attribute1 name&gt;, &lt;attribute2 name&gt;, ...</span><br><span class="line">group by &lt;attribute1 name&gt;, &lt;attribute2 name&gt; ...</span><br><span class="line">having &lt;condition&gt;</span><br><span class="line">order by &lt;attribute1 name&gt; (asc | desc)?, &lt;attribute2 name&gt; (&lt;ascend/descend&gt;)?, ...</span><br><span class="line">limit &lt;positive interger&gt;?</span><br><span class="line">offset &lt;positive interger&gt;?</span><br><span class="line">insert into &lt;output stream&gt;;</span><br></pre></td></tr></table></figure>
+<p>这里限制和偏移都是可选的，其中默认情况下，限制输出所有事件，默认情况下偏移设置为0。</p>
+<p>E.g 以下查询计算每个<code>roomNo</code>和<code>deviceID</code>组合的平均温度，用于每10分钟到达<code>TempStream</code>流的事件，并发出两个具有最高平均温度的事件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">from TempStream#window.timeBatch(10 min)</span><br><span class="line">select avg(temp) as avgTemp, roomNo, deviceID</span><br><span class="line">group by roomNo, deviceID</span><br><span class="line">order by avgTemp desc</span><br><span class="line">limit 2</span><br><span class="line">insert into HighestAvgTempStream;</span><br></pre></td></tr></table></figure>
+<p>以下查询计算每个<code>roomNo</code>和<code>deviceID</code>组合的平均温度，用于每10分钟到达<code>TempStream</code>流的事件，并根据其平均温度按降序排序时发出第三，第四和第五个事件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from TempStream#window.timeBatch(10 min)</span><br><span class="line">select avg(temp) as avgTemp, roomNo, deviceID</span><br><span class="line">group by roomNo, deviceID</span><br><span class="line">order by avgTemp desc</span><br><span class="line">limit 3</span><br><span class="line">offset 2</span><br><span class="line">insert into HighestAvgTempStream;</span><br></pre></td></tr></table></figure>
+<h5 id="Join-Stream"><a href="#Join-Stream" class="headerlink" title="Join (Stream)"></a>Join (Stream)</h5><p>join允许您根据指定的条件实时获取两个流的组合结果。</p>
+<p><strong>目的</strong></p>
+<p>流是无状态的。因此，为了连接两个流，它们需要连接到一个窗口，以便有一个可以用于连接的事件池。join还接受条件，以连接来自每个流的适当事件。在连接过程中，每个流的每个传入事件都根据给定的条件与另一个流窗口中的所有事件进行匹配，并为所有匹配的事件对生成输出事件。</p>
+<blockquote>
+<p>连接也可以通过<a href="https://wso2.github.io/siddhi/documentation/siddhi-4.0/#join-table" target="_blank" rel="noopener">存储数据</a>、<a href="https://wso2.github.io/siddhi/documentation/siddhi-4.0/#join-aggregation" target="_blank" rel="noopener">聚合</a>或外部定义的<a href="https://wso2.github.io/siddhi/documentation/siddhi-4.0/#join-window" target="_blank" rel="noopener">窗口</a>来执行。</p>
+</blockquote>
+<p><strong>语法</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">from &lt;input stream&gt;#window.&lt;window name&gt;(&lt;parameter&gt;, ... ) &#123;unidirectional&#125; &#123;as &lt;reference&gt;&#125;</span><br><span class="line">         join &lt;input stream&gt;#window.&lt;window name&gt;(&lt;parameter&gt;,  ... ) &#123;unidirectional&#125; &#123;as &lt;reference&gt;&#125;</span><br><span class="line">    on &lt;join condition&gt;</span><br><span class="line">select &lt;attribute name&gt;, &lt;attribute name&gt;, ...</span><br><span class="line">insert into &lt;output stream&gt;</span><br></pre></td></tr></table></figure>
+<p>这里，<join condition="">允许您匹配两个流的属性。</join></p>
+<p><strong>单向连接操作</strong></p>
+<p>默认情况下，到达任何一个流的事件都可能触发连接进程。但是，如果您想控制连接执行，您可以像语法中描述的那样，在连接定义中的流旁边添加<code>unidirectional</code>关键字，以便使流能够触发连接操作。在这里，到达其他流的事件只会更新该流的窗口，而该流不会触发连接操作。</p>
+<blockquote>
+<p>单向关键字<code>unidirectional</code>不能同时应用于两个输入流，因为默认行为已经允许两个流触发连接操作。</p>
+</blockquote>
+<p>E.g 假设调节器的温度每分钟更新一次。以下是Siddhi应用程序，如果房间温度超过30度的所有房间尚未开启温度调节器，则可以控制温度调节器。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">define stream TempStream(deviceID long, roomNo int, temp double);</span><br><span class="line">define stream RegulatorStream(deviceID long, roomNo int, isOn bool);</span><br><span class="line"></span><br><span class="line">from TempStream[temp &gt; 30.0]#window.time(1 min) as T</span><br><span class="line">  join RegulatorStream[isOn == false]#window.length(1) as R</span><br><span class="line">  on T.roomNo == R.roomNo</span><br><span class="line">select T.roomNo, R.deviceID, &apos;start&apos; as action</span><br><span class="line">insert into RegulatorActionStream;</span><br></pre></td></tr></table></figure>
+<p><strong>支持的连接类型</strong></p>
+<p>以下是join子句支持的操作。</p>
+<ul>
+<li><p>Inner join (join)：这是连接操作的默认行为。join用作连接两个流的关键字。只有当两个流中都有匹配的事件时，才会生成输出。</p>
+</li>
+<li><p>Left outer join：左外连接操作允许您根据条件连接两个要合并的流。<code>left outer join</code>用作连接两个流的关键字。在这里，它通过为右流的属性设置null值返回所有左流的事件，即使右流中没有匹配的事件。</p>
+<p>E.g 以下查询为<code>StockStream</code>流中的所有事件生成输出事件，而不管<code>TwitterStream</code>流中是否存在匹配的符号。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">from StockStream#window.time(1 min) as S</span><br><span class="line">  left outer join TwitterStream#window.length(1) as T</span><br><span class="line">  on S.symbol== T.symbol</span><br><span class="line">select S.symbol as symbol, T.tweet, S.price</span><br><span class="line">insert into outputStream ;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Right outer join：这类似于左外连接。右外部连接用作连接两个流的关键字。它返回右边流的所有事件，即使左边流中没有匹配的事件。</p>
+</li>
+<li><p>Full outer join：完整的外部连接结合了左外部连接和右外部连接的结果。<code>完全外部连接</code>用作两个流的连接的关键字。在这里，为每个传入事件生成输出事件，即使另一个流中没有匹配的事件。</p>
+<p>E.g 以下查询为每个流的所有传入事件生成输出事件，而不管其他流中的符号属性是否匹配。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">from StockStream#window.time(1 min) as S</span><br><span class="line">  full outer join TwitterStream#window.length(1) as T</span><br><span class="line">  on S.symbol== T.symbol</span><br><span class="line">select S.symbol as symbol, T.tweet, S.price</span><br><span class="line">insert into outputStream ;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="Pattern"><a href="#Pattern" class="headerlink" title="Pattern"></a>Pattern</h5><p>这是一个状态机实现，允许您检测随时间而来的事件中的模式。这可以关联单个流或多个流之间的事件。</p>
+<p><strong>目的</strong></p>
+<p>模式允许您识别一段时间内事件的趋势。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">from (every)? &lt;event reference&gt;=&lt;input stream&gt;[&lt;filter condition&gt;] -&gt; </span><br><span class="line">    (every)? &lt;event reference&gt;=&lt;input stream [&lt;filter condition&gt;] -&gt; </span><br><span class="line">    ... </span><br><span class="line">    (within &lt;time gap&gt;)?     </span><br><span class="line">select &lt;event reference&gt;.&lt;attribute name&gt;, &lt;event reference&gt;.&lt;attribute name&gt;, ...</span><br><span class="line">insert into &lt;output stream&gt;</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>Items</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-&gt;</code></td>
+<td>这是用来指示应该跟随另一个事件的事件。后续事件不一定必须在前一个事件之后立即发生。前一个事件要满足的条件应该在符号之前添加，后一个事件要满足的条件应该在符号之后添加。</td>
+</tr>
+<tr>
+<td><code>&lt;event reference&gt;</code></td>
+<td>这允许您添加对匹配事件的引用，以便以后可以访问它以进行进一步处理。</td>
+</tr>
+<tr>
+<td><code>(within &lt;time gap&gt;)?</code></td>
+<td>within子句是可选的。它定义了所有匹配事件应发生的持续时间。</td>
+</tr>
+<tr>
+<td><code>every</code></td>
+<td><code>every</code>是一个可选的关键字。这定义了是否应该为具有匹配条件的指定流中的每个事件到达触发事件匹配。如果未使用此关键字，则仅执行一次匹配。</td>
+</tr>
+</tbody>
+</table>
+<p>Siddhi还支持模式匹配与计数事件和匹配事件的逻辑顺序，如 (<code>and</code>, <code>or</code>, and <code>not</code>).。这些将在本指南的下面进一步详细介绍。</p>
+<p>E.g 如果房间温度在10分钟内增加5度，此查询将发送警报。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from every( e1=TempStream ) -&gt; e2=TempStream[ e1.roomNo == roomNo and (e1.temp + 5) &lt;= temp ]</span><br><span class="line">    within 10 min</span><br><span class="line">select e1.roomNo, e1.temp as initialTemp, e2.temp as finalTemp</span><br><span class="line">insert into AlertStream;</span><br></pre></td></tr></table></figure>
+<p>在这里，匹配过程开始于TempStream流中的每个事件(因为e1=TempStream使用的都是each)，如果在10分钟内有另一个事件到达，其temp属性的值大于或等于e1。事件e1的temp + 5，通过AlertStream生成一个输出。</p>
+<h6 id="计算模式"><a href="#计算模式" class="headerlink" title="计算模式"></a>计算模式</h6><p>计数模式允许您匹配可能已针对相同匹配条件接收的多个事件。每个条件匹配的事件数可以通过条件后缀来限制。</p>
+<p><strong>语法</strong></p>
+<p>每个匹配条件都可以包含一组事件，其中包含要匹配的最小和最大事件数，如下面的语法所示。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">from (every)? &lt;event reference&gt;=&lt;input stream&gt;[&lt;filter condition&gt;] (&lt;&lt;min count&gt;:&lt;max count&gt;&gt;)? -&gt;  </span><br><span class="line">    ... </span><br><span class="line">    (within &lt;time gap&gt;)?     </span><br><span class="line">select &lt;event reference&gt;([event index])?.&lt;attribute name&gt;, ...</span><br><span class="line">insert into &lt;output stream&gt;</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>Postfix</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;n1:n2&gt;</code></td>
+<td>这将匹配n1到n2事件(包括n1且不超过n2)。</td>
+<td><code>1:4</code> matches 1 to 4 events.</td>
+</tr>
+<tr>
+<td><code>&lt;n:&gt;</code></td>
+<td>这匹配n个或更多事件（包括n）。</td>
+<td><code>&lt;2:&gt;</code> matches 2 or more events.</td>
+</tr>
+<tr>
+<td><code>&lt;:n&gt;</code></td>
+<td>这最多匹配n个事件（不包括n）。</td>
+<td><code>&lt;:5&gt;</code> matches up to 5 events.</td>
+</tr>
+<tr>
+<td><code>&lt;n&gt;</code></td>
+<td>这恰好与n个事件匹配。</td>
+<td><code>&lt;5&gt;</code> matches exactly 5 events.</td>
+</tr>
+</tbody>
+</table>
+<p>可以使用带有引用的事件索引来检索集合中事件的特定发生。方括号可以用来表示事件索引，其中1可以用作第一个事件的索引，最后一个可以用作事件集合中最后可用事件的索引。如果您提供的索引大于最后一个事件索引，系统将返回null。以下是一些有效的例子。</p>
+<ul>
+<li><code>e1[3]</code>是指第3次事件。</li>
+<li><code>e1[last]</code> 最后一次事件</li>
+<li><code>e1[last - 1]</code> 指最后一个事件之前的事件。</li>
+</ul>
+<p>E.g 以下Siddhi应用程序计算两个调节器事件之间的温差。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">define stream TempStream (deviceID long, roomNo int, temp double);</span><br><span class="line">define stream RegulatorStream (deviceID long, roomNo int, tempSet double, isOn bool);</span><br><span class="line"></span><br><span class="line">from every( e1=RegulatorStream) -&gt; e2=TempStream[e1.roomNo==roomNo]&lt;1:&gt; -&gt; e3=RegulatorStream[e1.roomNo==roomNo]</span><br><span class="line">select e1.roomNo, e2[0].temp - e2[last].temp as tempDiff</span><br><span class="line">insert into TempDiffStream;</span><br></pre></td></tr></table></figure>
+<h6 id="逻辑模式"><a href="#逻辑模式" class="headerlink" title="逻辑模式"></a>逻辑模式</h6><p>逻辑模式匹配以时间顺序到达的事件，并将它们与诸如and、or和not之类的逻辑关系关联起来。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">from (every)? (not)? &lt;event reference&gt;=&lt;input stream&gt;[&lt;filter condition&gt;] </span><br><span class="line">          ((and|or) &lt;event reference&gt;=&lt;input stream&gt;[&lt;filter condition&gt;])? (within &lt;time gap&gt;)? -&gt;  </span><br><span class="line">    ... </span><br><span class="line">select &lt;event reference&gt;([event index])?.&lt;attribute name&gt;, ...</span><br><span class="line">insert into &lt;output stream&gt;</span><br></pre></td></tr></table></figure>
+<p>诸如and、or或not这样的关键字可以用来说明逻辑关系。</p>
+<table>
+<thead>
+<tr>
+<th>Key Word</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>and</code></td>
+<td>这允许任意顺序的两个事件的条件和匹配条件。</td>
+</tr>
+<tr>
+<td><code>or</code></td>
+<td>The state succeeds if either condition of <code>or</code> is satisfied. Here the event reference of the other condition is <code>null</code>.</td>
+</tr>
+<tr>
+<td><code>not &lt;condition1&gt; and &lt;condition2&gt;</code></td>
+<td>When <code>not</code> is included with <code>and</code>, it identifies the events that match arriving before any event that match .</td>
+</tr>
+<tr>
+<td><code>not &lt;condition&gt; for &lt;time period&gt;</code></td>
+<td>When <code>not</code> is included with <code>for</code>, it allows you to identify a situation where no event that matches <code>&lt;condition1&gt;</code> arrives during the specified <code>&lt;time period&gt;</code>. e.g.,<code>from not TemperatureStream[temp &gt; 60] for 5 sec</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>在这里，可以在not模式后面加上and子句或在给定的<time period="">之后得出not的有效周期。此外，在Siddhi中，超过两种流不能使用and, or或not子句与逻辑条件匹配。</time></p>
+<p>E.g 在Siddhi App之后，当钥匙从酒店房间移除时，将停止控制动作发送给调节器。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">define stream RegulatorStateChangeStream(deviceID long, roomNo int, tempSet double, action string);</span><br><span class="line">define stream RoomKeyStream(deviceID long, roomNo int, action string);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">from every( e1=RegulatorStateChangeStream[ action == &apos;on&apos; ] ) -&gt; </span><br><span class="line">      e2=RoomKeyStream[ e1.roomNo == roomNo and action == &apos;removed&apos; ] or e3=RegulatorStateChangeStream[ e1.roomNo == roomNo and action == &apos;off&apos;]</span><br><span class="line">select e1.roomNo, ifThenElse( e2 is null, &apos;none&apos;, &apos;stop&apos; ) as action</span><br><span class="line">having action != &apos;none&apos;</span><br><span class="line">insert into RegulatorActionStream;</span><br></pre></td></tr></table></figure>
+<p>如果我们在温度达到12度之前关闭调节器，这个Siddhi应用程序会发出警报。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">define stream RegulatorStateChangeStream(deviceID long, roomNo int, tempSet double, action string);</span><br><span class="line">define stream TempStream (deviceID long, roomNo int, temp double);</span><br><span class="line"></span><br><span class="line">from e1=RegulatorStateChangeStream[action == &apos;start&apos;] -&gt; not TempStream[e1.roomNo == roomNo and temp &lt; 12] and e2=RegulatorStateChangeStream[action == &apos;off&apos;]</span><br><span class="line">select e1.roomNo as roomNo</span><br><span class="line">insert into AlertStream;</span><br></pre></td></tr></table></figure>
+<p>如果在打开调节器的5分钟内温度没有降低到12度，该Siddhi应用程序会发出警报。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">define stream RegulatorStateChangeStream(deviceID long, roomNo int, tempSet double, action string);</span><br><span class="line">define stream TempStream (deviceID long, roomNo int, temp double);</span><br><span class="line"></span><br><span class="line">from e1=RegulatorStateChangeStream[action == &apos;start&apos;] -&gt; not TempStream[e1.roomNo == roomNo and temp &lt; 12] for &apos;5 min&apos;</span><br><span class="line">select e1.roomNo as roomNo</span><br><span class="line">insert into AlertStream;</span><br></pre></td></tr></table></figure>
+<h5 id="Sequence"><a href="#Sequence" class="headerlink" title="Sequence"></a>Sequence</h5><p>Sequence是一种状态机实现，允许您随时检测事件发生的顺序。这里所有匹配事件需要连续到达以匹配序列条件，并且不存在任何到达匹配事件序列内的非匹配事件。这可以关联单个流内或多个流之间的事件。</p>
+<p><strong>目的</strong></p>
+<p>这允许您在指定的时间段内检测指定的事件序列。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">from (every)? &lt;event reference&gt;=&lt;input stream&gt;[&lt;filter condition&gt;], </span><br><span class="line">    &lt;event reference&gt;=&lt;input stream [&lt;filter condition&gt;], </span><br><span class="line">    ... </span><br><span class="line">    (within &lt;time gap&gt;)?     </span><br><span class="line">select &lt;event reference&gt;.&lt;attribute name&gt;, &lt;event reference&gt;.&lt;attribute name&gt;, ...</span><br><span class="line">insert into &lt;output stream&gt;</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>Items</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>,</code></td>
+<td>这表示紧接着的下一个事件，即，当与第一个条件匹配的事件到达时，紧接在其之后到达的事件应该与第二个条件匹配。</td>
+</tr>
+<tr>
+<td><code>&lt;event reference&gt;</code></td>
+<td>这允许您添加对匹配事件的引用，以便以后可以访问它以进行进一步处理。</td>
+</tr>
+<tr>
+<td><code>(within &lt;time gap&gt;)?</code></td>
+<td>within子句是可选的。它定义了所有匹配事件应发生的持续时间。</td>
+</tr>
+<tr>
+<td><code>every</code></td>
+<td><code>every</code>是一个可选的关键字。这定义了是否应该为到达具有匹配条件的指定流的每个事件触发匹配事件。如果未使用此关键字，则仅执行一次匹配。</td>
+</tr>
+</tbody>
+</table>
+<p>E.g 如果两个连续温度事件之间的温度升高超过一度，则该查询生成警报。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from every e1=TempStream, e2=TempStream[e1.temp + 1 &lt; temp]</span><br><span class="line">select e1.temp as initialTemp, e2.temp as finalTemp</span><br><span class="line">insert into AlertStream;</span><br></pre></td></tr></table></figure>
+<p>######计数序列</p>
+<p>计数序列允许您在相同的匹配条件下匹配多个事件。每个条件匹配的事件数量可以通过条件后缀(如计数模式)来限制，或者使用*、+和?操作符。还可以使用事件索引检索匹配事件，类似于在计数中所做的工作。</p>
+<p><strong>语法</strong></p>
+<p>序列中的每个匹配条件都可以包含一系列事件，如下所示。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">from (every)? &lt;event reference&gt;=&lt;input stream&gt;[&lt;filter condition&gt;](+|*|?)?, </span><br><span class="line">    &lt;event reference&gt;=&lt;input stream [&lt;filter condition&gt;](+|*|?)?, </span><br><span class="line">    ... </span><br><span class="line">    (within &lt;time gap&gt;)?     </span><br><span class="line">select &lt;event reference&gt;.&lt;attribute name&gt;, &lt;event reference&gt;.&lt;attribute name&gt;, ...</span><br><span class="line">insert into &lt;output stream&gt;</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>后缀符号</th>
+<th>必选/可选</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>+</code></td>
+<td>可选的</td>
+<td>这将一个或多个事件与给定条件匹配。</td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>可选的</td>
+<td>这将零个或多个事件与给定条件匹配。</td>
+</tr>
+<tr>
+<td><code>?</code></td>
+<td>可选的</td>
+<td>这将零或一个事件与给定条件匹配。</td>
+</tr>
+</tbody>
+</table>
+<p>E.g siddhi应用程序识别温度峰值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">define stream TempStream(deviceID long, roomNo int, temp double);</span><br><span class="line"></span><br><span class="line">from every e1=TempStream, e2=TempStream[e1.temp &lt;= temp]+, e3=TempStream[e2[last].temp &gt; temp]</span><br><span class="line">select e1.temp as initialTemp, e2[last].temp as peakTemp</span><br><span class="line">insert into PeekTempStream;</span><br></pre></td></tr></table></figure>
+<h6 id="逻辑序列"><a href="#逻辑序列" class="headerlink" title="逻辑序列"></a>逻辑序列</h6><p>逻辑序列使用<code>and</code>,<code>or</code>,<code>not</code>连续到达事件来标识逻辑关系。</p>
+<p><strong>语法</strong></p>
+<p>逻辑序列的语法如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">from (every)? (not)? &lt;event reference&gt;=&lt;input stream&gt;[&lt;filter condition&gt;] </span><br><span class="line">          ((and|or) &lt;event reference&gt;=&lt;input stream&gt;[&lt;filter condition&gt;])? (within &lt;time gap&gt;)?, </span><br><span class="line">    ... </span><br><span class="line">select &lt;event reference&gt;([event index])?.&lt;attribute name&gt;, ...</span><br><span class="line">insert into &lt;output stream&gt;</span><br></pre></td></tr></table></figure>
+<p>像and、or或not这样的关键字可以用来说明逻辑关系，类似于在逻辑模式中是如何完成的。</p>
+<p>E.g 当温度和湿度事件紧接着调节器事件时，该Siddhi应用程序会通知状态。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">define stream TempStream(deviceID long, temp double);</span><br><span class="line">define stream HumidStream(deviceID long, humid double);</span><br><span class="line">define stream RegulatorStream(deviceID long, isOn bool);</span><br><span class="line"></span><br><span class="line">from every e1=RegulatorStream, e2=TempStream and e3=HumidStream</span><br><span class="line">select e2.temp, e3.humid</span><br><span class="line">insert into StateNotificationStream;</span><br></pre></td></tr></table></figure>
+<h5 id="限制输入速率"><a href="#限制输入速率" class="headerlink" title="限制输入速率"></a>限制输入速率</h5><p>输出速率限制允许查询根据指定的条件定期输出事件。</p>
+<p><strong>目的</strong></p>
+<p>这允许您限制输出以避免后续执行过载，并删除不必要的信息。</p>
+<p><strong>语法</strong></p>
+<p>输出速率限制配置的语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from &lt;input stream&gt; ...</span><br><span class="line">select &lt;attribute name&gt;, &lt;attribute name&gt;, ...</span><br><span class="line">output &lt;rate limiting configuration&gt;</span><br><span class="line">insert into &lt;output stream&gt;</span><br></pre></td></tr></table></figure>
+<p>Siddhi支持三种输出速率限制配置，如下表所述：</p>
+<table>
+<thead>
+<tr>
+<th>限速配置</th>
+<th>语法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>根据时间</td>
+<td><code>&lt;output event&gt; every &lt;time interval&gt;</code></td>
+<td>每个<time interval=""> 输出<output event="">事件</output></time></td>
+</tr>
+<tr>
+<td>根据事件的数量</td>
+<td><code>&lt;output event&gt; every &lt;event interval&gt; events</code></td>
+<td>每<code>&lt;event interval&gt;</code> 个事件，输出<code>&lt;output event&gt;</code>。</td>
+</tr>
+<tr>
+<td>基于快照的输出</td>
+<td><code>snapshot every &lt;time interval&gt;</code></td>
+<td>这将为每个给定的<time interval="">输出窗口中的所有事件(如果查询中没有定义窗口，则输出最后一个事件)。</time></td>
+</tr>
+</tbody>
+</table>
+<p>在这里，<output event="">指定应该作为查询的输出返回的事件。可能的值如下:<code>first</code>:只发出查询在指定时间间隔/滑动窗口中处理的第一个事件。<code>last</code>:只发出查询在指定时间间隔/滑动窗口中处理的最后一个事件。* <code>all</code>:在指定的时间间隔/滑动窗口内，查询处理的所有事件都会被发出。如果没有定义<output事件>，则默认使用all。</output事件></output></p>
+<p>E.g</p>
+<ul>
+<li><p>根据事件数返回事件</p>
+<p>这里，每当指定数量的事件到达时，就会发出事件。您还可以指定是仅发出第一个事件/最后一个事件，还是仅发出已到达事件的所有事件。在此示例中，每10个事件发出每个传感器的最后温度。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">from TempStreamselect </span><br><span class="line">select temp, deviceID</span><br><span class="line">group by deviceID</span><br><span class="line">output last every 10 events</span><br><span class="line">insert into LowRateTempStream;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>根据时间返回事件</p>
+<p>这里每隔预定义的时间间隔发出事件。您还可以指定是否仅发出在指定时间间隔内到达的事件中的第一个事件，最后一个事件或所有事件。在此示例中，每10秒发出一次所有温度事件.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from TempStreamoutput </span><br><span class="line">output every 10 sec</span><br><span class="line">insert into LowRateTempStream;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>返回事件的定期快照</p>
+<p>这种方法最适合Windows。当输入流连接到窗口时，快照速率限制会发出所有已到达的当前事件，并且每个预定义的时间间隔都没有相应的过期事件。如果输入流未连接到窗口，则仅发出每个预定义时间间隔的最后一个当前事件。此查询在每1秒5秒的时间窗口中发出事件的快照。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from TempStream#window.time(5 sec)</span><br><span class="line">output snapshot every 1 sec</span><br><span class="line">insert into SnapshotTempStream;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="Partition-分区"><a href="#Partition-分区" class="headerlink" title="Partition 分区"></a>Partition 分区</h4><p>分区将流和查询分成独立的组，以便并行和孤立地处理它们。分区可以包含一个或多个查询，并且可以有多个实例，其中为每个分区复制相同的查询和流。每个分区都标有分区键。这些分区仅处理与相应分区键匹配的事件。</p>
+<p><strong>目的</strong></p>
+<p>分区允许您单独处理事件组，以便可以使用每组的同一组查询执行事件处理。</p>
+<p><strong><em>生产分区键值</em></strong></p>
+<p>可以使用以下两种方法生成分区键：</p>
+<ul>
+<li><p>按值划分</p>
+<p>这是通过使用输入流属性生成唯一值来创建的。</p>
+<p><strong><em>语法</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">partition with ( &lt;expression&gt; of &lt;stream name&gt;, &lt;expression&gt; of &lt;stream name&gt;, ... )</span><br><span class="line">begin</span><br><span class="line">    &lt;query&gt;</span><br><span class="line">    &lt;query&gt;</span><br><span class="line">    ...</span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
+<p>E.g 此查询计算每个<code>deviceID</code>最近10个事件中记录的最高温度。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">partition with ( deviceID of TempStream )</span><br><span class="line">begin</span><br><span class="line">    from TempStream#window.length(10)</span><br><span class="line">    select roomNo, deviceID, max(temp) as maxTemp</span><br><span class="line">    insert into DeviceTempStream;</span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>按范围划分</p>
+<p>这是通过将每个分区键映射到输入流数字属性的范围条件来创建的。</p>
+<p><strong><em>语法</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">partition with ( &lt;condition&gt; as &lt;partition key&gt; or &lt;condition&gt; as &lt;partition key&gt; or ... of &lt;stream name&gt;, ... )</span><br><span class="line">begin</span><br><span class="line">    &lt;query&gt;</span><br><span class="line">    &lt;query&gt;</span><br><span class="line">    ...</span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
+<p> E.g 此查询计算每个办公区域最后10分钟的平均温度。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">partition with ( roomNo &gt;= 1030 as &apos;serverRoom&apos; or </span><br><span class="line">                 roomNo &lt; 1030 and roomNo &gt;= 330 as &apos;officeRoom&apos; or </span><br><span class="line">                 roomNo &lt; 330 as &apos;lobby&apos; of TempStream)</span><br><span class="line">begin</span><br><span class="line">    from TempStream#window.time(10 min)</span><br><span class="line">    select roomNo, deviceID, avg(temp) as avgTemp</span><br><span class="line">    insert into AreaTempStream</span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="Inner-Stream"><a href="#Inner-Stream" class="headerlink" title="Inner Stream"></a>Inner Stream</h5><p>分区块内的查询可以使用内部流相互通信，同时保留分区隔离。内部流由放置在流名称之前的“＃”表示，并且这些流不能在分区块之外访问。</p>
+<p><strong>目的</strong></p>
+<p>内部流允许您连接分区块中的查询，以便查询的输出只能被同一分区中的另一个查询用作输入。因此，如果流在分区内进行通信，则无需对流进行重新分区。</p>
+<p>E.g 此分区计算每个传感器的每10个事件的平均温度，如果连续的平均温度值增加超过5度，则将输出发送到<code>DeviceTempIncreasingStream</code>流。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">partition with ( deviceID of TempStream )</span><br><span class="line">begin</span><br><span class="line">    from TempStream#window.lengthBatch(10)</span><br><span class="line">    select roomNo, deviceID, avg(temp) as avgTemp</span><br><span class="line">    insert into #AvgTempStream</span><br><span class="line"></span><br><span class="line">    from every (e1=#AvgTempStream),e2=#AvgTempStream[e1.avgTemp + 5 &lt; avgTemp]</span><br><span class="line">    select e1.deviceID, e1.avgTemp as initialAvgTemp, e2.avgTemp as finalAvgTemp</span><br><span class="line">    insert into DeviceTempIncreasingStream</span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
+<p>####Table</p>
+<p>表是流或事件表的存储版本。它的模式是通过类似于流定义的表定义来定义的。这些事件默认存储在内存中，但是Siddhi还提供了存储扩展，用于通过表抽象处理存储在各种数据存储中的数据/事件。</p>
+<p><strong>目的</strong></p>
+<p>表格允许Siddhi使用存储事件。通过为表定义模式，Siddhi允许使用其定义的属性和流数据进行查询。您还可以交互式地查询表中存储事件的状态。</p>
+<p><strong>语法</strong></p>
+<p>新表定义的语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">define table &lt;table name&gt; (&lt;attribute name&gt; &lt;attribute type&gt;, &lt;attribute name&gt; &lt;attribute type&gt;, ... );</span><br></pre></td></tr></table></figure>
+<p>在表定义中配置以下参数：</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>table name</code></td>
+<td>The name of the table defined. (<code>PascalCase</code> is used for table name as a convention.)</td>
+</tr>
+<tr>
+<td><code>attribute name</code></td>
+<td>The schema of the table is defined by its attributes with uniquely identifiable attribute names (<code>camelCase</code>is used for attribute names as a convention.)</td>
+</tr>
+<tr>
+<td><code>attribute type</code></td>
+<td>The type of each attribute defined in the schema.  This can be <code>STRING</code>, <code>INT</code>, <code>LONG</code>, <code>DOUBLE</code>, <code>FLOAT</code>, <code>BOOL</code> or <code>OBJECT</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>E.g 下面定义了一个名为RoomTypeTable的表，其中包含roomNo和数据类型为int和string的类型属性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">define table RoomTypeTable ( roomNo int, type string );</span><br></pre></td></tr></table></figure>
+<p><strong>主键</strong></p>
+<p>表可以配置主键以避免数据重复。通过将<code>@PrimaryKey(&#39;key1&#39;， &#39;key2&#39;)</code>注释包含到表定义中来配置主键。每个事件表配置只能有一个<code>@PrimaryKey</code>注释。根据表的实现，支持的属性数量不同。当主键使用多个属性时，存储在表中的事件的唯一性将根据这些属性的值的组合来确定。</p>
+<p>E.g 此查询创建一个事件表，其中<code>symbol</code>属性作为主键。因此，此表中的每个条目都必须具有<code>symbol</code>属性的唯一值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@PrimaryKey(&apos;symbol&apos;)</span><br><span class="line">define table StockTable (symbol string, price float, volume long);</span><br></pre></td></tr></table></figure>
+<p>#####Indexes 索引</p>
+<p>索引允许更快地搜索/修改表。通过将<code>@Index(&#39;key1&#39;， &#39;key2&#39;)</code>注释包含到表定义中来配置索引。每个事件表配置可以有0-1 <code>@Index</code>注释。<code>对@Index</code>注释的支持和支持的属性数量根据表实现的不同而不同。当多个属性用于索引时，每个属性都用于索引表以快速访问数据。索引可以与主键一起配置。</p>
+<p>E.g 此查询创建一个名为<code>RoomTypeTable</code>的索引事件表，其<code>roomNo</code>属性为索引键。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Index(&apos;roomNo&apos;)</span><br><span class="line">define table RoomTypeTable (roomNo int, type string);</span><br></pre></td></tr></table></figure>
+<p>#####操作符</p>
+<p>以下操作符可以在表上执行。</p>
+<h6 id="Insert"><a href="#Insert" class="headerlink" title="Insert"></a>Insert</h6><p>这允许将事件插入表中。这类似于将事件插入流中。</p>
+<blockquote>
+<p>如果表是用主键定义的，并且插入重复数据，则可能发生主键约束违反。在这种情况下，使用更新或插入操作。</p>
+</blockquote>
+<p><strong>语法</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from &lt;input stream&gt; </span><br><span class="line">select &lt;attribute name&gt;, &lt;attribute name&gt;, ...</span><br><span class="line">insert into &lt;table&gt;</span><br></pre></td></tr></table></figure>
+<p>与流类似，为了只插入特定的输出事件类型，需要在<code>insert</code>和<code>into</code>keywords之间使用当前事件、过期事件或all events关键字。有关更多信息，请参见<a href="https://wso2.github.io/siddhi/documentation/siddhi-4.0/#output-event-types" target="_blank" rel="noopener">输出事件类型</a>.</p>
+<p>E.g 此查询将TempStream流中的所有事件插入TempTable表。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from TempStream</span><br><span class="line">select *</span><br><span class="line">insert into TempTable;</span><br></pre></td></tr></table></figure>
+<h6 id="Join-Table"><a href="#Join-Table" class="headerlink" title="Join (Table)"></a>Join (Table)</h6><p>这允许流以流方式从表中检索信息。</p>
+<blockquote>
+<p>Joins也可以使用两个流，聚合或对外部定义的窗口执行。</p>
+</blockquote>
+<p> <strong>语法</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from &lt;input stream&gt; join &lt;table&gt;</span><br><span class="line">    on &lt;condition&gt;</span><br><span class="line">select (&lt;input stream&gt;|&lt;table&gt;).&lt;attribute name&gt;, (&lt;input stream&gt;|&lt;table&gt;).&lt;attribute name&gt;, ...</span><br><span class="line">insert into &lt;output stream&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>表只能与流联合。两个表不能联合，因为必须至少有一个活动实体才能触发连接操作。</p>
+</blockquote>
+<p>E.g 这个Siddhi应用程序执行一个连接，根据房间号从<code>RoomTypeTable</code>表中检索房间类型，因此它可以过滤与服务器房间相关的事件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">define table RoomTypeTable (roomNo int, type string);</span><br><span class="line">define stream TempStream (deviceID long, roomNo int, temp double);</span><br><span class="line"></span><br><span class="line">from TempStream join RoomTypeTable</span><br><span class="line">    on RoomTypeTable.roomNo == TempStream.roomNo</span><br><span class="line">select deviceID, RoomTypeTable.type as roomType, type, temp</span><br><span class="line">    having roomType == &apos;server-room&apos;</span><br><span class="line">insert into ServerRoomTempStream;</span><br></pre></td></tr></table></figure>
+<h6 id="Delete"><a href="#Delete" class="headerlink" title="Delete"></a>Delete</h6><p>删除存储在表中的选定事件。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from &lt;input stream&gt; </span><br><span class="line">select &lt;attribute name&gt;, &lt;attribute name&gt;, ...</span><br><span class="line">delete &lt;table&gt; (for &lt;output event type&gt;)?</span><br><span class="line">    on &lt;condition&gt;</span><br></pre></td></tr></table></figure>
+<p>条件元素指定要删除的事件的基础。在指定条件时，应该使用表名引用表属性。要对特定的输出事件类型执行delete，使用当前事件、过期事件或句法中显示的all events关键字for。有关更多信息，请参见输出事件类型。</p>
+<blockquote>
+<p>必须始终使用表名称引用表属性，如下所示：<table name="">。<attibute name=""></attibute></table></p>
+</blockquote>
+<p>E.g 在此示例中，如果<code>RoomNo</code>属性的值与<code>DeleteStream</code>流中事件的<code>roomNumber</code>属性值匹配，则脚本将删除<code>RoomTypeTable</code>表中的记录。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">define table RoomTypeTable (roomNo int, type string);</span><br><span class="line"></span><br><span class="line">define stream DeleteStream (roomNumber int);</span><br><span class="line"></span><br><span class="line">from DeleteStream</span><br><span class="line">delete RoomTypeTable</span><br><span class="line">    on RoomTypeTable.roomNo == roomNumber;</span><br></pre></td></tr></table></figure>
+<h6 id="Update"><a href="#Update" class="headerlink" title="Update"></a>Update</h6><p>此运算符根据条件更新存储在表中的选定事件属性。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">from &lt;input stream&gt; </span><br><span class="line">select &lt;attribute name&gt;, &lt;attribute name&gt;, ...</span><br><span class="line">update &lt;table&gt; (for &lt;output event type&gt;)? </span><br><span class="line">    set &lt;table&gt;.&lt;attribute name&gt; = (&lt;attribute name&gt;|&lt;expression&gt;)?, &lt;table&gt;.&lt;attribute name&gt; = (&lt;attribute name&gt;|&lt;expression&gt;)?, ...</span><br><span class="line">    on &lt;condition&gt;</span><br></pre></td></tr></table></figure>
+<p>条件元素指定要更新的事件的基础。在指定条件时，必须使用表名引用表属性。您可以使用set关键字从表中更新选定的属性。在这里，对于每个赋值，左边指定的属性必须是表属性，右边指定的属性可以是流/表属性、数学运算或其他。如果没有提供set子句，则更新表中的所有属性。要执行特定输出事件类型的更新，请使用当前事件、过期事件或all events关键字for，如语法中所示。有关更多信息，请参见<a href="https://wso2.github.io/siddhi/documentation/siddhi-4.0/#output-event-types" target="_blank" rel="noopener">输出事件类型</a>。</p>
+<blockquote>
+<p>必须始终使用表名称引用表属性，如下所示：<table name="">。<attibute name="">。</attibute></table></p>
+</blockquote>
+<p>E.g 此Siddhi应用程序根据<code>UpdateStream</code>流中的新到达和退出，更新<code>RoomOccupancyTable</code>表中每个房间号的房间占用率。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">define table RoomOccupancyTable (roomNo int, people int);</span><br><span class="line">define stream UpdateStream (roomNumber int, arrival int, exit int);</span><br><span class="line"></span><br><span class="line">from UpdateStream</span><br><span class="line">select *</span><br><span class="line">update RoomOccupancyTable</span><br><span class="line">    set RoomOccupancyTable.people = RoomOccupancyTable.people + arrival - exit</span><br><span class="line">    on RoomOccupancyTable.roomNo == roomNumber;</span><br></pre></td></tr></table></figure>
+<h6 id="Update-or-Insert"><a href="#Update-or-Insert" class="headerlink" title="Update or Insert"></a>Update or Insert</h6><p>这允许您根据条件更新表中是否已存在事件属性，或者将条目作为新属性插入。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">from &lt;input stream&gt; </span><br><span class="line">select &lt;attribute name&gt;, &lt;attribute name&gt;, ...</span><br><span class="line">update or insert into &lt;table&gt; (for &lt;output event type&gt;)? </span><br><span class="line">    set &lt;table&gt;.&lt;attribute name&gt; = &lt;expression&gt;, &lt;table&gt;.&lt;attribute name&gt; = &lt;expression&gt;, ...</span><br><span class="line">    on &lt;condition&gt;</span><br></pre></td></tr></table></figure>
+<p>条件元素指定选择哪些事件进行更新。在指定条件时，应该使用表名引用表属性。如果表中不存在与条件匹配的记录，则将到达的事件插入表中。set子句仅在插入/更新操作期间执行更新时使用。当使用set子句时，左边的属性总是表属性，右边的属性可以是流/表属性、数学运算或其他。左边的属性(例如如果满足给定条件，则事件表中的属性)将被更新为右侧的属性值。如果没有提供set子句，则更新表中的所有属性。</p>
+<blockquote>
+<p>当右侧的属性是表属性时，支持的操作因数据库类型而异。</p>
+</blockquote>
+<p>要执行特定输出事件类型的更新，请使用当前事件、过期事件或all events关键字for，如语法中所示。要了解更多信息，请参见输出事件类型。</p>
+<blockquote>
+<p>表属性应始终引用，表名为<table name="">。<attribute name="">。</attribute></table></p>
+</blockquote>
+<p>E.g 可更新事件表中具有与<code>UpdateStream</code>流中相同房间号的事件的查询更新如下。当在事件表中找到这些事件时，就会更新它们。当在事件表中没有找到流中可用的房间号时，它将从流中插入。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">define table RoomAssigneeTable (roomNo int, type string, assignee string);</span><br><span class="line">define stream RoomAssigneeStream (roomNumber int, type string, assignee string);</span><br><span class="line"></span><br><span class="line">from RoomAssigneeStream</span><br><span class="line">select roomNumber as roomNo, type, assignee</span><br><span class="line">update or insert into RoomAssigneeTable</span><br><span class="line">    set RoomAssigneeTable.assignee = assignee</span><br><span class="line">    on RoomAssigneeTable.roomNo == roomNo;</span><br></pre></td></tr></table></figure>
+<h6 id="In"><a href="#In" class="headerlink" title="In"></a>In</h6><p>这允许流检查表中是否存在期望值作为条件操作的一部分。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from &lt;input stream&gt;[&lt;condition&gt; in &lt;table&gt;]</span><br><span class="line">select &lt;attribute name&gt;, &lt;attribute name&gt;, ...</span><br><span class="line">insert into &lt;output stream&gt;</span><br></pre></td></tr></table></figure>
+<p>条件元素指定要比较的事件的选择基础。在构造条件时，必须始终使用表名引用表属性，如下所示:<table>。&lt; attibute名称&gt;。</table></p>
+<p>E.g 此Siddhi应用程序仅过滤<code>ServerRoomTable</code>表中列出的房间号。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">define table ServerRoomTable (roomNo int);</span><br><span class="line">define stream TempStream (deviceID long, roomNo int, temp double);</span><br><span class="line"></span><br><span class="line">from TempStream[ServerRoomTable.roomNo == roomNo in ServerRoomTable]</span><br><span class="line">insert into ServerRoomTempStream;</span><br></pre></td></tr></table></figure>
+<p>####增量聚合</p>
+<p>增量聚合允许您以增量的方式获取特定时间段的聚合。这不仅允许您计算具有不同时间粒度的聚合，还允许您以交互方式访问它们，以用于报告、仪表板和进一步处理。它的模式是通过聚合定义定义的。增量聚合粒度数据持有者每15分钟自动清除一次。在执行数据清除时，将考虑在增量聚合查询中为每个粒度指定的保留时间。粒度定义的保留期需要大于或等于下表中指定的最小保留期。如果没有为粒度定义有效的保留期，则应用默认的保留期(如下表所示)。</p>
+<table>
+<thead>
+<tr>
+<th>粒度</th>
+<th>默认保留</th>
+<th>最低保留</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>second</code></td>
+<td><code>120</code> seconds</td>
+<td><code>120</code> seconds</td>
+</tr>
+<tr>
+<td><code>minute</code></td>
+<td><code>24</code> hours</td>
+<td><code>120</code> minutes</td>
+</tr>
+<tr>
+<td><code>hour</code></td>
+<td><code>30</code> days</td>
+<td><code>25</code> hours</td>
+</tr>
+<tr>
+<td><code>day</code></td>
+<td><code>1</code> year</td>
+<td><code>32</code> days</td>
+</tr>
+<tr>
+<td><code>month</code></td>
+<td><code>All</code></td>
+<td><code>13</code> month</td>
+</tr>
+<tr>
+<td><code>year</code></td>
+<td><code>All</code></td>
+<td><code>none</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>目的</strong></p>
+<p>增量聚合允许您检索不同时间长度的聚合值。也就是说，它允许您获得诸如sum、count、avg、min、max、count和distinctCount之类的聚合，这些聚合用于持续时间(如sec、min、hour等)的流属性。这在许多分析场景中非常重要，因为聚合值通常需要几个时间段。此外，这确保聚合不会因为意外的系统故障而丢失，因为聚合可以存储在不同的持久性存储中。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@store(type=&quot;&lt;store type&gt;&quot;, ...)</span><br><span class="line">@purge(enable=&quot;&lt;true or false&gt;&quot;,interval=&lt;purging interval&gt;,@retentionPeriod(&lt;granularity&gt; = &lt;retention period&gt;, ...) )</span><br><span class="line">define aggregation &lt;aggregator name&gt;</span><br><span class="line">from &lt;input stream&gt;</span><br><span class="line">select &lt;attribute name&gt;, &lt;aggregate function&gt;(&lt;attribute name&gt;) as &lt;attribute name&gt;, ...</span><br><span class="line">    group by &lt;attribute name&gt;</span><br><span class="line">    aggregate by &lt;timestamp attribute&gt; every &lt;time periods&gt; ;</span><br></pre></td></tr></table></figure>
+<p>以上语法包括以下内容：</p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@BufferSize</code></td>
+<td><strong>DEPRECIATED FROM V4.2.0</strong>. 这标识了按顺序保留在缓冲区中的过期事件数处理乱序事件处理。这是可选的仅当聚合基于外部时才适用的参数时间戳（因为事件聚集基于事件到达时间不能无序）。Siddhi确定事件是否过期基于最新事件的时间戳和最精细的持续时间计算哪个聚合。例如，如果聚合计算为sec … year，则最精细的持续时间是秒。因此，如果缓冲区大小为3且事件在第51,52,53和54秒期间到达，则所有较旧的聚合（即，第51,52和53秒）将保留在缓冲区中，因为最新事件在第54次到达第二。默认值为0。</td>
+</tr>
+<tr>
+<td><code>@IgnoreEventsOlderThanBuffer</code></td>
+<td><strong>DEPRECIATED FROM V4.2.0</strong>.此注释指定是否聚合早于的事件缓冲。如果此参数设置为false（默认值），则为任何事件比缓冲区更早的值与缓冲区中最旧的事件聚合在一起。如果此参数设置为true，删除任何早于缓冲区的事件。这是一个可选的注释。</td>
+</tr>
+<tr>
+<td><code>@store</code></td>
+<td>此注释用于指代计算所在的数据存储汇总结果存储。此注释是可选的。什么时候没有提供注释，数据存储在内存存储中。</td>
+</tr>
+<tr>
+<td><code>@purge</code></td>
+<td>此批注用于配置聚合粒度中的清除。如果未提供此注释，则应用上述默认清除。如果要禁用自动数据清除，可以使用此批注，如下所示：“@purge（enable=false）/如果Siddhi应用程序中包含的聚合查询仅用于只读目的，则应禁用数据清除。</td>
+</tr>
+<tr>
+<td><code>@retentionPeriod</code></td>
+<td>此注释用于指定执行数据清除时数据需要保留的时间长度。如果未提供此批注，则应用默认保留期。</td>
+</tr>
+<tr>
+<td><code>&lt;aggregator name&gt;</code></td>
+<td>这指定了聚合的唯一名称，以便可以引用它访问聚合结果时。</td>
+</tr>
+<tr>
+<td><code>&lt;input stream&gt;</code></td>
+<td>提供聚合的流。<strong>注意！这个流应该是已定义。</strong></td>
+</tr>
+<tr>
+<td><code>group by &lt;attribute name&gt;</code></td>
+<td>group by子句是可选的。如果它包含在Siddhi应用程序中，则汇总值按属性按每组计算。如果不使用，全部事件汇总在一起。</td>
+</tr>
+<tr>
+<td><code>by &lt;timestamp attribute&gt;</code></td>
+<td>这个条款是可选的。这定义了应该用作的属性时间戳。如果不使用此子句，则默认使用事件时间。时间戳可以作为字符串或长值给出。如果它是一个长值，unix时间戳(以毫秒为单位)是预期的(例如1496289950000)。如果它是一个字符串值，支持的格式是<yyyy>-<mm>-<dd> <hh>:&lt; MM&gt;:<ss>(如果时间是GMT时间)和&lt; yyyy &gt; - &lt; MM &gt; &lt; dd &gt; &lt; HH &gt;:&lt; MM &gt;:<ss> &lt; Z &gt;(如果不是GMT), here the ISO 8601 UTC offset must be provided for <code>&lt;Z&gt;</code> .</ss></ss></hh></dd></mm></yyyy></td>
+</tr>
+<tr>
+<td>(e.g., <code>+05:30</code>, <code>-11:00</code>).</td>
+<td></td>
+</tr>
+<tr>
+<td><code>&lt;time periods&gt;</code></td>
+<td>时间段可以作为由三个点分隔的范围给出，或者以逗号分隔的值给出。范围将以秒…年为单位，其中聚合将按秒，分钟，小时，日，月和年进行。逗号分隔值可以以min，hour给出。但是，对于逗号分隔值，尚不支持跳过持续时间（例如，min，day不是有效子句，因为已跳过小时持续时间）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>从V4.2.0开始，对于具有GMT时区的每个粒度，在日历开始时间执行聚合</p>
+<p>从V4.2.6开始，可以在多个Siddhi应用程序中定义相同的聚合以进行加入，但是，只有一个siddhi应用程序应该执行处理（即聚合输入流应该仅将事件提供给一个聚合定义）。</p>
+</blockquote>
+<p>E.g 此Siddhi应用程序定义了名为<code>TradeAggregation</code>的聚合，以计算到达<code>TradeStream</code>流的事件的<code>price</code>属性的平均值和总和。这些聚合是按照第二年范围内的每个时间粒度计算的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">define stream TradeStream (symbol string, price double, volume long, timestamp long);</span><br><span class="line"></span><br><span class="line">@purge(enable=&apos;true&apos;, interval=&apos;10 sec&apos;,@retentionPeriod(sec=&apos;120 sec&apos;,min=&apos;24 hours&apos;,hours=&apos;30 days&apos;,days=&apos;1 year&apos;,months=&apos;all&apos;,years=&apos;all&apos;))</span><br><span class="line">define aggregation TradeAggregation</span><br><span class="line">  from TradeStream</span><br><span class="line">  select symbol, avg(price) as avgPrice, sum(price) as total</span><br><span class="line">    group by symbol</span><br><span class="line">    aggregate by timestamp every sec ... year;</span><br></pre></td></tr></table></figure>
+<h5 id="Join-Aggregation"><a href="#Join-Aggregation" class="headerlink" title="Join (Aggregation)"></a>Join (Aggregation)</h5><p>这允许流从聚合中检索计算的聚合值。</p>
+<blockquote>
+<p>也可以使用两个流，一个表和一个流，或者一个流来对外部定义的窗口执行连接。</p>
+</blockquote>
+<p><strong>语法</strong></p>
+<p>连接与聚合类似于连接与表，但附加在子句内部和每个子句中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">from &lt;input stream&gt; join &lt;aggrigation&gt; </span><br><span class="line">  on &lt;join condition&gt; </span><br><span class="line">  within &lt;time range&gt; </span><br><span class="line">  per &lt;time granularity&gt;</span><br><span class="line">select &lt;attribute name&gt;, &lt;attribute name&gt;, ...</span><br><span class="line">insert into &lt;output stream&gt;;</span><br></pre></td></tr></table></figure>
+<p>除了表连接的构造外，还包括以下内容。请注意，“<code>on</code>”条件是可选的:</p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>within &lt;time range&gt;</code></td>
+<td>这允许您指定需要检索聚合值的时间间隔。这可以通过将逗号分隔的开始和结束时间作为字符串或长值或使用指定数据范围的通配符字符串来指定。详情请参阅示例。</td>
+</tr>
+<tr>
+<td><code>per &lt;time granularity&gt;</code></td>
+<td>这指定了必须对聚合值进行分组和返回的时间粒度。例如，如果指定天数，则会在选定的时间间隔内为检索到的聚合值进行分组。</td>
+</tr>
+</tbody>
+</table>
+<p><code>within</code>和<code>par</code>子句也接受来自流的属性值。</p>
+<blockquote>
+<p>可以通过AGG_TIMESTAMP属性访问聚合的时间戳。</p>
+</blockquote>
+<p>E.g 以下聚合定义将用于示例。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">define stream TradeStream (symbol string, price double, volume long, timestamp long);</span><br><span class="line"></span><br><span class="line">define aggregation TradeAggregation</span><br><span class="line">  from TradeStream</span><br><span class="line">  select symbol, avg(price) as avgPrice, sum(price) as total</span><br><span class="line">    group by symbol</span><br><span class="line">    aggregate by timestamp every sec ... year;</span><br></pre></td></tr></table></figure>
+<p>此查询检索“2014-02-15 00:00:00 +05:30”、“2014-03-16 00:00:00 +05:30”(请注意，如果时区是GMT，可以省略+05:30)范围内的每日聚合。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">define stream StockStream (symbol string, value int);</span><br><span class="line"></span><br><span class="line">from StockStream as S join TradeAggregation as T</span><br><span class="line">  on S.symbol == T.symbol </span><br><span class="line">  within &quot;2014-02-15 00:00:00 +05:30&quot;, &quot;2014-03-16 00:00:00 +05:30&quot; </span><br><span class="line">  per &quot;days&quot; </span><br><span class="line">select S.symbol, T.total, T.avgPrice </span><br><span class="line">insert into AggregateStockStream;</span><br></pre></td></tr></table></figure>
+<p>此查询在2014-02-15之内检索每小时聚合。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">define stream StockStream (symbol string, value int);</span><br><span class="line"></span><br><span class="line">from StockStream as S join TradeAggregation as T</span><br><span class="line">  on S.symbol == T.symbol </span><br><span class="line">  within &quot;2014-02-15 **:**:** +05:30&quot;</span><br><span class="line">  per &quot;hours&quot; </span><br><span class="line">select S.symbol, T.total, T.avgPrice </span><br><span class="line">insert into AggregateStockStream;</span><br></pre></td></tr></table></figure>
+<p>此查询在时间戳1496200000000和1596434876000之间的时间段内检索每<code>perValue</code>流属性的所有聚合。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">define stream StockStream (symbol string, value int, perValue string);</span><br><span class="line"></span><br><span class="line">from StockStream as S join TradeAggregation as T</span><br><span class="line">  on S.symbol == T.symbol </span><br><span class="line">  within 1496200000000L, 1596434876000L</span><br><span class="line">  per S.perValue</span><br><span class="line">select S.symbol, T.total, T.avgPrice </span><br><span class="line">insert into AggregateStockStream;</span><br></pre></td></tr></table></figure>
+<h4 id="Defined-Window"><a href="#Defined-Window" class="headerlink" title="(Defined) Window"></a><em>(Defined)</em> Window</h4><p>定义的窗口是可以跨多个查询共享的窗口。事件可以从一个或多个查询插入到定义的窗口中，并且可以根据定义的窗口类型生成输出事件。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">define window &lt;window name&gt; (&lt;attribute name&gt; &lt;attribute type&gt;, &lt;attribute name&gt; &lt;attribute type&gt;, ... ) &lt;window type&gt;(&lt;parameter&gt;, &lt;parameter&gt;, …) &lt;output event type&gt;;</span><br></pre></td></tr></table></figure>
+<p>在表定义中配置以下参数：</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>window name</code></td>
+<td>定义的窗口名称。（PascalCase用于窗口名称作为约定。）</td>
+</tr>
+<tr>
+<td><code>attribute name</code></td>
+<td>窗口的模式由其属性定义，具有唯一可识别的属性名称（camelCase用于属性名称作为约定。）</td>
+</tr>
+<tr>
+<td><code>attribute type</code></td>
+<td>模式中定义的每个属性的类型。这可以是<code>STRING</code>，<code>INT</code>，<code>LONG</code>，<code>DOUBLE</code>，<code>FLOAT</code>，<code>BOOL</code>或<code>OBJECT</code>。</td>
+</tr>
+<tr>
+<td><code>&lt;window type&gt;(&lt;parameter&gt;, ...)</code></td>
+<td>与窗口及其参数关联的窗口类型。</td>
+</tr>
+<tr>
+<td><code>output &lt;output event type&gt;</code></td>
+<td>这是可选的。诸如当前事件，过期事件和所有事件（默认值）之类的关键字可用于指定何时应该公开窗口输出。有关更多信息，请参阅<a href="https://wso2.github.io/siddhi/documentation/siddhi-4.0/#output-event-types" target="_blank" rel="noopener">输出事件类型</a>。</td>
+</tr>
+</tbody>
+</table>
+<p>E.g</p>
+<ul>
+<li><p>当事件到达时以及事件从窗口到期时返回所有输出。在此查询中，未指定输出事件类型。因此，它返回当前和过期事件作为输出。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">define window SensorWindow (name string, value float, roomNo int, deviceID string) timeBatch(1 second);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>仅当事件从窗口到期时才返回输出。在此查询中，窗口的输出事件类型是过期事件。因此，它仅返回从窗口过期的事件作为输出。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">define window SensorWindow (name string, value float, roomNo int, deviceID string) timeBatch(1 second) output expired events;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>已定义窗口上的操作符</strong></p>
+<p>可以在定义的窗口上执行以下运算符。</p>
+<h5 id="Insert-1"><a href="#Insert-1" class="headerlink" title="Insert"></a>Insert</h5><p>这允许将事件插入到窗口中。这类似于将事件插入流中。</p>
+<p><strong>syntax</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from &lt;input stream&gt; </span><br><span class="line">select &lt;attribute name&gt;, &lt;attribute name&gt;, ...</span><br><span class="line">insert into &lt;window&gt;</span><br></pre></td></tr></table></figure>
+<p>要仅插入特定输出事件类型的事件，请在insert和into keywords之间添加<code>current events</code>、<code>expired events</code>或<code>all events</code>关键字(类似于对流执行的方式)。有关更多信息，请参见<a href="https://wso2.github.io/siddhi/documentation/siddhi-4.0/#output-event-types" target="_blank" rel="noopener">输出事件类型</a>。</p>
+<p>E.g 此查询将<code>TempStream</code>流中的所有事件插入<code>OneMinTempWindow</code>窗口。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">define stream TempStream(tempId string, temp double);</span><br><span class="line">define window OneMinTempWindow(tempId string, temp double) time(1 min);</span><br><span class="line"></span><br><span class="line">from TempStream</span><br><span class="line">select *</span><br><span class="line">insert into OneMinTempWindow;</span><br></pre></td></tr></table></figure>
+<h5 id="Join-Window"><a href="#Join-Window" class="headerlink" title="Join (Window)"></a>Join (Window)</h5><p>允许流根据条件从窗口中检索信息。</p>
+<blockquote>
+<p>也可以使用两个流，聚合或表来执行连接。</p>
+</blockquote>
+<p><strong>syntax</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from &lt;input stream&gt; join &lt;window&gt;</span><br><span class="line">    on &lt;condition&gt;</span><br><span class="line">select (&lt;input stream&gt;|&lt;window&gt;).&lt;attribute name&gt;, (&lt;input stream&gt;|&lt;window&gt;).&lt;attribute name&gt;, ...</span><br><span class="line">insert into &lt;output stream&gt;</span><br></pre></td></tr></table></figure>
+<p>E.g 该Siddhi应用程序执行连接计数，即最近2分钟内具有超过40度的温度事件的数量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">define window TwoMinTempWindow (roomNo int, temp double) time(2 min);</span><br><span class="line">define stream CheckStream (requestId string);</span><br><span class="line"></span><br><span class="line">from CheckStream as C join TwoMinTempWindow as T</span><br><span class="line">    on T.temp &gt; 40</span><br><span class="line">select requestId, count(T.temp) as count</span><br><span class="line">insert into HighTempCountStream;</span><br></pre></td></tr></table></figure>
+<h5 id="From"><a href="#From" class="headerlink" title="From"></a>From</h5><p>窗口可以是查询的输入，类似于流。注意 ！！！当窗口用作查询的输入时，不能在此基础上应用另一个窗口。</p>
+<p><strong>Syntax</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from &lt;window&gt; </span><br><span class="line">select &lt;attribute name&gt;, &lt;attribute name&gt;, ...</span><br><span class="line">insert into &lt;output stream&gt;</span><br></pre></td></tr></table></figure>
+<p>E.g 此Siddhi应用程序计算最近5分钟内的最高温度。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">define window FiveMinTempWindow (roomNo int, temp double) time(5 min);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">from FiveMinTempWindow</span><br><span class="line">select max(temp) as maxValue, roomNo</span><br><span class="line">insert into MaxSensorReadingStream;</span><br></pre></td></tr></table></figure>
+<h4 id="Trigger-触发器"><a href="#Trigger-触发器" class="headerlink" title="Trigger 触发器"></a>Trigger 触发器</h4><p>触发器允许周期性地生成事件。触发器定义可用于定义触发器。触发器的工作方式也类似于带有预定义模式的流。</p>
+<p><strong>Purpose</strong></p>
+<p>对于某些用例，系统应该能够基于指定的时间间隔定期生成事件，以执行一些定期执行。可以为“开始”操作、为给定的&lt;时间间隔&gt;或为给定的’<cron表达式>‘执行触发器。</cron表达式></p>
+<p><strong>Syntax</strong></p>
+<p>触发器定义的语法如下所示。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">define trigger &lt;trigger name&gt; at (&apos;start&apos;| every &lt;time interval&gt;| &apos;&lt;cron expression&gt;&apos;);</span><br></pre></td></tr></table></figure>
+<p>与流类似，触发器可用作输入。它们遵循以下流定义并生成<code>long</code>类型的<code>triggered_time</code>属性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">define stream &lt;trigger name&gt; (triggered_time long);</span><br></pre></td></tr></table></figure>
+<p>目前支持以下类型的触发器：</p>
+<table>
+<thead>
+<tr>
+<th>Trigger type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&#39;start&#39;</code></td>
+<td>Siddhi启动时会触发事件。</td>
+</tr>
+<tr>
+<td><code>every &lt;time interval&gt;</code></td>
+<td>在给定的时间间隔周期性地触发事件。</td>
+</tr>
+<tr>
+<td><code>&#39;&lt;cron expression&gt;&#39;</code></td>
+<td>根据给定的cron表达式定期触发事件。有关配置详细信息，请参阅<a href="http://www.quartz-scheduler.org/documentation/quartz-2.2.x/tutorials/tutorial-lesson-06" target="_blank" rel="noopener">quartz-scheduler</a>。</td>
+</tr>
+</tbody>
+</table>
+<p>E.g </p>
+<ul>
+<li><p>定期以特定时间间隔触发事件</p>
+<p>以下查询每5分钟触发一次事件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">define trigger FiveMinTriggerStream at every 5 min;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在指定日期的特定时间触发事件</p>
+<p>以下查询在每个工作日的上午10点15分触发事件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">define trigger FiveMinTriggerStream at &apos;0 15 10 ? * MON-FRI&apos;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="Script"><a href="#Script" class="headerlink" title="Script"></a>Script</h4><p>脚本允许您用其他编程语言编写函数，并在Siddhi查询中执行它们。通过脚本定义的函数可以在类似于任何其他内置函数的查询中访问。函数定义可以用来定义这些脚本。函数参数作为Object[]和名称数据传递到函数逻辑中。</p>
+<p><strong>Purpose</strong></p>
+<p>脚本允许您定义Siddhi核心或其扩展中未提供的功能操作。不需要编写扩展来定义函数逻辑。</p>
+<p><strong>Syntax</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">define function &lt;function name&gt;[&lt;language name&gt;] return &lt;return type&gt; &#123;</span><br><span class="line">    &lt;operation of the function&gt;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>定义脚本时配置以下参数。</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>function name</code></td>
+<td>函数的名称（驼峰命名法，用于函数名称）作为约定。</td>
+</tr>
+<tr>
+<td><code>language name</code></td>
+<td>用于定义脚本的编程语言的名称，例如javascript，r和scala。</td>
+</tr>
+<tr>
+<td><code>return type</code></td>
+<td>函数返回的属性类型。这可以是int，long，float，double，string，bool或object。这里函数实现者应该负责在定义的返回类型上返回输出属性以获得适当的功能。</td>
+</tr>
+<tr>
+<td><code>operation of the function</code></td>
+<td>这里，添加了函数的执行逻辑。此逻辑应使用语言名称下指定的语言编写，并应返回通过返回类型参数指定的数据类型的输出。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples</strong></p>
+<p>此查询使用JavaScript执行连接，并将输出作为字符串返回。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">define function concatFn[javascript] return string &#123;</span><br><span class="line">    var str1 = data[0];</span><br><span class="line">    var str2 = data[1];</span><br><span class="line">    var str3 = data[2];</span><br><span class="line">    var responce = str1 + str2 + str3;</span><br><span class="line">    return responce;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">define stream TempStream(deviceID long, roomNo int, temp double);</span><br><span class="line"></span><br><span class="line">from TempStream</span><br><span class="line">select concatFn(roomNo,&apos;-&apos;,deviceID) as id, temp </span><br><span class="line">insert into DeviceTempStream;</span><br></pre></td></tr></table></figure>
+<p>Siddhi是一个轻量级的，简单的开源的复杂事件流程引擎。它使用类SQL的语言描述事件流任务，可以很好的支撑开发一个可扩展的，可配置的流式任务执行引擎。<a href="https://docs.wso2.com/display/CEP410/Inbuilt+Functions#InbuiltFunctions-ifThenElseifThenElse" target="_blank" rel="noopener">https://docs.wso2.com/display/CEP410/Inbuilt+Functions#InbuiltFunctions-ifThenElseifThenElse</a><br>&ensp;&ensp;Siddhi支持对于流式数据的类 SQL 的查询，SQL 式的 query 通过 complier 翻译成 Java 代码。 当一条数据流或多条数据流流入时，Siddhi Core 会实时的 check 当前数据流是否满足定义的 query，如果满足则触发 Callback 执行相应的逻辑。</p>
 <h2 id="siddhi查询语言介绍"><a href="#siddhi查询语言介绍" class="headerlink" title="siddhi查询语言介绍"></a>siddhi查询语言介绍</h2><p>&ensp;&ensp;siddhi查询语言（siddhiql）旨在处理事件流以识别复杂的事件发生。下表提供了siddhi查询语言中几个术语的定义。</p>
 <table>
 <thead>
@@ -437,40 +2046,10 @@
 </blockquote>
 <p>Eg.</p>
 <blockquote>
-<p>from bankSummaryInfo#window.timeBatch(5 sec)<br>select idc,<br>  &ensp;&ensp;sum(bankCount) as totalBankCount,<br>    &ensp;&ensp;convert(sum(bankChannelTotalTime),’double’)/convert(sum(bankCount),’double’) as bankChannelAvgTime,<br>    &ensp;&ensp;convert(sum(bankBizSuccessCount),’double’)/convert(sum(bankCount),’double’) as bankBizPercent,<br>    &ensp;&ensp;convert(sum(bankSysSuccessCount),’double’)/convert(sum(bankCount),’double’) as bankSysPercent,<br>    &ensp;&ensp;convert(sum(bankChannelSysSuccessCount),’double’)/con vert(sum(bankCount),’double’) as bankChannelSysPercent,<br>    &ensp;&ensp;convert(sum(bankTotalTime),’double’)/convert(sum(bankCount),’double’) as bankAvgTime<br>insert into defaultBankSummaryInfo;</p>
+<p>from bankSummaryInfo#window.timeBatch(5 sec)<br>select idc,<br>&ensp;&ensp;sum(bankCount) as totalBankCount,<br>&ensp;&ensp;convert(sum(bankChannelTotalTime),’double’)/convert(sum(bankCount),’double’) as bankChannelAvgTime,<br>&ensp;&ensp;convert(sum(bankBizSuccessCount),’double’)/convert(sum(bankCount),’double’) as bankBizPercent,<br>&ensp;&ensp;convert(sum(bankSysSuccessCount),’double’)/convert(sum(bankCount),’double’) as bankSysPercent,<br>&ensp;&ensp;convert(sum(bankChannelSysSuccessCount),’double’)/con vert(sum(bankCount),’double’) as bankChannelSysPercent,<br>&ensp;&ensp;convert(sum(bankTotalTime),’double’)/convert(sum(bankCount),’double’) as bankAvgTime<br>insert into defaultBankSummaryInfo;</p>
 </blockquote>
 <h4 id="Inferred-Stream"><a href="#Inferred-Stream" class="headerlink" title="Inferred Stream:"></a>Inferred Stream:</h4><p>&ensp;&ensp;这里的defaultBankSummaryInfo是一个推断的流，即defaultBankSummaryInfo可以用作另一个查询的输入查询而不显式定义其事件流定义。因为它的事件流定义是从上面的查询中推断出来的。</p>
-<h4 id="Query-Projection"><a href="#Query-Projection" class="headerlink" title="Query Projection"></a>Query Projection</h4><p>siddhiql支持以下查询投影。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Action</th>
-<th style="text-align:left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Introducing the default value<br>（采用默认值）</td>
-<td style="text-align:left">这涉及到添加默认值并使用as将其分配给一个属性。<br>  <blockquote>from TempStream<br>select roomNo, temp, ‘C’ as scale<br>insert into RoomTempStream;</blockquote></td>
-</tr>
-<tr>
-<td style="text-align:left">Renaming attributes<br>(重命名属性)</td>
-<td style="text-align:left">这涉及到从输入流中选择属性并将其插入具有不同名称的输出流中。<br><blockquote>from TempStream<br>select roomNo as roomNumber, temp as temperature<br>insert into RoomTempStream;</blockquote></td>
-</tr>
-<tr>
-<td style="text-align:left">Selecting all attributes for projection<br>(选择所有的投影属性)</td>
-<td style="text-align:left">这包括选择要插入到输出流中的输入流中的所有属性。 这可以通过使用星号（*）或通过省略选择语句来完成。<br>使用以下查询之一来选择TempStream流中的所有属性。<br> <blockquote>from TempStream <br>select ﹡  <br>insert into NewTempStream;</blockquote>or<blockquote>from TempStream<br>insert into NewTempStream;</blockquote></td>
-</tr>
-<tr>
-<td style="text-align:left">Selecting required objects for projection<br>（选择投影所需的对）</td>
-<td style="text-align:left">这包括只选择输入流中的一些属性插入到输出流中。<br>Eg.以下查询仅从TempStream流中选择roomNo和temp属性。<br><blockquote>from TempStream<br>select roomNo, temp<br>insert into RoomTempStream;</blockquote></td>
-</tr>
-<tr>
-<td style="text-align:left">Using mathematical and logical expressions<br>(使用数学和逻辑表达式)</td>
-<td style="text-align:left">这涉及使用具有数学和逻辑表达式的属性到下面给出的优先顺序，并使用as将它们分配给输出属性。<br><p>Operator precedence</p><br><table border="1"><tr><th>Operator</th><th>distribution</th><th>example</th></tr><tr><td>()</td><td>范围</td><td>(cost + tax) * 0.05</td></tr><tr><td> IS NULL</td><td>判断是否为空</td><td>deviceID is null</td></tr><tr><td>NOT</td><td>逻辑否</td><td>not (price &gt; 10)</td></tr><tr><td>+&ensp;-&ensp;﹡&ensp;/&ensp; % </td><td>加、减乘、除、取模</td><td>temp ﹡ 9/5 + 32</td></tr><tr><td>&lt;   &lt;=   &gt;   &gt;=</td><td>比较：小于，大于，等于，大于，小于等于</td><td>totalCost &gt;= price ﹡ quantity</td></tr><tr><td>==   != </td><td>比较：相等，不相等</td><td>    totalCost &gt;= price ﹡ quantity</td></tr><tr><td>IN</td><td>包含在表中</td><td>roomNo in ServerRoomsTable</td></tr><tr><td>AND</td><td>逻辑与</td><td>temp &lt; 40 and (humidity &lt; 40 or humidity &gt;= 60)</td></tr><tr><td>OR</td><td>逻辑与</td><td>temp &lt; 40 and (humidity &lt; 40 or humidity &gt;= 60)</td></tr></table>Eg.<br><blockquote>from TempStream<br>select roomNo, temp ﹡ 9/5 + 32 as temp, ‘F’ as scale, roomNo &gt;= 100 and roomNo &lt; 110 as isServerRoom<br>insert into RoomTempStream;</blockquote></td>
-</tr>
-</tbody>
-</table>
+<p>####<br>|      |      |<br>| :— | :— |<br>|      |      |<br>|      |      |<br>|      |      |<br>|      |      |<br>|      |      |</p>
 <h4 id="Functions"><a href="#Functions" class="headerlink" title="Functions"></a>Functions</h4><p>一个函数需要零个，一个或多个函数参数并产生一个结果值。</p>
 <h4 id="Function-parameters"><a href="#Function-parameters" class="headerlink" title="Function parameters"></a>Function parameters</h4><p>函数参数可以是属性（int，long，float，double，string，bool，object），其他函数的结果，数学或逻辑表达式的结果或时间参数。时间是一个特殊的参数，我们可以使用时间值定义为int，单位类型定义为&lt;int&gt; &lt;unit&gt;。 以下是受支持的单位类型，执行时间将以毫秒为单位将其表达式作为长整型值返回。</p>
 <table>
@@ -597,7 +2176,7 @@
 <blockquote>
 <p>from TempStream<br>select convert(roomNo, ‘string’) as roomNo, temp, UUID() as messageID<br>insert into RoomTempStream;</p>
 </blockquote>
-<h4 id="Filter"><a href="#Filter" class="headerlink" title="Filter"></a>Filter</h4><p>过滤器可以与输入流一起使用，以根据给定的过滤条件过滤事件。过滤条件应该在输入流名称旁边的方括号中定义。</p>
+<h4 id="Filter-1"><a href="#Filter-1" class="headerlink" title="Filter"></a>Filter</h4><p>过滤器可以与输入流一起使用，以根据给定的过滤条件过滤事件。过滤条件应该在输入流名称旁边的方括号中定义。</p>
 <blockquote>
 <p>from &lt;input stream name&gt;[&lt;filter condition&gt;]<br>select &lt;attribute name&gt;, &lt;attribute name&gt;, …<br>insert into &lt;output stream name&gt;</p>
 </blockquote>
@@ -605,7 +2184,7 @@
 <blockquote>
 <p>from TempStream [(roomNo &gt;= 100 and roomNo &lt; 110) and temp &gt; 40 ]<br>select roomNo, temp<br>insert into HighTempStream;</p>
 </blockquote>
-<h4 id="Window"><a href="#Window" class="headerlink" title="Window"></a>Window</h4><p>Windows允许基于来自输入事件流的标准来捕获事件子集以用于计算，可以使用“#window”在输入流旁边定义它们。 前缀，每个输入流最多只能有一个窗口，如下所示。</p>
+<h4 id="Window-1"><a href="#Window-1" class="headerlink" title="Window"></a>Window</h4><p>Windows允许基于来自输入事件流的标准来捕获事件子集以用于计算，可以使用“#window”在输入流旁边定义它们。 前缀，每个输入流最多只能有一个窗口，如下所示。</p>
 <blockquote>
 <p>from &lt;input stream name&gt;[&lt;filter condition&gt;]#window.&lt;window name&gt;(&lt;parameter&gt;, &lt;parameter&gt;, … )<br>select &lt;attribute name&gt;, &lt;attribute name&gt;, …<br>insert into &lt;output stream name&gt;</p>
 </blockquote>
@@ -791,7 +2370,7 @@
 <blockquote>
 <p>from TempStream#window.time(10 min)<br>select avg(temp) as avgTemp, roomNo, deviceID<br>group by roomNo, deviceID<br>insert into AvgTempStream;</p>
 </blockquote>
-<h4 id="Having"><a href="#Having" class="headerlink" title="Having"></a>Having</h4><p>允许我们在聚合之后和在选择器处理之后过滤事件。<br>Eg.查找最近10分钟内的每个房间的平均温度，并在超过30度时发出警报。</p>
+<h4 id="Having-1"><a href="#Having-1" class="headerlink" title="Having"></a>Having</h4><p>允许我们在聚合之后和在选择器处理之后过滤事件。<br>Eg.查找最近10分钟内的每个房间的平均温度，并在超过30度时发出警报。</p>
 <blockquote>
 <p>from TempStream#window.time(10 min)<br>select avg(temp) as avgTemp, roomNo<br>group by roomNo<br>having avgTemp &gt; 30<br>insert into AlertStream;</p>
 </blockquote>
@@ -814,19 +2393,19 @@
 </blockquote>
 <h4 id="Joins"><a href="#Joins" class="headerlink" title="Joins"></a>Joins</h4><p>join允许两个事件流根据条件进行合并.这里每个流都应该与一个窗口相关联（如果没有窗口赋值＃window.length（0）被分配给输入事件流）。在加入过程中，基于给定的条件，每个流上的每个传入事件将与另一个输入事件流窗口中的所有事件匹配，并且对于所有匹配的事件对，将生成输出事件。<br>连接的语法如下所示:</p>
 <blockquote>
-<p>from &lt;input stream name&gt;[&lt;filter condition&gt;]#window.&lt;window name&gt;(&lt;parameter&gt;, … ) {unidirectional} {as &lt;reference&gt;}<br>        join &lt;input stream name&gt;#window.&lt;window name&gt;(&lt;parameter&gt;,  … ) {unidirectional} {as &lt;reference&gt;}<br>    on &lt;join condition&gt;<br>    within &lt;time gap&gt;<br>select &lt;attribute name&gt;, &lt;attribute name&gt;, …<br>insert into &lt;output stream name&gt;</p>
+<p>from &lt;input stream name&gt;[&lt;filter condition&gt;]#window.&lt;window name&gt;(&lt;parameter&gt;, … ) {unidirectional} {as &lt;reference&gt;}<br>​       join &lt;input stream name&gt;#window.&lt;window name&gt;(&lt;parameter&gt;,  … ) {unidirectional} {as &lt;reference&gt;}<br>  on &lt;join condition&gt;<br>  within &lt;time gap&gt;<br>select &lt;attribute name&gt;, &lt;attribute name&gt;, …<br>insert into &lt;output stream name&gt;</p>
 </blockquote>
 <p>与“在<join condition="">”siddhi只加入匹配条件的事件。<br>用“单向”关键字可以控制加入过程的触发。默认情况下，到达两个流的事件触发加入过程，并且在输入流上使用单向关键字时，只有到达该流的事件才会触发加入过程。请注意，我们不能对这两个输入流使用单向关键字（因为它等于默认行为，根本不使用单向关键字）。<br>与“在<time gap="">”加入过程相匹配的事件是在规定的时间间隔彼此。<br>当投影连接事件时，每个流的属性需要用流名称（例如<stream name="">。<attribute name="">）或引用ID（特别是当连接相同流的事件时）引用（例如<stream reference="" id="">。<attribute name="">），可以使用“select *”或者“select”语句本身，如果连接事件的所有属性都需要被投影，则这些语句本身可以被忽略，但是这些只能在两个流都没有具有相同名称的属性。<br>Eg.假定温度调节器每分钟更新一次。如果房间温度大于30度的所有房间都没有打开温度调节器，那么以下开关将会打开。</attribute></stream></attribute></stream></time></join></p>
 <blockquote>
-<p>define stream TempStream(deviceID long, roomNo int, temp double);<br><br>define stream RegulatorStream(deviceID long, roomNo int, isOn bool);<br><br>from TempStream[temp &gt; 30.0]#window.time(1 min) as T<br>  &ensp;join RegulatorStream[isOn == false]#window.length(1) as R<br>  &ensp;on T.roomNo == R.roomNo<br>select T.roomNo, R.deviceID, ‘start’ as action<br>insert into RegulatorActionStream;</p>
+<p>define stream TempStream(deviceID long, roomNo int, temp double);<br><br>define stream RegulatorStream(deviceID long, roomNo int, isOn bool);<br><br>from TempStream[temp &gt; 30.0]#window.time(1 min) as T<br>&ensp;join RegulatorStream[isOn == false]#window.length(1) as R<br>&ensp;on T.roomNo == R.roomNo<br>select T.roomNo, R.deviceID, ‘start’ as action<br>insert into RegulatorActionStream;</p>
 </blockquote>
-<h4 id="Pattern"><a href="#Pattern" class="headerlink" title="Pattern"></a>Pattern</h4><p>模式允许事件流随时间相关，并根据事件到达的顺序检测事件模式。与模式可以有其他事件之间的事件符合模式条件。它将在内部创建状态机来跟踪匹配进程的状态。模式可以在多个输入流或相同的输入流上关联事件，因此每个匹配的输入事件需要被引用，以便它可以被访问用于未来的处理和输出生成。<br>模式的语法如下所示:</p>
+<h4 id="Pattern-1"><a href="#Pattern-1" class="headerlink" title="Pattern"></a>Pattern</h4><p>模式允许事件流随时间相关，并根据事件到达的顺序检测事件模式。与模式可以有其他事件之间的事件符合模式条件。它将在内部创建状态机来跟踪匹配进程的状态。模式可以在多个输入流或相同的输入流上关联事件，因此每个匹配的输入事件需要被引用，以便它可以被访问用于未来的处理和输出生成。<br>模式的语法如下所示:</p>
 <blockquote>
-<p>from {every} &lt;input event reference&gt;=&lt;input stream name&gt;[&lt;filter condition&gt;] -&gt; {every} &lt;input event reference&gt;=&lt;input stream name&gt;[&lt;filter condition&gt;] -&gt; …<br>    &ensp;&ensp;within &lt;time gap&gt;<br>select &lt;input event reference&gt;.&lt;attribute name&gt;, &lt;input event reference&gt;.&lt;attribute name&gt;, …<br>insert into &lt;output stream name&gt;</p>
+<p>from {every} &lt;input event reference&gt;=&lt;input stream name&gt;[&lt;filter condition&gt;] -&gt; {every} &lt;input event reference&gt;=&lt;input stream name&gt;[&lt;filter condition&gt;] -&gt; …<br>  &ensp;&ensp;within &lt;time gap&gt;<br>select &lt;input event reference&gt;.&lt;attribute name&gt;, &lt;input event reference&gt;.&lt;attribute name&gt;, …<br>insert into &lt;output stream name&gt;</p>
 </blockquote>
 <p>输入流不能与窗口关联。<br>使用“ - &gt;”我们可以关联传入的事件到达，在匹配事件之间有零个或多个其他事件到达。<br>使用”&lt;input event reference&gt;=”匹配的事件可以被存储以备将来参考。<br>使用“within&lt;time gap&gt;”的模式将只与相互之间定义的时间间隔内的事件相匹配。<br>如果没有“every”关键字，模式只能匹配一次，恰当地使用“每个”关键字来触发事件到达时的模式匹配过程。<br>Eg.如果房间温度在10分钟内上升5度，则发出警报。</p>
 <blockquote>
-<p>from every( e1=TempStream ) -&gt; e2=TempStream[e1.roomNo==roomNo and (e1.temp + 5) &lt;= temp ]<br>    &ensp;&ensp;within 10 min<br>select e1.roomNo, e1.temp as initialTemp, e2.temp as finalTemp<br>insert into AlertStream;</p>
+<p>from every( e1=TempStream ) -&gt; e2=TempStream[e1.roomNo==roomNo and (e1.temp + 5) &lt;= temp ]<br>  &ensp;&ensp;within 10 min<br>select e1.roomNo, e1.temp as initialTemp, e2.temp as finalTemp<br>insert into AlertStream;</p>
 </blockquote>
 <h4 id="Logical-Pattern-逻辑模式"><a href="#Logical-Pattern-逻辑模式" class="headerlink" title="Logical Pattern  逻辑模式"></a>Logical Pattern  逻辑模式</h4><p>模式不仅匹配按时间顺序到达的事件，还可以将具有逻辑关系的事件关联起来。<br>可以在“ - &gt;”之间使用“and”，“or”等关键词来说明逻辑关系。<br>“and” 可以匹配任何顺序的两个事件的发生<br>“or” 可以匹配来自任何输入流的事件的发生<br>Eg.当房间温度达到调节器上设置的温度时，提醒（只要调节器上设置的温度发生变化，模式匹配应该重新设置）。</p>
 <blockquote>
@@ -834,11 +2413,11 @@
 </blockquote>
 <h4 id="Counting-Pattern-计算模式"><a href="#Counting-Pattern-计算模式" class="headerlink" title="Counting Pattern  计算模式"></a>Counting Pattern  计算模式</h4><p>计数模式使我们能够根据相同的匹配条件匹配多个事件。使用以下后缀可以限制预期的事件数量。<br>With <1:4> 可以匹配1到4个时间<br>With <2:> 匹配2个或更多时间<br>with &lt;:5&gt; 最多匹配5个事件<br>With <5>  完全匹配5个事件<br>根据计数限制来引用事件的具体事件，方括号可以与数字和“last”关键字一起使用，例如e1 [3]将引用第三个事件，e1 [last]将引用最后一个事件和e1 [last  -  1]将引用匹配事件组的最后一个事件之前的事件。<br>Eg.得到两个调节器事件之间的温差。</5></2:></1:4></p>
 <blockquote>
-<p>define stream TempStream(deviceID long, roomNo int, temp double);<br> define stream RegulatorStream(deviceID long, roomNo int, tempSet double, isOn bool);<br>  from every( e1=RegulatorStream) -&gt; e2=TempStream[e1.roomNo==roomNo]<1:> -&gt; e3=RegulatorStream[e1.roomNo==roomNo]<br>select e1.roomNo, e2[0].temp - e2[last].temp as tempDiff<br>insert into TempDiffStream;</1:></p>
+<p>define stream TempStream(deviceID long, roomNo int, temp double);<br>define stream RegulatorStream(deviceID long, roomNo int, tempSet double, isOn bool);<br>from every( e1=RegulatorStream) -&gt; e2=TempStream[e1.roomNo==roomNo]<1:> -&gt; e3=RegulatorStream[e1.roomNo==roomNo]<br>select e1.roomNo, e2[0].temp - e2[last].temp as tempDiff<br>insert into TempDiffStream;</1:></p>
 </blockquote>
 <h4 id="Sequence-序列"><a href="#Sequence-序列" class="headerlink" title="Sequence  序列"></a>Sequence  序列</h4><p>序列允许事件流随时间相关，并根据事件到达的顺序检测事件序列。在序列中，在与序列条件匹配的事件之间不能有其他事件。它将在内部创建状态机来跟踪匹配进程的状态。序列可以关联多个输入流或相同输入流上的事件，因此每个匹配的输入事件都需要被引用，使得它可以被访问用于未来的处理和输出生成。<br>序列的语法如下所示:</p>
 <blockquote>
-<p>from {every} &lt;input event reference&gt;=&lt;input stream name&gt;[&lt;filter condition&gt;], &lt;input event reference&gt;=&lt;input stream name&gt;[&lt;filter condition&gt;]{+|*|?}, …<br>    within &lt;time gap&gt;<br>select &lt;input event reference&gt;.&lt;attribute name&gt;, &lt;input event reference&gt;.&lt;attribute name&gt;, …<br>insert into &lt;output stream name&gt;</p>
+<p>from {every} &lt;input event reference&gt;=&lt;input stream name&gt;[&lt;filter condition&gt;], &lt;input event reference&gt;=&lt;input stream name&gt;[&lt;filter condition&gt;]{+|*|?}, …<br>  within &lt;time gap&gt;<br>select &lt;input event reference&gt;.&lt;attribute name&gt;, &lt;input event reference&gt;.&lt;attribute name&gt;, …<br>insert into &lt;output stream name&gt;</p>
 </blockquote>
 <p>输入流不能与窗口关联：<br>With “,” 我们可以将即将到来的下一个到达的事件关联起来，在匹配事件之间没有其他事件到达。<br>With “&lt;input event reference&gt;=” 匹配的事件可以被存储以备将来参考。<br>With “within &lt;time gap&gt;” 该序列将仅与在彼此的定义的时间间隙内的事件相匹配。<br>Without “every” 关键字模式只能匹配一次，在每个事件到来时，使用开始处的“every”关键字来触发序列匹配过程。<br>Eg.如果两次连续的温度事件之间的温度升高超过1度，则应警惕。</p>
 <blockquote>
@@ -971,7 +2550,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1026,7 +2605,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#siddhi查询语言介绍"><span class="nav-number">1.</span> <span class="nav-text">siddhi查询语言介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Event-Stream"><span class="nav-number">1.1.</span> <span class="nav-text">Event Stream</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Event-Stream-Definition"><span class="nav-number">1.2.</span> <span class="nav-text">Event Stream Definition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Query"><span class="nav-number">1.3.</span> <span class="nav-text">Query</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Inferred-Stream"><span class="nav-number">1.3.1.</span> <span class="nav-text">Inferred Stream:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Query-Projection"><span class="nav-number">1.3.2.</span> <span class="nav-text">Query Projection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Functions"><span class="nav-number">1.3.3.</span> <span class="nav-text">Functions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Function-parameters"><span class="nav-number">1.3.4.</span> <span class="nav-text">Function parameters</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Inbuilt-Functions"><span class="nav-number">1.3.5.</span> <span class="nav-text">Inbuilt Functions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Filter"><span class="nav-number">1.3.6.</span> <span class="nav-text">Filter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Window"><span class="nav-number">1.3.7.</span> <span class="nav-text">Window</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Inbuilt-Windows"><span class="nav-number">1.3.7.1.</span> <span class="nav-text">Inbuilt Windows</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Output-Event-Categories"><span class="nav-number">1.3.8.</span> <span class="nav-text">Output Event Categories</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Aggregate-Functions"><span class="nav-number">1.3.9.</span> <span class="nav-text">Aggregate Functions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Inbuilt-Aggregate-Functions"><span class="nav-number">1.3.10.</span> <span class="nav-text">Inbuilt Aggregate Functions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Group-By"><span class="nav-number">1.3.11.</span> <span class="nav-text">Group By</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Having"><span class="nav-number">1.3.12.</span> <span class="nav-text">Having</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Output-Rate-Limiting"><span class="nav-number">1.3.13.</span> <span class="nav-text">Output Rate Limiting</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Based-on-number-of-events-根据事件数量"><span class="nav-number">1.3.14.</span> <span class="nav-text">Based on number of events   根据事件数量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Based-on-time-基于时间"><span class="nav-number">1.3.15.</span> <span class="nav-text">Based on time  基于时间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Periodic-snapshot-定期快照"><span class="nav-number">1.3.16.</span> <span class="nav-text">Periodic snapshot   定期快照</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Joins"><span class="nav-number">1.3.17.</span> <span class="nav-text">Joins</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Pattern"><span class="nav-number">1.3.18.</span> <span class="nav-text">Pattern</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Logical-Pattern-逻辑模式"><span class="nav-number">1.3.19.</span> <span class="nav-text">Logical Pattern  逻辑模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Counting-Pattern-计算模式"><span class="nav-number">1.3.20.</span> <span class="nav-text">Counting Pattern  计算模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sequence-序列"><span class="nav-number">1.3.21.</span> <span class="nav-text">Sequence  序列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Logical-Sequence-逻辑序列"><span class="nav-number">1.3.22.</span> <span class="nav-text">Logical Sequence   逻辑序列</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Counting-Sequence-计算序列"><span class="nav-number">1.4.</span> <span class="nav-text">Counting Sequence 计算序列</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#入门"><span class="nav-number">1.</span> <span class="nav-text">入门</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要用Siddhi"><span class="nav-number">2.</span> <span class="nav-text">为什么要用Siddhi</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用IntelliJ-IDEA开发Siddhi"><span class="nav-number">3.</span> <span class="nav-text">使用IntelliJ IDEA开发Siddhi</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#尝试使用siddhi流处理器"><span class="nav-number">4.</span> <span class="nav-text">尝试使用siddhi流处理器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Siddhi-Versions"><span class="nav-number">5.</span> <span class="nav-text">Siddhi Versions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最新的API文档"><span class="nav-number">6.</span> <span class="nav-text">最新的API文档</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Jenkins构建状态"><span class="nav-number">7.</span> <span class="nav-text">Jenkins构建状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#How-to-Contribute"><span class="nav-number">8.</span> <span class="nav-text">How to Contribute</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Contact-us"><span class="nav-number">9.</span> <span class="nav-text">Contact us</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Support"><span class="nav-number">10.</span> <span class="nav-text">Support</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Siddhi特性"><span class="nav-number"></span> <span class="nav-text">Siddhi特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#入门指南"><span class="nav-number"></span> <span class="nav-text">入门指南</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、流处理和复杂事件处理-CEP-概述"><span class="nav-number">1.</span> <span class="nav-text">1、流处理和复杂事件处理(CEP)概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、Siddhi概要"><span class="nav-number">2.</span> <span class="nav-text">2、Siddhi概要</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、第一次使用Siddhi"><span class="nav-number">3.</span> <span class="nav-text">3、第一次使用Siddhi</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、第一个siddhi程序‘Hello-World-’"><span class="nav-number">4.</span> <span class="nav-text">4、第一个siddhi程序‘Hello World!’</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、事件模拟"><span class="nav-number">5.</span> <span class="nav-text">5、事件模拟</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6、流处理—时间事件处理"><span class="nav-number">6.</span> <span class="nav-text">6、流处理—时间事件处理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Documentation"><span class="nav-number"></span> <span class="nav-text">Documentation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用户指南"><span class="nav-number">1.</span> <span class="nav-text">用户指南</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在WSO2流处理器中使用Siddhi"><span class="nav-number">1.1.</span> <span class="nav-text">在WSO2流处理器中使用Siddhi</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用Siddhi作为Java库"><span class="nav-number">1.2.</span> <span class="nav-text">使用Siddhi作为Java库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#系统配置要求"><span class="nav-number">1.3.</span> <span class="nav-text">系统配置要求</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Siddhi-Streaming-SQL-Guide-4-0"><span class="nav-number">2.</span> <span class="nav-text">Siddhi Streaming SQL Guide 4.0</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#应用"><span class="nav-number">2.1.</span> <span class="nav-text">应用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Stream"><span class="nav-number">2.2.</span> <span class="nav-text">Stream</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Source-映射"><span class="nav-number">2.2.1.</span> <span class="nav-text">Source 映射</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接收器-Sink"><span class="nav-number">2.3.</span> <span class="nav-text">接收器 Sink</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Function"><span class="nav-number">2.3.1.</span> <span class="nav-text">Function</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Filter"><span class="nav-number">2.3.2.</span> <span class="nav-text">Filter</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Window"><span class="nav-number">2.3.3.</span> <span class="nav-text">Window</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#聚合函数"><span class="nav-number">2.3.4.</span> <span class="nav-text">聚合函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Group-By-分组"><span class="nav-number">2.3.5.</span> <span class="nav-text">Group By 分组</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Having"><span class="nav-number">2.3.6.</span> <span class="nav-text">Having</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Order-By"><span class="nav-number">2.3.7.</span> <span class="nav-text">Order By</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Limit-amp-Offset"><span class="nav-number">2.3.8.</span> <span class="nav-text">Limit &amp; Offset</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Join-Stream"><span class="nav-number">2.3.9.</span> <span class="nav-text">Join (Stream)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Pattern"><span class="nav-number">2.3.10.</span> <span class="nav-text">Pattern</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#计算模式"><span class="nav-number">2.3.10.1.</span> <span class="nav-text">计算模式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#逻辑模式"><span class="nav-number">2.3.10.2.</span> <span class="nav-text">逻辑模式</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Sequence"><span class="nav-number">2.3.11.</span> <span class="nav-text">Sequence</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#逻辑序列"><span class="nav-number">2.3.11.1.</span> <span class="nav-text">逻辑序列</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#限制输入速率"><span class="nav-number">2.3.12.</span> <span class="nav-text">限制输入速率</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Partition-分区"><span class="nav-number">2.4.</span> <span class="nav-text">Partition 分区</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Inner-Stream"><span class="nav-number">2.4.1.</span> <span class="nav-text">Inner Stream</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Insert"><span class="nav-number">2.4.1.1.</span> <span class="nav-text">Insert</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Join-Table"><span class="nav-number">2.4.1.2.</span> <span class="nav-text">Join (Table)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Delete"><span class="nav-number">2.4.1.3.</span> <span class="nav-text">Delete</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Update"><span class="nav-number">2.4.1.4.</span> <span class="nav-text">Update</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Update-or-Insert"><span class="nav-number">2.4.1.5.</span> <span class="nav-text">Update or Insert</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#In"><span class="nav-number">2.4.1.6.</span> <span class="nav-text">In</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Join-Aggregation"><span class="nav-number">2.4.2.</span> <span class="nav-text">Join (Aggregation)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Defined-Window"><span class="nav-number">2.5.</span> <span class="nav-text">(Defined) Window</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Insert-1"><span class="nav-number">2.5.1.</span> <span class="nav-text">Insert</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Join-Window"><span class="nav-number">2.5.2.</span> <span class="nav-text">Join (Window)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#From"><span class="nav-number">2.5.3.</span> <span class="nav-text">From</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Trigger-触发器"><span class="nav-number">2.6.</span> <span class="nav-text">Trigger 触发器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Script"><span class="nav-number">2.7.</span> <span class="nav-text">Script</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#siddhi查询语言介绍"><span class="nav-number"></span> <span class="nav-text">siddhi查询语言介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Event-Stream"><span class="nav-number">1.</span> <span class="nav-text">Event Stream</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Event-Stream-Definition"><span class="nav-number">2.</span> <span class="nav-text">Event Stream Definition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Query"><span class="nav-number">3.</span> <span class="nav-text">Query</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Inferred-Stream"><span class="nav-number">3.1.</span> <span class="nav-text">Inferred Stream:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Functions"><span class="nav-number">3.2.</span> <span class="nav-text">Functions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Function-parameters"><span class="nav-number">3.3.</span> <span class="nav-text">Function parameters</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Inbuilt-Functions"><span class="nav-number">3.4.</span> <span class="nav-text">Inbuilt Functions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Filter-1"><span class="nav-number">3.5.</span> <span class="nav-text">Filter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Window-1"><span class="nav-number">3.6.</span> <span class="nav-text">Window</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Inbuilt-Windows"><span class="nav-number">3.6.1.</span> <span class="nav-text">Inbuilt Windows</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Output-Event-Categories"><span class="nav-number">3.7.</span> <span class="nav-text">Output Event Categories</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Aggregate-Functions"><span class="nav-number">3.8.</span> <span class="nav-text">Aggregate Functions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Inbuilt-Aggregate-Functions"><span class="nav-number">3.9.</span> <span class="nav-text">Inbuilt Aggregate Functions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Group-By"><span class="nav-number">3.10.</span> <span class="nav-text">Group By</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Having-1"><span class="nav-number">3.11.</span> <span class="nav-text">Having</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Output-Rate-Limiting"><span class="nav-number">3.12.</span> <span class="nav-text">Output Rate Limiting</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Based-on-number-of-events-根据事件数量"><span class="nav-number">3.13.</span> <span class="nav-text">Based on number of events   根据事件数量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Based-on-time-基于时间"><span class="nav-number">3.14.</span> <span class="nav-text">Based on time  基于时间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Periodic-snapshot-定期快照"><span class="nav-number">3.15.</span> <span class="nav-text">Periodic snapshot   定期快照</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Joins"><span class="nav-number">3.16.</span> <span class="nav-text">Joins</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Pattern-1"><span class="nav-number">3.17.</span> <span class="nav-text">Pattern</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Logical-Pattern-逻辑模式"><span class="nav-number">3.18.</span> <span class="nav-text">Logical Pattern  逻辑模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Counting-Pattern-计算模式"><span class="nav-number">3.19.</span> <span class="nav-text">Counting Pattern  计算模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sequence-序列"><span class="nav-number">3.20.</span> <span class="nav-text">Sequence  序列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Logical-Sequence-逻辑序列"><span class="nav-number">3.21.</span> <span class="nav-text">Logical Sequence   逻辑序列</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Counting-Sequence-计算序列"><span class="nav-number">4.</span> <span class="nav-text">Counting Sequence 计算序列</span></a></li></ol></div>
             
 
           </div>

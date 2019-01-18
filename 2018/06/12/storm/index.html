@@ -101,7 +101,7 @@
 <meta property="og:image" content="c:/Users/zhangchi/AppData/Local/Temp/1534486378370.png">
 <meta property="og:image" content="c:/Users/zhangchi/Pictures/Saved%20Pictures/1534486615053.png">
 <meta property="og:image" content="c:/Users/zhangchi/AppData/Local/Temp/1534486864083.png">
-<meta property="og:updated_time" content="2018-11-27T08:26:49.495Z">
+<meta property="og:updated_time" content="2019-01-17T16:33:56.468Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="storm">
 <meta name="twitter:description" content="Storm1、基本概念在storm的集群中有两种节点：  Nimbus:主节点（Mater Node）Nimbus负责在集群中分发代码，分配工作给机器，并且监控状态。 Supervisor:工作节点(Worker Node)每个工作节点上运行一个supervisor进程，supervisor会监听nimbus分配给那台机器的工作，根据需要启动或者关闭具体的worker进程。  每个worker进程">
@@ -452,7 +452,7 @@
 <blockquote>
 <p># Licensed to the Apache Software Foundation (ASF) under one<br># or more contributor license agreements.  See the NOTICE file<br># distributed with this work for additional information<br># regarding copyright ownership.  The ASF licenses this file<br># to you under the Apache License, Version 2.0 (the<br># “License”); you may not use this file except in compliance<br># with the License.  You may obtain a copy of the License at<br>#<br># <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener">http://www.apache.org/licenses/LICENSE-2.0</a><br>#<br># Unless required by applicable law or agreed to in writing, software<br># distributed under the License is distributed on an “AS IS” BASIS,<br># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.<br># See the License for the specific language governing permissions and<br># limitations under the License.</p>
 <p>########### These MUST be filled in for a storm configuration<br>storm.zookeeper.servers:<br>&nbsp;&nbsp;&nbsp;&nbsp;- “172.16.1.43”<br>&nbsp;&nbsp;&nbsp;&nbsp;- “172.16.1.62”<br>&nbsp;&nbsp;&nbsp;&nbsp;- “172.16.1.64”</p>
-<p>#     - “server2”<br>#<br>nimbus.seeds: [“172.16.10.22”]<br>supervisor.slots.ports:<br>&nbsp;&nbsp;&nbsp;&nbsp;- 6700<br>&nbsp;&nbsp;&nbsp;&nbsp;- 6701<br>&nbsp;&nbsp;&nbsp;&nbsp;- 6702<br>&nbsp;&nbsp;&nbsp;&nbsp;- 6703</p>
+<p>#     - “server2”<br>nimbus.seeds: [“172.16.10.22”]<br>supervisor.slots.ports:<br>&nbsp;&nbsp;&nbsp;&nbsp;- 6700<br>&nbsp;&nbsp;&nbsp;&nbsp;- 6701<br>&nbsp;&nbsp;&nbsp;&nbsp;- 6702<br>&nbsp;&nbsp;&nbsp;&nbsp;- 6703</p>
 <p>#<br># ##### These may optionally be filled in:<br>#<br>## List of custom serializations<br># topology.kryo.register:<br>#     - org.mycompany.MyType<br>#     - org.mycompany.MyType2: org.mycompany.MyType2Serializer<br>#<br>## List of custom kryo decorators<br># topology.kryo.decorators:<br>#     - org.mycompany.MyDecorator<br>#<br>## Locations of the drpc servers<br># drpc.servers:<br>#     - “server1”<br>#     - “server2”</p>
 <p>## Metrics Consumers<br>## max.retain.metric.tuples<br>## - task queue will be unbounded when max.retain.metric.tuples is equal or less than 0.<br>## whitelist / blacklist<br>## - when none of configuration for metric filter are specified, it’ll be treated as ‘pass all’.<br>## - you need to specify either whitelist or blacklist, or none of them. You can’t specify both of them.<br>## - you can specify multiple whitelist / blacklist with regular expression<br>## expandMapType: expand metric with map type as value to multiple metrics<br>## - set to true when you would like to apply filter to expanded metrics<br>## - default value is false which is backward compatible value<br>## metricNameSeparator: separator between origin metric name and key of entry from map<br>## - only effective when expandMapType is set to true<br># topology.metrics.consumer.register:<br>#   - class: “org.apache.storm.metric.LoggingMetricsConsumer”<br>#     max.retain.metric.tuples: 100<br>#     parallelism.hint: 1<br>#   - class: “org.mycompany.MyMetricsConsumer”<br>#     max.retain.metric.tuples: 100<br>#     whitelist:<br>#       - “execute.*”<br>#       - “^__complete-latency$”<br>#     parallelism.hint: 1<br>#     argument:<br>#       - endpoint: “metrics-collector.mycompany.org”<br>#     expandMapType: true<br>#     metricNameSeparator: “.”</p>
 <p>## Cluster Metrics Consumers<br># storm.cluster.metrics.consumer.register:<br>#   - class: “org.apache.storm.metric.LoggingClusterMetricsConsumer”<br>#   - class: “org.mycompany.MyMetricsConsumer”<br>#     argument:<br>#       - endpoint: “metrics-collector.mycompany.org”<br>#<br># storm.cluster.metrics.consumer.publish.interval.secs: 60</p>
@@ -688,7 +688,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -763,7 +763,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
